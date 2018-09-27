@@ -64,14 +64,28 @@ class MeetingManagmentModulePresenter : MeetingManagmentModulePresenterProtcol{
     
     func DeletePersonClicked(person: Person) {
         if(person.itemsBought?.count == 0){
-            dataController?.managedObjectContext.delete(person)
-            do {
-                try dataController?.managedObjectContext.save()
-            
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
+            var personCanBeDeleted = true
+            var blockingItem: Item = Item()
+            for item in person.itemsUsed!{
+                let item = item as! Item
+                if (item.usedBy?.count == 1 && item.buyer != person){
+                    personCanBeDeleted = false
+                    blockingItem = item
+                }
             }
-            ViewWillAppear()
+            if(personCanBeDeleted){
+                dataController?.managedObjectContext.delete(person)
+                do {
+                    try dataController?.managedObjectContext.save()
+                    
+                } catch let error as NSError {
+                    print("Could not save. \(error), \(error.userInfo)")
+                }
+                ViewWillAppear()
+            }
+            else{
+                view?.SetMessageLabel(message: "Can't delete person, who is the only user of \(blockingItem.name!), and didn't pay for it.")
+            }
         }
         else{
             view?.SetMessageLabel(message: "Can't delete person that paid for items.")
