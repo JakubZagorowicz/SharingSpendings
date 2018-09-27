@@ -43,6 +43,12 @@ class MeetingsModulePresenter : MeetingsModulePresenterProtocol{
         // data base stuff
         let meeting  = meetings[index]
         dataController?.managedObjectContext.delete(meeting)
+        do {
+            try dataController?.managedObjectContext.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
         ViewWillAppear()
     }
     
