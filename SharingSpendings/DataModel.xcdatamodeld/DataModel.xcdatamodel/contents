@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="cost" optional="YES" attributeType="Double" minValueString="0" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="buyer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="itemsBought" inverseEntity="Person" syncable="YES"/>
+        <relationship name="usedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="itemsUsed" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="Meeting" representedClassName="Meeting" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="peopleAttending" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="meeting" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="itemsBought" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="buyer" inverseEntity="Item" syncable="YES"/>
+        <relationship name="itemsUsed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="usedBy" inverseEntity="Item" syncable="YES"/>
+        <relationship name="meeting" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meeting" inverseName="peopleAttending" inverseEntity="Meeting" syncable="YES"/>
+    </entity>
+    <entity name="UsageEdge" representedClassName="UsageEdge" syncable="YES" codeGenerationType="class">
+        <attribute name="itemId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="personId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="-54" positionY="9" width="128" height="105"/>
+        <element name="Meeting" positionX="-45" positionY="27" width="128" height="30"/>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="UsageEdge" positionX="-36" positionY="36" width="128" height="75"/>
+    </elements>
+</model>

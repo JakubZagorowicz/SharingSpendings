@@ -1,0 +1,105 @@
+//
+//  MeetingsManagmentModulePresenter.swift
+//  SharingSpendings
+//
+//  Created by User on 11.07.2018.
+//  Copyright © 2018 Jakub Zagórowicz. All rights reserved.
+//
+
+import Foundation
+import CoreData
+
+class MeetingManagmentModulePresenter : MeetingManagmentModulePresenterProtcol{
+    
+    func ViewWillAppear() {        
+        
+        if(meeting?.peopleAttending == nil){
+            meeting?.peopleAttending = NSSet()
+        }
+        var items = [Item]()
+        people = (Array((meeting?.peopleAttending)!) as! [Person])
+        
+        for person in people! {
+            for item in person.itemsBought!{
+                items.append(item as! Item)
+            }
+        }
+       
+        view?.SetTableData(people: people!, items: items)
+        
+        CalculateSpendings()
+    }
+    
+    func BackButtonClicked(){
+        router?.GoBack()
+    }
+    
+    func ItemClicked(item: Item) {
+        router?.GoToNewItemModule(dataController: dataController!, people: Array(meeting!.peopleAttending!) as! [Person], item: item, meeting: meeting!)
+    }
+    
+    func PersonClicked(person: Person) {
+        router?.GoToNewPersonModule(dataController: dataController!, person: person, meeting: meeting!)
+    }
+    
+    func AddPersonClicked() {
+        router?.GoToNewPersonModule(dataController: dataController!, meeting: meeting!)
+    }
+    
+    func AddItemClicked() {
+        let people = Array(meeting!.peopleAttending!) as! [Person]
+        router?.GoToNewItemModule(dataController: dataController!, people: people, meeting: meeting!)
+    }
+    
+    func DeleteItemClicked(item: Item) {
+        dataController?.managedObjectContext.delete(item)
+        do {
+            try dataController?.managedObjectContext.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        ViewWillAppear()
+    }
+    
+    func DeletePersonClicked(person: Person) {
+        if(person.itemsBought?.count == 0){
+            dataController?.managedObjectContext.delete(person)
+            do {
+                try dataController?.managedObjectContext.save()
+            
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+            ViewWillAppear()
+        }
+        else{
+            view?.SetMessageLabel(message: "Can't delete person that paid for items.")
+        }
+    }
+    
+    func CalculateSpendings(){
+        if((people?.count)! > 0){
+        for index in 0...(people?.count)!-1 {
+            var balance : Double = 0
+            for item in (people?[index].itemsBought)! {
+                let item = item as! Item
+                balance += item.cost
+            }
+            for item in (people?[index].itemsUsed)!{
+                let item = item as! Item
+                balance -= item.cost/Double((item.usedBy?.count)!)
+            }
+            view?.SetBalance(for: index, balance: balance)
+            }
+        }
+    }
+    
+    
+    var view: MeetingManagementModuleViewControllerProtocol?
+    var router: Mothership?
+    var meeting: Meeting?
+    var people: [Person]?
+    
+    var dataController: DataController?
+}

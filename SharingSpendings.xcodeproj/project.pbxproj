@@ -7,21 +7,83 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE45AB092133E7B300A45856 /* NewPersonModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB082133E7B300A45856 /* NewPersonModuleProtocols.swift */; };
+		CE45AB0B2133E7C300A45856 /* NewPersonModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0A2133E7C300A45856 /* NewPersonModulePresenter.swift */; };
+		CE45AB0D2133E7D400A45856 /* NewPersonModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0C2133E7D400A45856 /* NewPersonModuleViewController.swift */; };
+		CE45AB0F2133E89900A45856 /* NewItemModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0E2133E89900A45856 /* NewItemModulePresenter.swift */; };
+		CE45AB112133E8AB00A45856 /* NewItemModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB102133E8AB00A45856 /* NewItemModuleProtocols.swift */; };
+		CE45AB132133E8CD00A45856 /* NewItemModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB122133E8CD00A45856 /* NewItemModuleViewController.swift */; };
+		CE4F125A20F5FAE7006EFA97 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F125920F5FAE7006EFA97 /* Builder.swift */; };
+		CE4F125C20F5FBEB006EFA97 /* LoginModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F125B20F5FBEB006EFA97 /* LoginModuleProtocols.swift */; };
+		CE4F125E20F5FBF8006EFA97 /* MainModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F125D20F5FBF8006EFA97 /* MainModuleProtocols.swift */; };
+		CE4F126020F5FC0A006EFA97 /* MeetingsModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F125F20F5FC0A006EFA97 /* MeetingsModuleProtocols.swift */; };
+		CE4F126220F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126120F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift */; };
+		CE4F126420F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126320F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift */; };
+		CE4F126620F5FC5D006EFA97 /* LoginModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126520F5FC5D006EFA97 /* LoginModulePresenter.swift */; };
+		CE4F126820F5FC6C006EFA97 /* MainModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126720F5FC6C006EFA97 /* MainModulePresenter.swift */; };
+		CE4F126A20F5FC8C006EFA97 /* MeetingsModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126920F5FC8C006EFA97 /* MeetingsModulePresenter.swift */; };
+		CE4F126C20F5FCB3006EFA97 /* MeetingManagmentModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126B20F5FCB3006EFA97 /* MeetingManagmentModulePresenter.swift */; };
+		CE4F126E20F5FCF3006EFA97 /* NewMeetingModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126D20F5FCF3006EFA97 /* NewMeetingModulePresenter.swift */; };
+		CE4F127020F6104C006EFA97 /* LoginModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126F20F6104C006EFA97 /* LoginModuleViewController.swift */; };
+		CE4F127220F61089006EFA97 /* MainModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127120F61089006EFA97 /* MainModuleViewController.swift */; };
+		CE4F127420F610AB006EFA97 /* MeetingsModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127320F610AB006EFA97 /* MeetingsModuleViewController.swift */; };
+		CE4F127620F610BF006EFA97 /* MeetingManagmentModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127520F610BF006EFA97 /* MeetingManagmentModuleViewController.swift */; };
+		CE4F127820F61132006EFA97 /* NewMeetingModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127720F61132006EFA97 /* NewMeetingModuleViewController.swift */; };
+		CE4F127B20F61791006EFA97 /* Mothership.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127A20F61791006EFA97 /* Mothership.swift */; };
+		CE4F127E20F64A11006EFA97 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127D20F64A11006EFA97 /* Meeting.swift */; };
+		CE4F128020F64A2A006EFA97 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127F20F64A2A006EFA97 /* Person.swift */; };
+		CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */; };
 		CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */; };
-		CE7B4D9620F49A7E005FCBEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B4D9520F49A7E005FCBEB /* ViewController.swift */; };
 		CE7B4D9920F49A7E005FCBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9720F49A7E005FCBEB /* Main.storyboard */; };
 		CE7B4D9B20F49A80005FCBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */; };
 		CE7B4D9E20F49A80005FCBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9C20F49A80005FCBEB /* LaunchScreen.storyboard */; };
+		CEA75D572138195600350F84 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA75D562138195600350F84 /* DataController.swift */; };
+		CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */; };
+		CEA97AFE215C3B5A00C51C1C /* usedByCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA97AFD215C3B5A00C51C1C /* usedByCell.swift */; };
+		CEDC1D0D20F7A071005B5FAF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D0C20F7A071005B5FAF /* Item.swift */; };
+		CEF4444F213E81D5009C6DC5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF4444D213E81B0009C6DC5 /* CoreData.framework */; };
+		CEF44452213E8212009C6DC5 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEF44450213E8212009C6DC5 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE45AB082133E7B300A45856 /* NewPersonModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonModuleProtocols.swift; sourceTree = "<group>"; };
+		CE45AB0A2133E7C300A45856 /* NewPersonModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonModulePresenter.swift; sourceTree = "<group>"; };
+		CE45AB0C2133E7D400A45856 /* NewPersonModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonModuleViewController.swift; sourceTree = "<group>"; };
+		CE45AB0E2133E89900A45856 /* NewItemModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemModulePresenter.swift; sourceTree = "<group>"; };
+		CE45AB102133E8AB00A45856 /* NewItemModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemModuleProtocols.swift; sourceTree = "<group>"; };
+		CE45AB122133E8CD00A45856 /* NewItemModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemModuleViewController.swift; sourceTree = "<group>"; };
+		CE4F125920F5FAE7006EFA97 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		CE4F125B20F5FBEB006EFA97 /* LoginModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleProtocols.swift; sourceTree = "<group>"; };
+		CE4F125D20F5FBF8006EFA97 /* MainModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleProtocols.swift; sourceTree = "<group>"; };
+		CE4F125F20F5FC0A006EFA97 /* MeetingsModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsModuleProtocols.swift; sourceTree = "<group>"; };
+		CE4F126120F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingManagementModuleProtocols.swift; sourceTree = "<group>"; };
+		CE4F126320F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingModuleProtocols.swift; sourceTree = "<group>"; };
+		CE4F126520F5FC5D006EFA97 /* LoginModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModulePresenter.swift; sourceTree = "<group>"; };
+		CE4F126720F5FC6C006EFA97 /* MainModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModulePresenter.swift; sourceTree = "<group>"; };
+		CE4F126920F5FC8C006EFA97 /* MeetingsModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsModulePresenter.swift; sourceTree = "<group>"; };
+		CE4F126B20F5FCB3006EFA97 /* MeetingManagmentModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingManagmentModulePresenter.swift; sourceTree = "<group>"; };
+		CE4F126D20F5FCF3006EFA97 /* NewMeetingModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingModulePresenter.swift; sourceTree = "<group>"; };
+		CE4F126F20F6104C006EFA97 /* LoginModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleViewController.swift; sourceTree = "<group>"; };
+		CE4F127120F61089006EFA97 /* MainModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleViewController.swift; sourceTree = "<group>"; };
+		CE4F127320F610AB006EFA97 /* MeetingsModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsModuleViewController.swift; sourceTree = "<group>"; };
+		CE4F127520F610BF006EFA97 /* MeetingManagmentModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingManagmentModuleViewController.swift; sourceTree = "<group>"; };
+		CE4F127720F61132006EFA97 /* NewMeetingModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingModuleViewController.swift; sourceTree = "<group>"; };
+		CE4F127A20F61791006EFA97 /* Mothership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mothership.swift; sourceTree = "<group>"; };
+		CE4F127D20F64A11006EFA97 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		CE4F127F20F64A2A006EFA97 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		CE7B4D9020F49A7E005FCBEB /* SharingSpendings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingSpendings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE7B4D9520F49A7E005FCBEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE7B4D9820F49A7E005FCBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7B4D9D20F49A80005FCBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7B4D9F20F49A80005FCBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA75D562138195600350F84 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAdditionErrors.swift; sourceTree = "<group>"; };
+		CEA97AFD215C3B5A00C51C1C /* usedByCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usedByCell.swift; sourceTree = "<group>"; };
+		CEDC1D0C20F7A071005B5FAF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		CEF4444D213E81B0009C6DC5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CEF44451213E8212009C6DC5 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +91,127 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF4444F213E81D5009C6DC5 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE45AB062133E78C00A45856 /* NewItemModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE45AB102133E8AB00A45856 /* NewItemModuleProtocols.swift */,
+				CE45AB0E2133E89900A45856 /* NewItemModulePresenter.swift */,
+				CE45AB122133E8CD00A45856 /* NewItemModuleViewController.swift */,
+				CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */,
+				CEA97AFD215C3B5A00C51C1C /* usedByCell.swift */,
+			);
+			path = NewItemModule;
+			sourceTree = "<group>";
+		};
+		CE45AB072133E79600A45856 /* NewPersonModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE45AB082133E7B300A45856 /* NewPersonModuleProtocols.swift */,
+				CE45AB0A2133E7C300A45856 /* NewPersonModulePresenter.swift */,
+				CE45AB0C2133E7D400A45856 /* NewPersonModuleViewController.swift */,
+			);
+			path = NewPersonModule;
+			sourceTree = "<group>";
+		};
+		CE4F125220F5F651006EFA97 /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F125B20F5FBEB006EFA97 /* LoginModuleProtocols.swift */,
+				CE4F126520F5FC5D006EFA97 /* LoginModulePresenter.swift */,
+				CE4F126F20F6104C006EFA97 /* LoginModuleViewController.swift */,
+			);
+			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		CE4F125420F5F9E7006EFA97 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F125D20F5FBF8006EFA97 /* MainModuleProtocols.swift */,
+				CE4F126720F5FC6C006EFA97 /* MainModulePresenter.swift */,
+				CE4F127120F61089006EFA97 /* MainModuleViewController.swift */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		CE4F125520F5F9F5006EFA97 /* MeetingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F125F20F5FC0A006EFA97 /* MeetingsModuleProtocols.swift */,
+				CE4F126920F5FC8C006EFA97 /* MeetingsModulePresenter.swift */,
+				CE4F127320F610AB006EFA97 /* MeetingsModuleViewController.swift */,
+			);
+			path = MeetingsModule;
+			sourceTree = "<group>";
+		};
+		CE4F125620F5FA06006EFA97 /* MeetingManagmentModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F126120F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift */,
+				CE4F126B20F5FCB3006EFA97 /* MeetingManagmentModulePresenter.swift */,
+				CE4F127520F610BF006EFA97 /* MeetingManagmentModuleViewController.swift */,
+				CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */,
+			);
+			path = MeetingManagmentModule;
+			sourceTree = "<group>";
+		};
+		CE4F125720F5FA17006EFA97 /* NewMeetingModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F126320F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift */,
+				CE4F126D20F5FCF3006EFA97 /* NewMeetingModulePresenter.swift */,
+				CE4F127720F61132006EFA97 /* NewMeetingModuleViewController.swift */,
+			);
+			path = NewMeetingModule;
+			sourceTree = "<group>";
+		};
+		CE4F125820F5FAA9006EFA97 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F125920F5FAE7006EFA97 /* Builder.swift */,
+				CE45AB072133E79600A45856 /* NewPersonModule */,
+				CE45AB062133E78C00A45856 /* NewItemModule */,
+				CE4F125720F5FA17006EFA97 /* NewMeetingModule */,
+				CE4F125620F5FA06006EFA97 /* MeetingManagmentModule */,
+				CE4F125520F5F9F5006EFA97 /* MeetingsModule */,
+				CE4F125420F5F9E7006EFA97 /* MainModule */,
+				CE4F125220F5F651006EFA97 /* LoginModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CE4F127920F6177B006EFA97 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F127A20F61791006EFA97 /* Mothership.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		CE4F127C20F62835006EFA97 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEA75D562138195600350F84 /* DataController.swift */,
+				CE9699F320FF652C000CF3E6 /* Meetings */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CE7B4D8720F49A7D005FCBEB = {
 			isa = PBXGroup;
 			children = (
+				CE4F127C20F62835006EFA97 /* Model */,
+				CE4F127920F6177B006EFA97 /* Routing */,
+				CE4F125820F5FAA9006EFA97 /* Modules */,
 				CE7B4D9220F49A7E005FCBEB /* SharingSpendings */,
 				CE7B4D9120F49A7E005FCBEB /* Products */,
+				CEF4444C213E81B0009C6DC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +227,31 @@
 			isa = PBXGroup;
 			children = (
 				CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */,
-				CE7B4D9520F49A7E005FCBEB /* ViewController.swift */,
 				CE7B4D9720F49A7E005FCBEB /* Main.storyboard */,
 				CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */,
 				CE7B4D9C20F49A80005FCBEB /* LaunchScreen.storyboard */,
 				CE7B4D9F20F49A80005FCBEB /* Info.plist */,
+				CEF44450213E8212009C6DC5 /* DataModel.xcdatamodeld */,
 			);
 			path = SharingSpendings;
+			sourceTree = "<group>";
+		};
+		CE9699F320FF652C000CF3E6 /* Meetings */ = {
+			isa = PBXGroup;
+			children = (
+				CEDC1D0C20F7A071005B5FAF /* Item.swift */,
+				CE4F127F20F64A2A006EFA97 /* Person.swift */,
+				CE4F127D20F64A11006EFA97 /* Meeting.swift */,
+			);
+			path = Meetings;
+			sourceTree = "<group>";
+		};
+		CEF4444C213E81B0009C6DC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4444D213E81B0009C6DC5 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +325,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE7B4D9620F49A7E005FCBEB /* ViewController.swift in Sources */,
+				CE45AB092133E7B300A45856 /* NewPersonModuleProtocols.swift in Sources */,
+				CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */,
+				CE4F126620F5FC5D006EFA97 /* LoginModulePresenter.swift in Sources */,
+				CE4F126420F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift in Sources */,
+				CE4F127620F610BF006EFA97 /* MeetingManagmentModuleViewController.swift in Sources */,
+				CE45AB112133E8AB00A45856 /* NewItemModuleProtocols.swift in Sources */,
+				CEDC1D0D20F7A071005B5FAF /* Item.swift in Sources */,
+				CE4F126C20F5FCB3006EFA97 /* MeetingManagmentModulePresenter.swift in Sources */,
+				CE4F127E20F64A11006EFA97 /* Meeting.swift in Sources */,
+				CE4F127020F6104C006EFA97 /* LoginModuleViewController.swift in Sources */,
+				CEA75D572138195600350F84 /* DataController.swift in Sources */,
+				CE4F126E20F5FCF3006EFA97 /* NewMeetingModulePresenter.swift in Sources */,
+				CE4F127420F610AB006EFA97 /* MeetingsModuleViewController.swift in Sources */,
+				CE4F127B20F61791006EFA97 /* Mothership.swift in Sources */,
+				CE4F125C20F5FBEB006EFA97 /* LoginModuleProtocols.swift in Sources */,
+				CE45AB0F2133E89900A45856 /* NewItemModulePresenter.swift in Sources */,
+				CE4F125E20F5FBF8006EFA97 /* MainModuleProtocols.swift in Sources */,
+				CE4F126020F5FC0A006EFA97 /* MeetingsModuleProtocols.swift in Sources */,
+				CE4F127820F61132006EFA97 /* NewMeetingModuleViewController.swift in Sources */,
+				CE45AB132133E8CD00A45856 /* NewItemModuleViewController.swift in Sources */,
+				CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */,
+				CE45AB0D2133E7D400A45856 /* NewPersonModuleViewController.swift in Sources */,
 				CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */,
+				CEA97AFE215C3B5A00C51C1C /* usedByCell.swift in Sources */,
+				CE4F125A20F5FAE7006EFA97 /* Builder.swift in Sources */,
+				CEF44452213E8212009C6DC5 /* DataModel.xcdatamodeld in Sources */,
+				CE45AB0B2133E7C300A45856 /* NewPersonModulePresenter.swift in Sources */,
+				CE4F126A20F5FC8C006EFA97 /* MeetingsModulePresenter.swift in Sources */,
+				CE4F126220F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift in Sources */,
+				CE4F128020F64A2A006EFA97 /* Person.swift in Sources */,
+				CE4F127220F61089006EFA97 /* MainModuleViewController.swift in Sources */,
+				CE4F126820F5FC6C006EFA97 /* MainModulePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +554,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEF44450213E8212009C6DC5 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEF44451213E8212009C6DC5 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = CEF44451213E8212009C6DC5 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE7B4D8820F49A7D005FCBEB /* Project object */;
 }
