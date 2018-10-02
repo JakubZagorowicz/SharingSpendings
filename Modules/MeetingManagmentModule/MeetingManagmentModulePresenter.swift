@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CoreData
+//import CoreData
 
 class MeetingManagmentModulePresenter : MeetingManagmentModulePresenterProtcol{
     
@@ -52,9 +52,8 @@ class MeetingManagmentModulePresenter : MeetingManagmentModulePresenterProtcol{
     }
     
     func DeleteItemClicked(item: Item) {
-        dataController?.managedObjectContext.delete(item)
         do {
-            try dataController?.managedObjectContext.save()
+            try dataController?.DeleteEntity(entity: item)
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
@@ -74,9 +73,8 @@ class MeetingManagmentModulePresenter : MeetingManagmentModulePresenterProtcol{
                 }
             }
             if(personCanBeDeleted){
-                dataController?.managedObjectContext.delete(person)
                 do {
-                    try dataController?.managedObjectContext.save()
+                    try dataController?.DeleteEntity(entity: person)
                     
                 } catch let error as NSError {
                     print("Could not save. \(error), \(error.userInfo)")

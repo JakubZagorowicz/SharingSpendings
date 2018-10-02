@@ -9,6 +9,12 @@
 import Foundation
 import CoreData
 
+protocol DataControllerProtocol {
+    func AddEntity<T: EntityDataProtocol>(entityData: T) throws
+    func UpdateEntity<T: EntityDataProtocol, Y:NSManagedObject>(entityData:T, entity:Y) throws
+    func DeleteEntity<T:NSManagedObject>(entity:T) throws
+}
+
 class DataController: NSObject {
 
     var dataModelName: String
@@ -58,4 +64,63 @@ class DataController: NSObject {
         
         return persistentStoreCoordinator
     }()
+}
+
+extension DataController: DataControllerProtocol{
+    func AddEntity<T>(entityData: T) throws where T : EntityDataProtocol {
+        let record = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: entityData.entityName, in: managedObjectContext)!, insertInto: managedObjectContext)
+
+        for tuple in entityData.attributes{
+            if let att = tuple.1 as? NSArray {
+                let set = NSSet(array: att as! [Any])
+                record.setValue(set, forKey: tuple.0)
+            }
+            else{
+                record.setValue(tuple.1, forKey: tuple.0)
+            }
+        }
+        do {
+            try SaveContext()
+        }
+        catch let error as NSError{
+            throw error
+        }
+    }
+    
+    func UpdateEntity<T: EntityDataProtocol,Y: NSManagedObject>(entityData: T, entity: Y) throws{
+        for tuple in entityData.attributes{
+            if let att = tuple.1 as? NSArray {
+                let set = NSSet(array: att as! [Any])
+                entity.setValue(set, forKey: tuple.0)
+            }
+            else{
+                entity.setValue(tuple.1, forKey: tuple.0)
+            }
+        }
+        do {
+            try SaveContext()
+        }
+        catch let error as NSError{
+            throw error
+        }
+    }
+    
+    func DeleteEntity<T>(entity: T) throws where T : NSManagedObject {
+        managedObjectContext.delete(entity)
+        do {
+            try SaveContext()
+        }
+        catch let error as NSError{
+            throw error
+        }
+    }
+    
+    func SaveContext() throws{
+        do {
+            try managedObjectContext.save()
+        }
+        catch let error as NSError{
+            throw error
+        }
+    }
 }

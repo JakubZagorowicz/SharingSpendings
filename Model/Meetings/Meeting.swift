@@ -8,37 +8,17 @@
 
 import Foundation
 
-protocol MeetingProtocol{
-    func AddPerson(person: Person)
-    func AddItem(item: Item)
-    func CalculateSpendings()
+struct MeetingData: EntityDataProtocol {
+    var attributes: [(String, Any)] = [(String, Any)]()
+
+    var entityName: String = "Meeting"
+    var name: String
+    var peopleAttending: [Person]
+    
+    init(name: String) {
+        self.name = name
+        peopleAttending = [Person]()
+        AssignAttributes()
+    }
 }
 
-//class Meeting: MeetingProtocol {
-//    var name: String
-//    var peopleAttending = [Person]()
-//    var items = [Item]()
-//    
-//    init(name: String) {
-//        self.name = name
-//    }
-//    
-//    func AddPerson(person: Person) {
-//        peopleAttending.append(person)
-//    }
-//    
-//    func AddItem(item: Item) {
-//        items.append(item)
-//    }
-//    
-//    func CalculateSpendings() {
-////        for person in peopleAttending{
-////            for item in person.itemsBought!{
-////                person.costs += item.cost
-////                for user in item.users{
-////                    user.uses += item.cost / Double(item.users.count)
-////                }
-////            }
-////        }
-//    }
-//}

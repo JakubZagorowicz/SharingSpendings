@@ -12,9 +12,6 @@ import CoreData
 class MeetingsModulePresenter : MeetingsModulePresenterProtocol{
     
     var meetings = [Meeting]()
-//    let meeting = Meeting(name: "example")
-//    let someone = Person(_name: "Someone")
-//    let someoneElse = Person(_name: "Someone Else")
     
     func ViewWillAppear() {
         
@@ -40,12 +37,10 @@ class MeetingsModulePresenter : MeetingsModulePresenterProtocol{
     }
     
     func DeleteMeetingClicked(index: Int) {
-        // data base stuff
         let meeting  = meetings[index]
-        dataController?.managedObjectContext.delete(meeting)
+
         do {
-            try dataController?.managedObjectContext.save()
-            
+            try dataController?.DeleteEntity(entity: meeting)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }

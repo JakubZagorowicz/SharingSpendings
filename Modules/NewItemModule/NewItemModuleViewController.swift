@@ -32,12 +32,9 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UsedByCell
         cell.textLabel?.text = people![indexPath.row].name
-        if(item != nil){
-            let usedByPeople = Array((item?.usedBy)!) as! [Person]
-            cell.usedBySwitch.isOn = usedByPeople.contains(people![indexPath.row])
-            usedBy[people![indexPath.row]] = usedByPeople.contains(people![indexPath.row])
-        }
-        
+
+        cell.usedBySwitch.isOn = usedBy.contains(people![indexPath.row])
+ 
         return cell
     }
     
@@ -56,7 +53,7 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
     var presenter: NewItemModulePresenterProtocol?
     var people: [Person]?
     var item: Item?
-    var usedBy = Dictionary<Person, Bool>()
+    var usedBy = [Person]()
     
     @IBAction func AddButtonClicked(_ sender: Any) {
         if(IsInputDataOk()){
@@ -80,7 +77,7 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
                     presenter?.InvalidInput(error: ItemAdditionError.NegativePrice)
                 }
                 else{
-                    if(!usedBy.values.contains(true)){
+                    if(usedBy.isEmpty){
                         status = false
                         presenter?.InvalidInput(error: ItemAdditionError.NoPersonUsingItem)
                     }
@@ -128,7 +125,18 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         let sender = sender as! UISwitch
         let cell = sender.superview?.superview as! UITableViewCell
         let index = UsedByTableView.indexPath(for: cell)?.row
-        usedBy[people![index!]] = !usedBy[people![index!]]!
+//        usedBy[people![index!]] = !usedBy[people![index!]]!
+        if sender.isOn{
+            usedBy.append(people![index!])
+        }
+        else{
+            let upperBound = usedBy.count-1
+            for i in stride(from: upperBound, to: -1, by: -1){
+                if usedBy[i] == people![index!]{
+                    usedBy.remove(at: i)
+                }
+            }
+        }
     }
     
     func SetMessageLabel(message: String){
@@ -154,9 +162,15 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         
         presenter?.ViewWillAppear()
         
-        for person in people!{
-            usedBy[person] = true
+        if(item != nil){
+            usedBy = Array((item?.usedBy)!) as! [Person]
         }
+        else{
+            usedBy = people!
+        }
+//        for person in people!{
+//            usedBy[person] = true
+//        }
         // Do any additional setup after loading the view.
     }
 

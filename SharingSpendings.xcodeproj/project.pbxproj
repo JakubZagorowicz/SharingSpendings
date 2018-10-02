@@ -37,6 +37,7 @@
 		CE7B4D9920F49A7E005FCBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9720F49A7E005FCBEB /* Main.storyboard */; };
 		CE7B4D9B20F49A80005FCBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */; };
 		CE7B4D9E20F49A80005FCBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9C20F49A80005FCBEB /* LaunchScreen.storyboard */; };
+		CE88FA8421625A2F0006C4C9 /* EntityDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88FA8321625A2F0006C4C9 /* EntityDataProtocol.swift */; };
 		CEA75D572138195600350F84 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA75D562138195600350F84 /* DataController.swift */; };
 		CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */; };
 		CEA97AFE215C3B5A00C51C1C /* usedByCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA97AFD215C3B5A00C51C1C /* usedByCell.swift */; };
@@ -78,6 +79,7 @@
 		CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7B4D9D20F49A80005FCBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7B4D9F20F49A80005FCBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE88FA8321625A2F0006C4C9 /* EntityDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDataProtocol.swift; sourceTree = "<group>"; };
 		CEA75D562138195600350F84 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAdditionErrors.swift; sourceTree = "<group>"; };
 		CEA97AFD215C3B5A00C51C1C /* usedByCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usedByCell.swift; sourceTree = "<group>"; };
@@ -104,7 +106,6 @@
 				CE45AB102133E8AB00A45856 /* NewItemModuleProtocols.swift */,
 				CE45AB0E2133E89900A45856 /* NewItemModulePresenter.swift */,
 				CE45AB122133E8CD00A45856 /* NewItemModuleViewController.swift */,
-				CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */,
 				CEA97AFD215C3B5A00C51C1C /* usedByCell.swift */,
 			);
 			path = NewItemModule;
@@ -242,6 +243,8 @@
 				CEDC1D0C20F7A071005B5FAF /* Item.swift */,
 				CE4F127F20F64A2A006EFA97 /* Person.swift */,
 				CE4F127D20F64A11006EFA97 /* Meeting.swift */,
+				CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */,
+				CE88FA8321625A2F0006C4C9 /* EntityDataProtocol.swift */,
 			);
 			path = Meetings;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				CE4F127E20F64A11006EFA97 /* Meeting.swift in Sources */,
 				CE4F127020F6104C006EFA97 /* LoginModuleViewController.swift in Sources */,
 				CEA75D572138195600350F84 /* DataController.swift in Sources */,
+				CE88FA8421625A2F0006C4C9 /* EntityDataProtocol.swift in Sources */,
 				CE4F126E20F5FCF3006EFA97 /* NewMeetingModulePresenter.swift in Sources */,
 				CE4F127420F610AB006EFA97 /* MeetingsModuleViewController.swift in Sources */,
 				CE4F127B20F61791006EFA97 /* Mothership.swift in Sources */,

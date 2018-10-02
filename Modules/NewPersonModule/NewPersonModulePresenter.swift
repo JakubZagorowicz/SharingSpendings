@@ -7,19 +7,23 @@
 //
 
 import Foundation
-import CoreData
 
 class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
     
     func ConfirmButtonClicked() {
         let name = view?.GetTextFieldData()
-        person?.setValue(name, forKey: "name")
-        do {
-            try dataController?.managedObjectContext.save()
-        } catch let error as NSError {
+//        person?.setValue(name, forKey: "name")
+//        do {
+//            try dataController?.managedObjectContext.save()
+//        } catch let error as NSError {
+//            print("Could not save. \(error), \(error.userInfo)")
+//        }
+        do{
+            try dataController?.UpdateEntity(entityData: PersonData(name: name!, meeting: meeting!), entity: person!)
+        }
+        catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
         router?.GoBack()
     }
     
@@ -37,17 +41,25 @@ class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
     
     func AddButtonClicked() {
         let name = view?.GetTextFieldData()
-        let managedContext = dataController?.managedObjectContext
-        let record = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "Person", in: managedContext!)!, insertInto: managedContext)
-        record.setValue(name, forKey: "name")
-        record.setValue(meeting, forKey: "meeting")
-        
-        do {
-            try dataController?.managedObjectContext.save()
-            
-        } catch let error as NSError {
+
+        do{
+            let personData = PersonData(name: name!, meeting: meeting!)
+            try dataController?.AddEntity(entityData: personData)
+        }
+        catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
         }
+//        let managedContext = dataController?.managedObjectContext
+//        let record = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "Person", in: managedContext!)!, insertInto: managedContext)
+//        record.setValue(name, forKey: "name")
+//        record.setValue(meeting, forKey: "meeting")
+//
+//        do {
+//            try dataController?.managedObjectContext.save()
+//
+//        } catch let error as NSError {
+//            print("Could not save. \(error), \(error.userInfo)")
+//        }
         
         router?.GoBack()
     }
@@ -58,10 +70,8 @@ class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
     
     var view: NewPersonModuleViewControllerProtocol?
     var router: Mothership?
-    var dataController: DataController?
+    var dataController: DataControllerProtocol?
     var meeting: Meeting?
     
     var person: Person?
-    
-    
 }

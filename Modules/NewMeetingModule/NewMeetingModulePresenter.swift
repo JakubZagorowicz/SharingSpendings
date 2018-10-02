@@ -7,19 +7,13 @@
 //
 
 import Foundation
-import CoreData
 
 class NewMeetingModulePresenter : NewMeetingModulePresenterProtocol{
     func AddButtonClicked() {
         let name = view?.GetTextFieldData()
         
-        let entity = NSEntityDescription.entity(forEntityName: "Meeting", in: (dataController?.managedObjectContext)!)
-        let meeting = NSManagedObject(entity: entity!, insertInto: (dataController?.managedObjectContext)!)
-        
-        meeting.setValue(name, forKey: "name")
-        
         do {
-            try dataController?.managedObjectContext.save()
+            try dataController?.AddEntity(entityData: MeetingData(name: name!))
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }

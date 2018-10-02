@@ -95,6 +95,7 @@ class Builder {
         
         presenter.view = viewController
         presenter.router = router
+        presenter.dataController = dataController
         presenter.people = people
         presenter.item = item
         
