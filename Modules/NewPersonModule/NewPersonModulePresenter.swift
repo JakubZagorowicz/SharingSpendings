@@ -10,27 +10,11 @@ import Foundation
 
 class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
     
-    func ConfirmButtonClicked() {
-        let name = view?.GetTextFieldData()
-//        person?.setValue(name, forKey: "name")
-//        do {
-//            try dataController?.managedObjectContext.save()
-//        } catch let error as NSError {
-//            print("Could not save. \(error), \(error.userInfo)")
-//        }
-        do{
-            try dataController?.UpdateEntity(entityData: PersonData(name: name!, meeting: meeting!), entity: person!)
-        }
-        catch let error as NSError{
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-        router?.GoBack()
-    }
-    
-    func InvalidInput() {
-        view?.SetLabeLMessage(message: "Enter person name")
-    }
-    
+    var view: NewPersonModuleViewControllerProtocol?
+    var router: Mothership?
+    var dataController: DataControllerProtocol?
+    var meeting: Meeting?
+    var person: Person?
     
     func ViewWillAppear() {
         if person != nil{
@@ -49,17 +33,6 @@ class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
         catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
         }
-//        let managedContext = dataController?.managedObjectContext
-//        let record = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "Person", in: managedContext!)!, insertInto: managedContext)
-//        record.setValue(name, forKey: "name")
-//        record.setValue(meeting, forKey: "meeting")
-//
-//        do {
-//            try dataController?.managedObjectContext.save()
-//
-//        } catch let error as NSError {
-//            print("Could not save. \(error), \(error.userInfo)")
-//        }
         
         router?.GoBack()
     }
@@ -68,10 +41,19 @@ class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
         router?.GoBack()
     }
     
-    var view: NewPersonModuleViewControllerProtocol?
-    var router: Mothership?
-    var dataController: DataControllerProtocol?
-    var meeting: Meeting?
+    func ConfirmButtonClicked() {
+        let name = view?.GetTextFieldData()
+        do{
+            try dataController?.UpdateEntity(entityData: PersonData(name: name!, meeting: meeting!), entity: person!)
+        }
+        catch let error as NSError{
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        router?.GoBack()
+    }
     
-    var person: Person?
+    func InvalidInput() {
+        view?.SetLabeLMessage(message: "Enter person name")
+    }
+
 }

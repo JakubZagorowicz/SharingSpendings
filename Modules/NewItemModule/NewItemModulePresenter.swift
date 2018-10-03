@@ -11,22 +11,12 @@ import Foundation
 
 class NewItemModulePresenter: NewItemModulePresenterProtocol {
     
-    func ConfirmButtonClicked() {
-        let itemData = view?.GetItemData()
-        
-//        item?.setValue(itemData?.name, forKey: "name")
-//        item?.setValue(itemData?.cost, forKey: "cost")
-//        item?.setValue(itemData?.buyer, forKey: "buyer")
-//        item?.setValue(NSSet(array: (itemData?.usedBy)!), forKey: "usedBy")
-        do{
-            try dataController?.UpdateEntity(entityData: itemData!, entity: item!)
-        }
-        catch let error as NSError{
-            print("Could not save. \(error), \(error.userInfo)")
-
-        }
-        router?.GoBack()
-    }
+    var view: NewItemModuleViewControllerProtocol?
+    var router: Mothership?
+    var dataController: DataController?
+    
+    var people: [Person]?
+    var item: Item?
     
     func ViewWillAppear() {
         view?.SetPeopleData(people: people!)
@@ -42,26 +32,7 @@ class NewItemModulePresenter: NewItemModulePresenterProtocol {
     
     func AddButtonClicked() {
         let itemData = view?.GetItemData()
-//        var usedBy = [Person]()
-//        for person in (itemData?.usedBy.keys)!{
-//            if(itemData?.usedBy[person])!{
-//                usedBy.append(person)
-//            }
-//        }
-        
-//        let entity = NSEntityDescription.entity(forEntityName: "Item", in: (dataController?.managedObjectContext)!)
-//        let record = NSManagedObject(entity: entity!, insertInto: dataController?.managedObjectContext)
-//
-//        record.setValue(itemData?.name, forKey: "name")
-//        record.setValue(itemData?.cost, forKey: "cost")
-//        record.setValue(itemData?.buyer, forKey: "buyer")
-//        record.setValue(NSSet(array: (itemData?.usedBy)!), forKey: "usedBy")
-//
-//        do {
-//            try dataController?.managedObjectContext.save()
-//        } catch let error as NSError {
-//            print("Could not save. \(error), \(error.userInfo)")
-//        }
+
         do{
           try dataController?.AddEntity(entityData: itemData!)
         }
@@ -72,14 +43,20 @@ class NewItemModulePresenter: NewItemModulePresenterProtocol {
         router?.GoBack()
     }
     
+    func ConfirmButtonClicked() {
+        let itemData = view?.GetItemData()
+        
+        do{
+            try dataController?.UpdateEntity(entityData: itemData!, entity: item!)
+        }
+        catch let error as NSError{
+            print("Could not save. \(error), \(error.userInfo)")
+            
+        }
+        router?.GoBack()
+    }
     func BackButtonClicked() {
         router?.GoBack()
     }
-    
-    var view: NewItemModuleViewControllerProtocol?
-    var router: Mothership?
-    var dataController: DataController?
-    
-    var people: [Person]?
-    var item: Item?
+
 }

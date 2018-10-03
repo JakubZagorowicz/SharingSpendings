@@ -10,10 +10,28 @@ import UIKit
 
 class MeetingManagmentModuleViewController: UIViewController, MeetingManagementModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var MessageLabel: UILabel!
+    @IBOutlet weak var meetingTable: UITableView!
+    var presenter: MeetingManagmentModulePresenterProtcol?
+    var personSectionData: [Person]?
+    var itemSectionData: [Item]?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    //    presenter?.ViewWillAppear()
+        
+        meetingTable.delegate = self
+        meetingTable.dataSource = self
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        presenter?.ViewWillAppear()
+    }
+    
     func SetMessageLabel(message: String) {
         MessageLabel.text = message
     }
-    @IBOutlet weak var MessageLabel: UILabel!
     
     func SetBalance(for index: Int, balance: Double) {
         let cell : PersonTableViewCell = meetingTable.cellForRow(at: IndexPath(row: index, section: 0)) as! PersonTableViewCell
@@ -26,6 +44,7 @@ class MeetingManagmentModuleViewController: UIViewController, MeetingManagementM
         }
     }
     
+    // -----------------------------------TableView section-------------------------------
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -48,7 +67,6 @@ class MeetingManagmentModuleViewController: UIViewController, MeetingManagementM
             return itemSectionData!.count + 1
         }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         if(indexPath.section == 0){
@@ -82,27 +100,31 @@ class MeetingManagmentModuleViewController: UIViewController, MeetingManagementM
             presenter?.ItemClicked(item: itemSectionData![indexPath.row])
         }
     }
-
-    @IBOutlet weak var meetingTable: UITableView!
-    var presenter: MeetingManagmentModulePresenterProtcol?
-    var personSectionData: [Person]?
-    var itemSectionData: [Item]?
     
     func SetTableData(people: [Person], items: [Item]) {
         personSectionData = people
         itemSectionData = items
         meetingTable.reloadData()
     }
+
+}
+
+extension MeetingManagmentModuleViewController{
+    @IBAction func BackButtonClicked(_ sender: Any) {
+        presenter?.BackButtonClicked()
+    }
     
     @IBAction func AddPersonClicked(_ sender: Any) {
         presenter?.AddPersonClicked()
     }
+    
     @IBAction func DeletePersonClicked(_ sender: Any) {
         let sender = sender as! UIButton
         let cell = sender.superview?.superview as! UITableViewCell
         let index = meetingTable.indexPath(for: cell)?.row
         presenter?.DeletePersonClicked(person: personSectionData![index!])
     }
+    
     @IBAction func AddItemClicked(_ sender: Any) {
         presenter?.AddItemClicked()
     }
@@ -113,22 +135,4 @@ class MeetingManagmentModuleViewController: UIViewController, MeetingManagementM
         let index = meetingTable.indexPath(for: cell)?.row
         presenter?.DeleteItemClicked(item: itemSectionData![index!])
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    //    presenter?.ViewWillAppear()
-        
-        meetingTable.delegate = self
-        meetingTable.dataSource = self
-        // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        presenter?.ViewWillAppear()
-    }
-    
-    @IBAction func BackButtonClicked(_ sender: Any) {
-        presenter?.BackButtonClicked()
-    }
 }
-

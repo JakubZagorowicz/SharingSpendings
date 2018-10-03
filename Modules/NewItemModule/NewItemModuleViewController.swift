@@ -17,83 +17,33 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
     @IBOutlet weak var PaidByPicker: UIPickerView!
     @IBOutlet weak var MessageLabel: UILabel!
     @IBOutlet weak var UsedByTableView: UITableView!
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 14
-        let currentString: NSString = textField.text! as NSString
-        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (people?.count)!
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UsedByCell
-        cell.textLabel?.text = people![indexPath.row].name
-
-        cell.usedBySwitch.isOn = usedBy.contains(people![indexPath.row])
- 
-        return cell
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return people!.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return people![row].name
-    }
-
     var presenter: NewItemModulePresenterProtocol?
     var people: [Person]?
     var item: Item?
     var usedBy = [Person]()
-    
-    @IBAction func AddButtonClicked(_ sender: Any) {
-        if(IsInputDataOk()){
-            presenter?.AddButtonClicked()
-        }
-    }
-    func IsInputDataOk() -> Bool{
-        var status = true
-        if(NameTextField.text == ""){
-            status = false
-            presenter?.InvalidInput(error: ItemAdditionError.NoNameEntered)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        UsedByTableView.delegate = self
+        UsedByTableView.dataSource = self
+        
+        PaidByPicker.delegate = self
+        PaidByPicker.dataSource = self
+        
+        presenter?.ViewWillAppear()
+        
+        if(item != nil){
+            usedBy = Array((item?.usedBy)!) as! [Person]
         }
         else{
-            if(PriceTextField.text == "" || Double(PriceTextField.text!) == nil){
-                status = false
-                presenter?.InvalidInput(error: ItemAdditionError.InvalidPriceFormat)
-            }
-            else{
-                if(Double(PriceTextField.text!)! <= 0.0){
-                    status = false
-                    presenter?.InvalidInput(error: ItemAdditionError.NegativePrice)
-                }
-                else{
-                    if(usedBy.isEmpty){
-                        status = false
-                        presenter?.InvalidInput(error: ItemAdditionError.NoPersonUsingItem)
-                    }
-                }
-            }
-        }
-        return status
-    }
-    @IBAction func ConfirmButtonClicked(_ sender: Any) {
-        if(IsInputDataOk()){
-            presenter?.ConfirmButtonClicked()
+            usedBy = people!
         }
     }
     
-    @IBAction func BackButtonClicked(_ sender: Any) {
-        presenter?.BackButtonClicked()
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func SwitchButtons() {
@@ -121,22 +71,31 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         MessageLabel.text = message
     }
     
-    @IBAction func SwtichValueChanged(_ sender: Any) {
-        let sender = sender as! UISwitch
-        let cell = sender.superview?.superview as! UITableViewCell
-        let index = UsedByTableView.indexPath(for: cell)?.row
-//        usedBy[people![index!]] = !usedBy[people![index!]]!
-        if sender.isOn{
-            usedBy.append(people![index!])
+    func IsInputDataOk() -> Bool{
+        var status = true
+        if(NameTextField.text == ""){
+            status = false
+            presenter?.InvalidInput(error: ItemAdditionError.NoNameEntered)
         }
         else{
-            let upperBound = usedBy.count-1
-            for i in stride(from: upperBound, to: -1, by: -1){
-                if usedBy[i] == people![index!]{
-                    usedBy.remove(at: i)
+            if(PriceTextField.text == "" || Double(PriceTextField.text!) == nil){
+                status = false
+                presenter?.InvalidInput(error: ItemAdditionError.InvalidPriceFormat)
+            }
+            else{
+                if(Double(PriceTextField.text!)! <= 0.0){
+                    status = false
+                    presenter?.InvalidInput(error: ItemAdditionError.NegativePrice)
+                }
+                else{
+                    if(usedBy.isEmpty){
+                        status = false
+                        presenter?.InvalidInput(error: ItemAdditionError.NoPersonUsingItem)
+                    }
                 }
             }
         }
+        return status
     }
     
     func SetMessageLabel(message: String){
@@ -151,31 +110,80 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         
         return itemData
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        UsedByTableView.delegate = self
-        UsedByTableView.dataSource = self
+    
+    //--------------------------------Text field section---------------------------------
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 14
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+    
+    //---------------------------------Table view section--------------------------------
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (people?.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UsedByCell
+        cell.textLabel?.text = people![indexPath.row].name
         
-        PaidByPicker.delegate = self
-        PaidByPicker.dataSource = self
+        cell.usedBySwitch.isOn = usedBy.contains(people![indexPath.row])
         
-        presenter?.ViewWillAppear()
-        
-        if(item != nil){
-            usedBy = Array((item?.usedBy)!) as! [Person]
+        return cell
+    }
+    
+    //---------------------------------Picker view section--------------------------------
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return people!.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return people![row].name
+    }
+    
+    //----------------------------------Swtich view section--------------------------------
+    
+    @IBAction func SwtichValueChanged(_ sender: Any) {
+        let sender = sender as! UISwitch
+        let cell = sender.superview?.superview as! UITableViewCell
+        let index = UsedByTableView.indexPath(for: cell)?.row
+        if sender.isOn{
+            usedBy.append(people![index!])
         }
         else{
-            usedBy = people!
+            let upperBound = usedBy.count-1
+            for i in stride(from: upperBound, to: -1, by: -1){
+                if usedBy[i] == people![index!]{
+                    usedBy.remove(at: i)
+                }
+            }
         }
-//        for person in people!{
-//            usedBy[person] = true
-//        }
-        // Do any additional setup after loading the view.
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension NewItemModuleViewController{// Button clicks handling methods
+    
+    @IBAction func AddButtonClicked(_ sender: Any) {
+        if(IsInputDataOk()){
+            presenter?.AddButtonClicked()
+        }
+    }
+    
+    @IBAction func ConfirmButtonClicked(_ sender: Any) {
+        if(IsInputDataOk()){
+            presenter?.ConfirmButtonClicked()
+        }
+    }
+    
+    @IBAction func BackButtonClicked(_ sender: Any) {
+        presenter?.BackButtonClicked()
     }
 }

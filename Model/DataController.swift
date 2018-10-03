@@ -69,7 +69,7 @@ class DataController: NSObject {
 extension DataController: DataControllerProtocol{
     func AddEntity<T>(entityData: T) throws where T : EntityDataProtocol {
         let record = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: entityData.entityName, in: managedObjectContext)!, insertInto: managedObjectContext)
-
+        
         for tuple in entityData.attributes{
             if let att = tuple.1 as? NSArray {
                 let set = NSSet(array: att as! [Any])

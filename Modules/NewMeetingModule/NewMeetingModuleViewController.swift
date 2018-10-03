@@ -13,18 +13,17 @@ class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewCont
     var presenter: NewMeetingModulePresenterProtocol?
     @IBOutlet weak var NameTextField: UITextField!
     @IBOutlet weak var messageLabel: UILabel!
-    
-    @IBAction func BackButtonClicked(_ sender: Any) {
-        presenter?.BackButtonClicked()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        NameTextField.delegate = self
+        // Do any additional setup after loading the view.
     }
-    
-    @IBAction func AddButtonClicked(_ sender: Any) {
-        if((NameTextField.text) != ""){
-            presenter?.AddButtonClicked()
-        }
-        else{
-            presenter?.InvalidName()
-        }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func GetTextFieldData() -> String {
@@ -41,16 +40,19 @@ class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewCont
         let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+}
 
-        NameTextField.delegate = self
-        // Do any additional setup after loading the view.
+extension NewMeetingModuleViewController{ // Button clicks handling methods
+    @IBAction func BackButtonClicked(_ sender: Any) {
+        presenter?.BackButtonClicked()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func AddButtonClicked(_ sender: Any) {
+        if((NameTextField.text) != ""){
+            presenter?.AddButtonClicked()
+        }
+        else{
+            presenter?.InvalidName()
+        }
     }
 }

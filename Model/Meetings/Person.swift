@@ -9,7 +9,7 @@
 import Foundation
 
 extension Person{
-
+    
 }
 
 struct PersonData: EntityDataProtocol {
