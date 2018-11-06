@@ -10,12 +10,12 @@ import Foundation
 import CoreData
 
 protocol MeetingManagementModuleViewControllerProtocol {
-    func SetTableData(people: [Person], items: [Item])
-    func SetBalance(for index: Int, balance: Double)
+    func SetTableData(people: [(Person, Double)], items: [Item])
+//    func SetBalance(for index: Int, balance: Double)
     func SetMessageLabel(message: String)
 }
 
-protocol MeetingManagmentModulePresenterProtcol {
+protocol MeetingManagementModulePresenterProtcol {
     func ViewWillAppear()
     func ItemClicked(item: Item)
     func PersonClicked(person: Person)
@@ -24,4 +24,5 @@ protocol MeetingManagmentModulePresenterProtcol {
     func DeleteItemClicked(item:Item)
     func DeletePersonClicked(person:Person)
     func BackButtonClicked()
+    func SettleUpButtonClicked()
 }

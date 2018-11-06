@@ -32,7 +32,6 @@ class Mothership {
     
     func GoToMeetingsModule(){
         navigator?.popToRootViewController(animated: true)
-        
     }
     
     func GoToLoginModule(animated: Bool){
@@ -55,6 +54,9 @@ class Mothership {
         navigator?.pushViewController(Builder.BuildNewPersonModule(router: self, dataController: dataController, person: person, meeting: meeting), animated: true)
     }
     
+    func GoToMeetingSettlementModule(dataController: DataController, meeting: Meeting){
+        navigator?.pushViewController(Builder.BuildMeetingSettlementModule(router: self, dataController: dataController, meeting: meeting), animated: true)
+    }
     func GoBack(){
         navigator?.popViewController(animated: true)
     }

@@ -60,9 +60,9 @@ class Builder {
         return viewController
     }
     
-    static func BuildMeetingManagmentModule(router: Mothership, meeting: Meeting, dataController: DataController) -> MeetingManagmentModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingManagmentModuleViewController") as! MeetingManagmentModuleViewController
-        let presenter = MeetingManagmentModulePresenter()
+    static func BuildMeetingManagmentModule(router: Mothership, meeting: Meeting, dataController: DataController) -> MeetingManagementModuleViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingManagmentModuleViewController") as! MeetingManagementModuleViewController
+        let presenter = MeetingManagementModulePresenter()
         
         viewController.presenter = presenter
         
@@ -125,6 +125,20 @@ class Builder {
         presenter.view = viewController
         presenter.router = router
         presenter.person = person
+        presenter.dataController = dataController
+        presenter.meeting = meeting
+        
+        return viewController
+    }
+    
+    static func BuildMeetingSettlementModule(router: Mothership, dataController: DataController, meeting: Meeting) -> MeetingSettlementModuleViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingSettlementModuleViewController") as! MeetingSettlementModuleViewController
+        let presenter = MeetingSettlementModulePresenter()
+        
+        viewController.presenter = presenter
+        
+        presenter.view = viewController
+        presenter.router = router
         presenter.dataController = dataController
         presenter.meeting = meeting
         

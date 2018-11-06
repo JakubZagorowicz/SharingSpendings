@@ -8,25 +8,25 @@
 
 import Foundation
 
-class MeetingManagmentModulePresenter : MeetingManagmentModulePresenterProtcol{
-    
+class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol{
     func ViewWillAppear() {        
         
         if(meeting?.peopleAttending == nil){
             meeting?.peopleAttending = NSSet()
         }
         var items = [Item]()
-        people = (Array((meeting?.peopleAttending)!) as! [Person])
-        
+    //  people = (Array((meeting?.peopleAttending)!) as! [Person])
+        people = meeting?.CalculateBalance()
         for person in people! {
-            for item in person.itemsBought!{
+            for item in person.0.itemsBought!{
                 items.append(item as! Item)
             }
         }
-       
         view?.SetTableData(people: people!, items: items)
-        
-        CalculateSpendings()
+    }
+    
+    func SettleUpButtonClicked() {
+        router?.GoToMeetingSettlementModule(dataController: dataController!, meeting: meeting!)
     }
     
     func BackButtonClicked(){
@@ -90,27 +90,27 @@ class MeetingManagmentModulePresenter : MeetingManagmentModulePresenterProtcol{
     }
     
     func CalculateSpendings(){
-        if((people?.count)! > 0){
-        for index in 0...(people?.count)!-1 {
-            var balance : Double = 0
-            for item in (people?[index].itemsBought)! {
-                let item = item as! Item
-                balance += item.cost
-            }
-            for item in (people?[index].itemsUsed)!{
-                let item = item as! Item
-                balance -= item.cost/Double((item.usedBy?.count)!)
-            }
-            view?.SetBalance(for: index, balance: balance)
-            }
-        }
+//        if((people?.count)! > 0){
+//        for index in 0...(people?.count)!-1 {
+//            var balance : Double = 0
+//            for item in (people?[index].itemsBought)! {
+//                let item = item as! Item
+//                balance += item.cost
+//            }
+//            for item in (people?[index].itemsUsed)!{
+//                let item = item as! Item
+//                balance -= item.cost/Double((item.usedBy?.count)!)
+//            }
+//            view?.SetBalance(for: index, balance: balance)
+//            }
+//        }
     }
     
     
     var view: MeetingManagementModuleViewControllerProtocol?
     var router: Mothership?
     var meeting: Meeting?
-    var people: [Person]?
+    var people: [(Person,Double)]?
     
     var dataController: DataController?
 }

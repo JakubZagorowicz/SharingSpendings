@@ -8,12 +8,12 @@
 
 import UIKit
 
-class MeetingManagmentModuleViewController: UIViewController, MeetingManagementModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
+class MeetingManagementModuleViewController: UIViewController, MeetingManagementModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var MessageLabel: UILabel!
     @IBOutlet weak var meetingTable: UITableView!
-    var presenter: MeetingManagmentModulePresenterProtcol?
-    var personSectionData: [Person]?
+    var presenter: MeetingManagementModulePresenterProtcol?
+    var personSectionData: [(Person, Double)]?
     var itemSectionData: [Item]?
 
     override func viewDidLoad() {
@@ -32,17 +32,7 @@ class MeetingManagmentModuleViewController: UIViewController, MeetingManagementM
     func SetMessageLabel(message: String) {
         MessageLabel.text = message
     }
-    
-    func SetBalance(for index: Int, balance: Double) {
-        let cell : PersonTableViewCell = meetingTable.cellForRow(at: IndexPath(row: index, section: 0)) as! PersonTableViewCell
-        cell.balanceLabel.text = String(format: "%.02f", balance)
-        if balance < 0{
-            cell.balanceLabel.textColor = UIColor.red
-        }
-        else{
-            cell.balanceLabel.textColor = UIColor.green
-        }
-    }
+
     
     // -----------------------------------TableView section-------------------------------
     
@@ -59,6 +49,8 @@ class MeetingManagmentModuleViewController: UIViewController, MeetingManagementM
         }
     }
     
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0){
             return personSectionData!.count + 1
@@ -71,10 +63,10 @@ class MeetingManagmentModuleViewController: UIViewController, MeetingManagementM
         var cell = UITableViewCell()
         if(indexPath.section == 0){
             if(indexPath.row != personSectionData?.count){
-                
-                cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as! PersonTableViewCell
-                
-                cell.textLabel?.text = personSectionData![indexPath.row].name
+                cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
+                let myCell = cell as! PersonTableViewCell
+                myCell.textLabel?.text = personSectionData![indexPath.row].0.name
+                myCell.SetBalance(balance: personSectionData![indexPath.row].1)
             }
             else{
                 cell = tableView.dequeueReusableCell(withIdentifier: "AddPersonCell", for: indexPath) as UITableViewCell
@@ -94,22 +86,27 @@ class MeetingManagmentModuleViewController: UIViewController, MeetingManagementM
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section == 0 && indexPath.row != personSectionData?.count){
-            presenter?.PersonClicked(person: personSectionData![indexPath.row])
+            presenter?.PersonClicked(person: personSectionData![indexPath.row].0)
         }
         if(indexPath.section == 1 && indexPath.row != itemSectionData?.count){
             presenter?.ItemClicked(item: itemSectionData![indexPath.row])
         }
     }
     
-    func SetTableData(people: [Person], items: [Item]) {
+    func SetTableData(people: [(Person, Double)], items: [Item]) {
         personSectionData = people
         itemSectionData = items
         meetingTable.reloadData()
     }
 
+
 }
 
-extension MeetingManagmentModuleViewController{
+extension MeetingManagementModuleViewController{
+    @IBAction func SettleUpButtonClicked(_ sender: Any) {
+        presenter?.SettleUpButtonClicked()
+    }
+
     @IBAction func BackButtonClicked(_ sender: Any) {
         presenter?.BackButtonClicked()
     }
@@ -122,7 +119,7 @@ extension MeetingManagmentModuleViewController{
         let sender = sender as! UIButton
         let cell = sender.superview?.superview as! UITableViewCell
         let index = meetingTable.indexPath(for: cell)?.row
-        presenter?.DeletePersonClicked(person: personSectionData![index!])
+        presenter?.DeletePersonClicked(person: personSectionData![index!].0)
     }
     
     @IBAction func AddItemClicked(_ sender: Any) {
