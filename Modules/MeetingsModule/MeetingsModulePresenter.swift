@@ -28,12 +28,12 @@ class MeetingsModulePresenter : MeetingsModulePresenterProtocol{
     }
     
     func AddMeetingClicked() {
-        router?.GoToNewMeetingModule()
+        router?.NewMeetingButtonClicked()
     }
     
     func MeetingClicked(index: Int) {
         let meeting = meetings[index]
-        router?.GoToMeetingManagmentModule(meeting: meeting)
+        router?.MeetingClicked(meeting: meeting)
     }
     
     func DeleteMeetingClicked(index: Int) {
@@ -48,6 +48,6 @@ class MeetingsModulePresenter : MeetingsModulePresenterProtocol{
     }
     
     var view: MeetingsModuleViewControllerProtocol?
-    var router: Mothership?
+    var router: MeetingModuleRoutingProtocol?
     
 }

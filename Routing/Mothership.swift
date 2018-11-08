@@ -89,6 +89,13 @@ extension Mothership : MeetingManagementRoutingProtocol{
     func SettleUpButtonClicked(meeting: Meeting) {
         GoToMeetingSettlementModule(meeting: meeting)
     }
-    
-    
+}
+
+extension Mothership : MeetingModuleRoutingProtocol{
+    func MeetingClicked(meeting: Meeting) {
+        GoToMeetingManagmentModule(meeting: meeting)
+    }
+    func NewMeetingButtonClicked(){
+        GoToNewMeetingModule()
+    }
 }

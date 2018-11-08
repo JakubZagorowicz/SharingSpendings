@@ -19,3 +19,8 @@ protocol MeetingManagementRoutingProtocol {
     func NewPersonClicked(meeting: Meeting)
     func SettleUpButtonClicked(meeting: Meeting)
 }
+
+protocol MeetingModuleRoutingProtocol {
+    func MeetingClicked(meeting: Meeting)
+    func NewMeetingButtonClicked()
+}
