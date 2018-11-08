@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let dataController = DataController(dataModelName: "DataModel")
+        
         let mothership = Mothership()
-        mothership.InitializeMothership(dataController: dataController)
+        mothership.InitializeMothership()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = mothership.navigator

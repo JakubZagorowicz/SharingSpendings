@@ -15,7 +15,6 @@ class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol
             meeting?.peopleAttending = NSSet()
         }
         var items = [Item]()
-    //  people = (Array((meeting?.peopleAttending)!) as! [Person])
         people = meeting?.CalculateBalance()
         for person in people! {
             for item in person.0.itemsBought!{
@@ -26,33 +25,32 @@ class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol
     }
     
     func SettleUpButtonClicked() {
-        router?.GoToMeetingSettlementModule(dataController: dataController!, meeting: meeting!)
+        router?.SettleUpButtonClicked(meeting: meeting!)
     }
     
     func BackButtonClicked(){
-        router?.GoBack()
+        router?.Back()
     }
     
     func ItemClicked(item: Item) {
-        router?.GoToNewItemModule(dataController: dataController!, people: Array(meeting!.peopleAttending!) as! [Person], item: item, meeting: meeting!)
+        router?.ItemClicked(item: item, meeting: meeting!)
     }
     
     func PersonClicked(person: Person) {
-        router?.GoToNewPersonModule(dataController: dataController!, person: person, meeting: meeting!)
+        router?.PersonClicked(person: person, meeting: meeting!)
     }
     
     func AddPersonClicked() {
-        router?.GoToNewPersonModule(dataController: dataController!, meeting: meeting!)
+        router?.NewPersonClicked(meeting: meeting!)
     }
     
     func AddItemClicked() {
-        let people = Array(meeting!.peopleAttending!) as! [Person]
-        router?.GoToNewItemModule(dataController: dataController!, people: people, meeting: meeting!)
+        router?.NewItemButtonClicked(meeting: meeting!)
     }
     
     func DeleteItemClicked(item: Item) {
         do {
-            try dataController?.DeleteEntity(entity: item)
+            try DataManager.dataManager.dataController.DeleteEntity(entity: item)
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
@@ -73,7 +71,7 @@ class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol
             }
             if(personCanBeDeleted){
                 do {
-                    try dataController?.DeleteEntity(entity: person)
+                    try DataManager.dataManager.dataController.DeleteEntity(entity: person)
                     
                 } catch let error as NSError {
                     print("Could not save. \(error), \(error.userInfo)")
@@ -89,28 +87,9 @@ class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol
         }
     }
     
-    func CalculateSpendings(){
-//        if((people?.count)! > 0){
-//        for index in 0...(people?.count)!-1 {
-//            var balance : Double = 0
-//            for item in (people?[index].itemsBought)! {
-//                let item = item as! Item
-//                balance += item.cost
-//            }
-//            for item in (people?[index].itemsUsed)!{
-//                let item = item as! Item
-//                balance -= item.cost/Double((item.usedBy?.count)!)
-//            }
-//            view?.SetBalance(for: index, balance: balance)
-//            }
-//        }
-    }
-    
-    
     var view: MeetingManagementModuleViewControllerProtocol?
-    var router: Mothership?
+    var router: (MeetingManagementRoutingProtocol & BackableProtocol)?
     var meeting: Meeting?
     var people: [(Person,Double)]?
     
-    var dataController: DataController?
 }

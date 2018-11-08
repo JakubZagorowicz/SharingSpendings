@@ -12,14 +12,14 @@ import Foundation
 class NewItemModulePresenter: NewItemModulePresenterProtocol {
     
     var view: NewItemModuleViewControllerProtocol?
-    var router: Mothership?
-    var dataController: DataController?
+    var router: BackableProtocol?
+    var meeting: Meeting?
     
-    var people: [Person]?
+  //  var people: [Person]?
     var item: Item?
     
     func ViewWillAppear() {
-        view?.SetPeopleData(people: people!)
+        view?.SetPeopleData(people: Array(meeting!.peopleAttending!) as! [Person])
         if(item != nil){
             view?.FillWithItemData(item: item!)
             view?.SwitchButtons()
@@ -34,29 +34,29 @@ class NewItemModulePresenter: NewItemModulePresenterProtocol {
         let itemData = view?.GetItemData()
 
         do{
-          try dataController?.AddEntity(entityData: itemData!)
+          try DataManager.dataManager.dataController.AddEntity(entityData: itemData!)
         }
         catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
 
-        router?.GoBack()
+        router?.Back()
     }
     
     func ConfirmButtonClicked() {
         let itemData = view?.GetItemData()
         
         do{
-            try dataController?.UpdateEntity(entityData: itemData!, entity: item!)
+            try DataManager.dataManager.dataController.UpdateEntity(entityData: itemData!, entity: item!)
         }
         catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
             
         }
-        router?.GoBack()
+        router?.Back()
     }
     func BackButtonClicked() {
-        router?.GoBack()
+        router?.Back()
     }
 
 }

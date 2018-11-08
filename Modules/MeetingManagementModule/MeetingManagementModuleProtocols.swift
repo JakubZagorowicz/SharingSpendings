@@ -11,7 +11,6 @@ import CoreData
 
 protocol MeetingManagementModuleViewControllerProtocol {
     func SetTableData(people: [(Person, Double)], items: [Item])
-//    func SetBalance(for index: Int, balance: Double)
     func SetMessageLabel(message: String)
 }
 

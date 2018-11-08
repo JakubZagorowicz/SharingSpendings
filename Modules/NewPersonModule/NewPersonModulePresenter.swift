@@ -11,8 +11,7 @@ import Foundation
 class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
     
     var view: NewPersonModuleViewControllerProtocol?
-    var router: Mothership?
-    var dataController: DataControllerProtocol?
+    var router: BackableProtocol?
     var meeting: Meeting?
     var person: Person?
     
@@ -28,28 +27,28 @@ class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
 
         do{
             let personData = PersonData(name: name!, meeting: meeting!)
-            try dataController?.AddEntity(entityData: personData)
+            try DataManager.dataManager.dataController.AddEntity(entityData: personData)
         }
         catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
         }
         
-        router?.GoBack()
+        router?.Back()
     }
     
     func BackButtonClicked() {
-        router?.GoBack()
+        router?.Back()
     }
     
     func ConfirmButtonClicked() {
         let name = view?.GetTextFieldData()
         do{
-            try dataController?.UpdateEntity(entityData: PersonData(name: name!, meeting: meeting!), entity: person!)
+            try DataManager.dataManager.dataController.UpdateEntity(entityData: PersonData(name: name!, meeting: meeting!), entity: person!)
         }
         catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
         }
-        router?.GoBack()
+        router?.Back()
     }
     
     func InvalidInput() {

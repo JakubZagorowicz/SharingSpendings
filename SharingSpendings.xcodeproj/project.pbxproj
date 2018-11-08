@@ -46,6 +46,8 @@
 		CEB0E3522164C44D004810D3 /* MeetingSettlementModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3512164C44D004810D3 /* MeetingSettlementModulePresenter.swift */; };
 		CEB0E3542164C48D004810D3 /* MeetingSettlementModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3532164C48D004810D3 /* MeetingSettlementModuleViewController.swift */; };
 		CEB0E3562164DFA4004810D3 /* Debt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3552164DFA4004810D3 /* Debt.swift */; };
+		CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24075219463C4006CC029 /* RoutingProtocols.swift */; };
+		CEC24078219466A2006CC029 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24077219466A2006CC029 /* DataManager.swift */; };
 		CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D0C20F7A071005B5FAF /* ItemData.swift */; };
 		CEE46AA52188B13200A36AA0 /* debtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE46AA42188B13200A36AA0 /* debtCell.swift */; };
 		CEF4444F213E81D5009C6DC5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF4444D213E81B0009C6DC5 /* CoreData.framework */; };
@@ -94,6 +96,8 @@
 		CEB0E3512164C44D004810D3 /* MeetingSettlementModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSettlementModulePresenter.swift; sourceTree = "<group>"; };
 		CEB0E3532164C48D004810D3 /* MeetingSettlementModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSettlementModuleViewController.swift; sourceTree = "<group>"; };
 		CEB0E3552164DFA4004810D3 /* Debt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debt.swift; sourceTree = "<group>"; };
+		CEC24075219463C4006CC029 /* RoutingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingProtocols.swift; sourceTree = "<group>"; };
+		CEC24077219466A2006CC029 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CEDC1D0C20F7A071005B5FAF /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		CEE46AA42188B13200A36AA0 /* debtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debtCell.swift; sourceTree = "<group>"; };
 		CEF4444D213E81B0009C6DC5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -204,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				CE4F127A20F61791006EFA97 /* Mothership.swift */,
+				CEC24075219463C4006CC029 /* RoutingProtocols.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				CEA75D562138195600350F84 /* DataController.swift */,
+				CEC24077219466A2006CC029 /* DataManager.swift */,
 				CEA7865321666950009841D9 /* EntityData */,
 				CE9699F320FF652C000CF3E6 /* Meetings */,
 			);
@@ -368,6 +374,7 @@
 				CE4F126620F5FC5D006EFA97 /* LoginModulePresenter.swift in Sources */,
 				CE4F126420F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift in Sources */,
 				CE4F127620F610BF006EFA97 /* MeetingManagementModuleViewController.swift in Sources */,
+				CEC24078219466A2006CC029 /* DataManager.swift in Sources */,
 				CEB0E3542164C48D004810D3 /* MeetingSettlementModuleViewController.swift in Sources */,
 				CE45AB112133E8AB00A45856 /* NewItemModuleProtocols.swift in Sources */,
 				CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */,
@@ -386,6 +393,7 @@
 				CE4F125E20F5FBF8006EFA97 /* MainModuleProtocols.swift in Sources */,
 				CE4F126020F5FC0A006EFA97 /* MeetingsModuleProtocols.swift in Sources */,
 				CE4F127820F61132006EFA97 /* NewMeetingModuleViewController.swift in Sources */,
+				CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */,
 				CE45AB132133E8CD00A45856 /* NewItemModuleViewController.swift in Sources */,
 				CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */,
 				CE45AB0D2133E7D400A45856 /* NewPersonModuleViewController.swift in Sources */,

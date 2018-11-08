@@ -10,10 +10,9 @@ import Foundation
 
 class MeetingSettlementModulePresenter: MeetingSettlementModulePresenterProtocol{
     
-    var router: Mothership?
+    var router: BackableProtocol?
     var view: MeetingSettlementModuleViewControllerProtocol?
     var presenter: MeetingSettlementModulePresenterProtocol?
-    var dataController: DataController?
     var meeting: Meeting?
     
     func ViewWillApear() {
@@ -21,7 +20,7 @@ class MeetingSettlementModulePresenter: MeetingSettlementModulePresenterProtocol
     }
     
     func BackButtonClicked() {
-        router?.GoBack()
+        router?.Back()
     }
     
     
