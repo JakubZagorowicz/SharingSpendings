@@ -149,6 +149,12 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         return people![row].name
     }
     
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let text = people![row].name
+        let attributes = NSAttributedString(string: text!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        return attributes
+    }
+    
     //----------------------------------Swtich view section--------------------------------
     
     @IBAction func SwtichValueChanged(_ sender: Any) {

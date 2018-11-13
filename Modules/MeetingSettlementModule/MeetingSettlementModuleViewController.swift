@@ -23,7 +23,7 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         debtsTableView.delegate = self
         debtsTableView.dataSource = self
         
-        presenter?.ViewWillApear()
+        presenter?.ViewWillAppear()
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,7 +13,7 @@ protocol MeetingSettlementModuleViewControllerProtocol {
 }
 
 protocol MeetingSettlementModulePresenterProtocol {
-    func ViewWillApear()
+    func ViewWillAppear()
     func BackButtonClicked()
 }
 

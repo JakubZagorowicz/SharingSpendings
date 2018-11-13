@@ -15,7 +15,7 @@ class MeetingSettlementModulePresenter: MeetingSettlementModulePresenterProtocol
     var presenter: MeetingSettlementModulePresenterProtocol?
     var meeting: Meeting?
     
-    func ViewWillApear() {
+    func ViewWillAppear() {
         view?.SetTableViewData(debts: (meeting?.CalculateDebts(balances: (meeting?.CalculateBalance())!))!)
     }
     
