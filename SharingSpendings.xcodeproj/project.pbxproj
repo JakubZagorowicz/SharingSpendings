@@ -50,6 +50,7 @@
 		CEC24078219466A2006CC029 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24077219466A2006CC029 /* DataManager.swift */; };
 		CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D0C20F7A071005B5FAF /* ItemData.swift */; };
 		CEE46AA52188B13200A36AA0 /* debtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE46AA42188B13200A36AA0 /* debtCell.swift */; };
+		CEEEA93E219C22B200F4FFE9 /* EsteticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */; };
 		CEF4444F213E81D5009C6DC5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF4444D213E81B0009C6DC5 /* CoreData.framework */; };
 		CEF44452213E8212009C6DC5 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEF44450213E8212009C6DC5 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -100,6 +101,7 @@
 		CEC24077219466A2006CC029 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CEDC1D0C20F7A071005B5FAF /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		CEE46AA42188B13200A36AA0 /* debtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debtCell.swift; sourceTree = "<group>"; };
+		CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsteticsModel.swift; sourceTree = "<group>"; };
 		CEF4444D213E81B0009C6DC5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CEF44451213E8212009C6DC5 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +193,7 @@
 		CE4F125820F5FAA9006EFA97 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */,
 				CE4F125920F5FAE7006EFA97 /* Builder.swift */,
 				CEB0E34E2164B9A5004810D3 /* MeetingSettlementModule */,
 				CE45AB072133E79600A45856 /* NewPersonModule */,
@@ -392,6 +395,7 @@
 				CE45AB0F2133E89900A45856 /* NewItemModulePresenter.swift in Sources */,
 				CE4F125E20F5FBF8006EFA97 /* MainModuleProtocols.swift in Sources */,
 				CE4F126020F5FC0A006EFA97 /* MeetingsModuleProtocols.swift in Sources */,
+				CEEEA93E219C22B200F4FFE9 /* EsteticsModel.swift in Sources */,
 				CE4F127820F61132006EFA97 /* NewMeetingModuleViewController.swift in Sources */,
 				CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */,
 				CE45AB132133E8CD00A45856 /* NewItemModuleViewController.swift in Sources */,

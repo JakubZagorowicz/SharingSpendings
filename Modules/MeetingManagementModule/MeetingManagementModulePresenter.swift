@@ -10,6 +10,7 @@ import Foundation
 
 class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol{
     func ViewWillAppear() {        
+        view?.SetMeetingName(name: (meeting?.name)!)
         
         if(meeting?.peopleAttending == nil){
             meeting?.peopleAttending = NSSet()

@@ -12,6 +12,7 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
     
     @IBOutlet weak var MessageLabel: UILabel!
     @IBOutlet weak var meetingTable: UITableView!
+    @IBOutlet weak var meetingNameLabel: UILabel!
     var presenter: MeetingManagementModulePresenterProtcol?
     var personSectionData: [(Person, Double)]?
     var itemSectionData: [Item]?
@@ -31,8 +32,14 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
     
     func SetMessageLabel(message: String) {
         MessageLabel.text = message
+        MessageLabel.textColor = EsteticsModel.messageLabelTextColor
     }
 
+    func SetMeetingName(name: String){
+        meetingNameLabel.text = name
+        meetingNameLabel.textColor = EsteticsModel.titleLabelTextColor
+        
+    }
     
     // -----------------------------------TableView section-------------------------------
     
@@ -66,6 +73,7 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
                 cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
                 let myCell = cell as! PersonTableViewCell
                 myCell.textLabel?.text = personSectionData![indexPath.row].0.name
+                myCell.textLabel?.textColor = EsteticsModel.inCellTextColor
                 myCell.SetBalance(balance: personSectionData![indexPath.row].1)
             }
             else{
@@ -75,6 +83,7 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
         else{
             if(indexPath.row != itemSectionData?.count){
                 cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as UITableViewCell
+                cell.textLabel?.textColor = EsteticsModel.inCellTextColor
                 cell.textLabel?.text = itemSectionData![indexPath.row].name
             }
             else{

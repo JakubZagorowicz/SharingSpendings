@@ -32,6 +32,7 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         PaidByPicker.dataSource = self
         
         presenter?.ViewWillAppear()
+        SetUpView()
         
         if(item != nil){
             usedBy = Array((item?.usedBy)!) as! [Person]
@@ -120,6 +121,7 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         return newString.length <= maxLength
     }
     
+    
     //---------------------------------Table view section--------------------------------
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -129,7 +131,7 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UsedByCell
         cell.textLabel?.text = people![indexPath.row].name
-        
+        cell.textLabel?.textColor = EsteticsModel.inCellTextColor
         cell.usedBySwitch.isOn = usedBy.contains(people![indexPath.row])
         
         return cell
@@ -151,7 +153,7 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let text = people![row].name
-        let attributes = NSAttributedString(string: text!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        let attributes = NSAttributedString(string: text!, attributes: [NSAttributedStringKey.foregroundColor: EsteticsModel.pickerViewTextColor])
         return attributes
     }
     
@@ -172,6 +174,13 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
                 }
             }
         }
+    }
+    
+    func SetUpView(){
+        NameTextField.textColor = EsteticsModel.textFieldTextColor
+        NameTextField.alpha = CGFloat(EsteticsModel.textFieldTransparency)
+        MessageLabel.textColor = EsteticsModel.messageLabelTextColor
+        
     }
 }
 

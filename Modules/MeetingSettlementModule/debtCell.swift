@@ -17,7 +17,12 @@ class debtCell: UITableViewCell{
     
     func SetDebt(debt: Debt){
         fromLabel.text = debt.from.name
+        fromLabel.textColor = EsteticsModel.inCellTextColor
+        
         toLabel.text = debt.to.name
-        howMuchTable.text = String(format: "%.02f", debt.howMuch)
+        toLabel.textColor = EsteticsModel.inCellTextColor
+        
+        howMuchTable.text = String(format: EsteticsModel.numberFormat, debt.howMuch)
+        howMuchTable.textColor = EsteticsModel.inCellTextColor
     }
 }

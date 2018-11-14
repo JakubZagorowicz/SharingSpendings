@@ -47,7 +47,7 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
         if(indexPath.row != meetings?.count){
             let cell = tableView.dequeueReusableCell(withIdentifier: "MeetingCell", for: indexPath) as UITableViewCell
             cell.textLabel?.text = meetings![indexPath.row].name
-            
+            cell.textLabel?.textColor = EsteticsModel.inCellTextColor
             return cell
         }
         else{
