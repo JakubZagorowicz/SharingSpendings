@@ -13,6 +13,9 @@ protocol MeetingManagementModuleViewControllerProtocol {
     func SetTableData(people: [(Person, Double)], items: [Item])
     func SetMessageLabel(message: String)
     func SetMeetingName(name: String)
+    func SetAddItemButton(isEnabled: Bool)
+    func SetSettleUpButton(isEnabled: Bool)
+
 }
 
 protocol MeetingManagementModulePresenterProtcol {

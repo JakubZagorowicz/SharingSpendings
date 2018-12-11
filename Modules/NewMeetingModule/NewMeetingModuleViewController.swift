@@ -18,6 +18,7 @@ class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewCont
         super.viewDidLoad()
 
         NameTextField.delegate = self
+        self.hideKeyboardOnTapOutside()
         // Do any additional setup after loading the view.
     }
 
@@ -40,6 +41,12 @@ class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewCont
         let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        
+        return false
+    }
 }
 
 extension NewMeetingModuleViewController{ // Button clicks handling methods
@@ -54,5 +61,18 @@ extension NewMeetingModuleViewController{ // Button clicks handling methods
         else{
             presenter?.InvalidName()
         }
+    }
+}
+
+
+extension UIViewController {
+    func hideKeyboardOnTapOutside(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.hideKeyborad))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func hideKeyborad(){
+        view.endEditing(true)
     }
 }

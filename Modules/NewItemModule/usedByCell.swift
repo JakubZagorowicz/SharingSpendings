@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-class UsedByCell: UITableViewCell{
-    @IBOutlet weak var usedBySwitch: UISwitch!
-    
+class UsedByCell: UITableViewCell{    
+    @IBOutlet weak var usedByCheckbox: Checkbox!
 }

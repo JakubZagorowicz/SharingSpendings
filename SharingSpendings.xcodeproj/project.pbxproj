@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE10C68621B818730076AA3D /* PaidByPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */; };
 		CE45AB092133E7B300A45856 /* NewPersonModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB082133E7B300A45856 /* NewPersonModuleProtocols.swift */; };
 		CE45AB0B2133E7C300A45856 /* NewPersonModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0A2133E7C300A45856 /* NewPersonModulePresenter.swift */; };
 		CE45AB0D2133E7D400A45856 /* NewPersonModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0C2133E7D400A45856 /* NewPersonModuleViewController.swift */; };
@@ -42,20 +43,25 @@
 		CEA78656216669C0009841D9 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA78655216669C0009841D9 /* Meeting.swift */; };
 		CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */; };
 		CEA97AFE215C3B5A00C51C1C /* usedByCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA97AFD215C3B5A00C51C1C /* usedByCell.swift */; };
+		CEADF01021AFF15700D9784E /* CustomNavigatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADF00F21AFF15700D9784E /* CustomNavigatorController.swift */; };
+		CEADF01221B00FF900D9784E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADF01121B00FF900D9784E /* Animator.swift */; };
 		CEB0E3502164BA75004810D3 /* MeetingSettlementModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E34F2164BA74004810D3 /* MeetingSettlementModuleProtocols.swift */; };
 		CEB0E3522164C44D004810D3 /* MeetingSettlementModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3512164C44D004810D3 /* MeetingSettlementModulePresenter.swift */; };
 		CEB0E3542164C48D004810D3 /* MeetingSettlementModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3532164C48D004810D3 /* MeetingSettlementModuleViewController.swift */; };
 		CEB0E3562164DFA4004810D3 /* Debt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3552164DFA4004810D3 /* Debt.swift */; };
+		CEB7340A21B169C7007C2123 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7340921B169C7007C2123 /* Checkbox.swift */; };
 		CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24075219463C4006CC029 /* RoutingProtocols.swift */; };
 		CEC24078219466A2006CC029 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24077219466A2006CC029 /* DataManager.swift */; };
 		CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D0C20F7A071005B5FAF /* ItemData.swift */; };
 		CEE46AA52188B13200A36AA0 /* debtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE46AA42188B13200A36AA0 /* debtCell.swift */; };
 		CEEEA93E219C22B200F4FFE9 /* EsteticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */; };
+		CEEEA940219C581F00F4FFE9 /* AddItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEA93F219C581F00F4FFE9 /* AddItemCell.swift */; };
 		CEF4444F213E81D5009C6DC5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF4444D213E81B0009C6DC5 /* CoreData.framework */; };
 		CEF44452213E8212009C6DC5 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEF44450213E8212009C6DC5 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidByPopUpViewController.swift; sourceTree = "<group>"; };
 		CE45AB082133E7B300A45856 /* NewPersonModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonModuleProtocols.swift; sourceTree = "<group>"; };
 		CE45AB0A2133E7C300A45856 /* NewPersonModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonModulePresenter.swift; sourceTree = "<group>"; };
 		CE45AB0C2133E7D400A45856 /* NewPersonModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonModuleViewController.swift; sourceTree = "<group>"; };
@@ -93,15 +99,19 @@
 		CEA78655216669C0009841D9 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAdditionErrors.swift; sourceTree = "<group>"; };
 		CEA97AFD215C3B5A00C51C1C /* usedByCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usedByCell.swift; sourceTree = "<group>"; };
+		CEADF00F21AFF15700D9784E /* CustomNavigatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigatorController.swift; sourceTree = "<group>"; };
+		CEADF01121B00FF900D9784E /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		CEB0E34F2164BA74004810D3 /* MeetingSettlementModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSettlementModuleProtocols.swift; sourceTree = "<group>"; };
 		CEB0E3512164C44D004810D3 /* MeetingSettlementModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSettlementModulePresenter.swift; sourceTree = "<group>"; };
 		CEB0E3532164C48D004810D3 /* MeetingSettlementModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSettlementModuleViewController.swift; sourceTree = "<group>"; };
 		CEB0E3552164DFA4004810D3 /* Debt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debt.swift; sourceTree = "<group>"; };
+		CEB7340921B169C7007C2123 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		CEC24075219463C4006CC029 /* RoutingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingProtocols.swift; sourceTree = "<group>"; };
 		CEC24077219466A2006CC029 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CEDC1D0C20F7A071005B5FAF /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		CEE46AA42188B13200A36AA0 /* debtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debtCell.swift; sourceTree = "<group>"; };
 		CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsteticsModel.swift; sourceTree = "<group>"; };
+		CEEEA93F219C581F00F4FFE9 /* AddItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemCell.swift; sourceTree = "<group>"; };
 		CEF4444D213E81B0009C6DC5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CEF44451213E8212009C6DC5 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE10C68421B8182A0076AA3D /* PopUps */ = {
+			isa = PBXGroup;
+			children = (
+				CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */,
+			);
+			path = PopUps;
+			sourceTree = "<group>";
+		};
 		CE45AB062133E78C00A45856 /* NewItemModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +194,7 @@
 				CE4F126B20F5FCB3006EFA97 /* MeetingManagementModulePresenter.swift */,
 				CE4F127520F610BF006EFA97 /* MeetingManagementModuleViewController.swift */,
 				CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */,
+				CEEEA93F219C581F00F4FFE9 /* AddItemCell.swift */,
 			);
 			path = MeetingManagementModule;
 			sourceTree = "<group>";
@@ -193,8 +212,11 @@
 		CE4F125820F5FAA9006EFA97 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */,
+				CE10C68421B8182A0076AA3D /* PopUps */,
+				CEB7340821B1699A007C2123 /* UI */,
 				CE4F125920F5FAE7006EFA97 /* Builder.swift */,
+				CEADF00F21AFF15700D9784E /* CustomNavigatorController.swift */,
+				CEADF01121B00FF900D9784E /* Animator.swift */,
 				CEB0E34E2164B9A5004810D3 /* MeetingSettlementModule */,
 				CE45AB072133E79600A45856 /* NewPersonModule */,
 				CE45AB062133E78C00A45856 /* NewItemModule */,
@@ -292,6 +314,15 @@
 			path = MeetingSettlementModule;
 			sourceTree = "<group>";
 		};
+		CEB7340821B1699A007C2123 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */,
+				CEB7340921B169C7007C2123 /* Checkbox.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		CEF4444C213E81B0009C6DC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +363,7 @@
 				TargetAttributes = {
 					CE7B4D8F20F49A7E005FCBEB = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -391,6 +423,7 @@
 				CE4F127420F610AB006EFA97 /* MeetingsModuleViewController.swift in Sources */,
 				CEA78656216669C0009841D9 /* Meeting.swift in Sources */,
 				CE4F127B20F61791006EFA97 /* Mothership.swift in Sources */,
+				CEADF01021AFF15700D9784E /* CustomNavigatorController.swift in Sources */,
 				CE4F125C20F5FBEB006EFA97 /* LoginModuleProtocols.swift in Sources */,
 				CE45AB0F2133E89900A45856 /* NewItemModulePresenter.swift in Sources */,
 				CE4F125E20F5FBF8006EFA97 /* MainModuleProtocols.swift in Sources */,
@@ -399,9 +432,11 @@
 				CE4F127820F61132006EFA97 /* NewMeetingModuleViewController.swift in Sources */,
 				CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */,
 				CE45AB132133E8CD00A45856 /* NewItemModuleViewController.swift in Sources */,
+				CE10C68621B818730076AA3D /* PaidByPopUpViewController.swift in Sources */,
 				CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */,
 				CE45AB0D2133E7D400A45856 /* NewPersonModuleViewController.swift in Sources */,
 				CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */,
+				CEB7340A21B169C7007C2123 /* Checkbox.swift in Sources */,
 				CEA97AFE215C3B5A00C51C1C /* usedByCell.swift in Sources */,
 				CE4F125A20F5FAE7006EFA97 /* Builder.swift in Sources */,
 				CEF44452213E8212009C6DC5 /* DataModel.xcdatamodeld in Sources */,
@@ -413,6 +448,8 @@
 				CE4F127220F61089006EFA97 /* MainModuleViewController.swift in Sources */,
 				CE4F126820F5FC6C006EFA97 /* MainModulePresenter.swift in Sources */,
 				CEB0E3522164C44D004810D3 /* MeetingSettlementModulePresenter.swift in Sources */,
+				CEADF01221B00FF900D9784E /* Animator.swift in Sources */,
+				CEEEA940219C581F00F4FFE9 /* AddItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,13 +596,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 543SWRMJGS;
 				INFOPLIST_FILE = SharingSpendings/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cokolwiek.SharingSpendings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -577,13 +615,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 543SWRMJGS;
 				INFOPLIST_FILE = SharingSpendings/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cokolwiek.SharingSpendings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -10,11 +10,14 @@ import Foundation
 import UIKit
 
 class Mothership {
-    var navigator: UINavigationController?
+  //  var navigator: UINavigationController?
+    var navigator: CustomNavigatorController?
     
     func InitializeMothership(){
         let rootVC = Builder.BuildMeetingsModule(router: self)
-        navigator = UINavigationController(rootViewController: rootVC)
+  //      navigator = UINavigationController(rootViewController: rootVC)
+     //   let rootVC = Builder.BuildModule(router: self)
+        navigator = CustomNavigatorController(rootViewController: rootVC)
         navigator?.navigationBar.isHidden = true
     }
     
@@ -27,7 +30,8 @@ class Mothership {
     }
     
     func GoToMeetingManagmentModule(meeting: Meeting){
-        navigator?.pushViewController(Builder.BuildMeetingManagmentModule(router: self, meeting: meeting), animated: true)
+       navigator?.pushViewController(Builder.BuildMeetingManagmentModule(router: self, meeting: meeting), animated: true)
+      //  navigator?.setViewControllers([Builder.BuildMeetingManagmentModule(router: self, meeting: meeting)], animated: true)
     }
     
     func GoToMeetingsModule(){

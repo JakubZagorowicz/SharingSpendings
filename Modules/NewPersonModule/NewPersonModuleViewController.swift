@@ -21,6 +21,8 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
         super.viewDidLoad()
 
         nameTextField.delegate = self
+        self.hideKeyboardOnTapOutside()
+        
         presenter?.ViewWillAppear()
     }
 
@@ -52,6 +54,12 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
         let currentString: NSString = textField.text! as NSString
         let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        
+        return false
     }
 }
 

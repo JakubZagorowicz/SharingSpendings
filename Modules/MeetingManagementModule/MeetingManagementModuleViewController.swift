@@ -10,9 +10,15 @@ import UIKit
 
 class MeetingManagementModuleViewController: UIViewController, MeetingManagementModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var ItemsLabel: UILabel!
+    @IBOutlet weak var PeopleLabel: UILabel!
+    @IBOutlet weak var SettleUpButton: UIButton!
+    @IBOutlet weak var itemsTable: UITableView!
     @IBOutlet weak var MessageLabel: UILabel!
-    @IBOutlet weak var meetingTable: UITableView!
+    @IBOutlet weak var peopleTable: UITableView!
     @IBOutlet weak var meetingNameLabel: UILabel!
+    @IBOutlet weak var addItemButton: UIButton!
+    
     var presenter: MeetingManagementModulePresenterProtcol?
     var personSectionData: [(Person, Double)]?
     var itemSectionData: [Item]?
@@ -22,8 +28,17 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
 
     //    presenter?.ViewWillAppear()
         
-        meetingTable.delegate = self
-        meetingTable.dataSource = self
+        peopleTable.delegate = self
+        peopleTable.dataSource = self
+        itemsTable.delegate = self
+        itemsTable.dataSource = self
+
+        ItemsLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        PeopleLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        meetingNameLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+4)
+      //  SettleUpButton.translatesAutoresizingMaskIntoConstraints = true
+     //   SettleUpButton.frame = CGRect(x: SettleUpButton.frame.minX, y: SettleUpButton.frame.minY, width: SettleUpButton.frame.width, height: TableViewModel.cellHeight)
+       // SettleUpButton.frame = .zero
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -41,71 +56,109 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
         
     }
     
+    func SetAddItemButton(isEnabled: Bool){
+        addItemButton.isEnabled = isEnabled
+    }
+    
+    func SetSettleUpButton(isEnabled: Bool){
+        SettleUpButton.isEnabled = isEnabled
+    }
+
+    
     // -----------------------------------TableView section-------------------------------
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if(section == 0){
-            return "People"
-        }
-        else{
-            return "Items"
-        }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return TableViewModel.cellHeight
     }
     
-
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: .zero)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section == 0){
-            return personSectionData!.count + 1
+        if(tableView == peopleTable){
+            return personSectionData!.count
         }
         else{
-            return itemSectionData!.count + 1
+            return itemSectionData!.count
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
-        if(indexPath.section == 0){
-            if(indexPath.row != personSectionData?.count){
-                cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
-                let myCell = cell as! PersonTableViewCell
-                myCell.textLabel?.text = personSectionData![indexPath.row].0.name
-                myCell.textLabel?.textColor = EsteticsModel.inCellTextColor
-                myCell.SetBalance(balance: personSectionData![indexPath.row].1)
-            }
-            else{
-                cell = tableView.dequeueReusableCell(withIdentifier: "AddPersonCell", for: indexPath) as UITableViewCell
-            }
+        if(tableView == peopleTable){
+
+            cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
+            let myCell = cell as! PersonTableViewCell
+            myCell.textLabel?.text = personSectionData![indexPath.row].0.name
+            myCell.textLabel?.textColor = EsteticsModel.inCellTextColor
+            myCell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+            myCell.SetBalance(balance: personSectionData![indexPath.row].1)
+            
         }
         else{
-            if(indexPath.row != itemSectionData?.count){
-                cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as UITableViewCell
-                cell.textLabel?.textColor = EsteticsModel.inCellTextColor
-                cell.textLabel?.text = itemSectionData![indexPath.row].name
-            }
-            else{
-                cell = tableView.dequeueReusableCell(withIdentifier: "AddItemCell", for: indexPath) as UITableViewCell
-            }
+    
+            cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as UITableViewCell
+            cell.textLabel?.textColor = EsteticsModel.inCellTextColor
+            cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+
+            cell.textLabel?.text = itemSectionData![indexPath.row].name
+            
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.section == 0 && indexPath.row != personSectionData?.count){
+        if(tableView == peopleTable){
             presenter?.PersonClicked(person: personSectionData![indexPath.row].0)
         }
-        if(indexPath.section == 1 && indexPath.row != itemSectionData?.count){
+        if(tableView == itemsTable){
             presenter?.ItemClicked(item: itemSectionData![indexPath.row])
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = UIContextualAction(style: .normal, title: "edit") { (edit, view, completionHandler) in
+            if tableView == self.peopleTable {
+                self.presenter?.PersonClicked(person: self.personSectionData![indexPath.row].0)
+            }
+            else{
+                self.presenter?.ItemClicked(item: self.itemSectionData![indexPath.row])
+            }
+            completionHandler(true)
+        }
+        edit.image = #imageLiteral(resourceName: "edit_icon")
+        edit.backgroundColor = EsteticsModel.editButtonBackgroundColor
+        
+        let delete = UIContextualAction(style: .normal, title: "delete") { (delete, view, completionHandler) in
+            if tableView == self.peopleTable {
+                self.presenter?.DeletePersonClicked(person: self.personSectionData![indexPath.row].0)
+            }
+            else{
+                self.presenter?.DeleteItemClicked(item: self.itemSectionData![indexPath.row])
+            }
+            completionHandler(true)
+        }
+        delete.image = #imageLiteral(resourceName: "delete_icon")
+        delete.backgroundColor = EsteticsModel.deleteButtonBackgroungColor
+        
+        let configuration = UISwipeActionsConfiguration(actions: [delete])
+        return configuration
     }
     
     func SetTableData(people: [(Person, Double)], items: [Item]) {
         personSectionData = people
         itemSectionData = items
-        meetingTable.reloadData()
+        peopleTable.reloadData()
+        itemsTable.reloadData()
     }
 
 
@@ -124,21 +177,7 @@ extension MeetingManagementModuleViewController{
         presenter?.AddPersonClicked()
     }
     
-    @IBAction func DeletePersonClicked(_ sender: Any) {
-        let sender = sender as! UIButton
-        let cell = sender.superview?.superview as! UITableViewCell
-        let index = meetingTable.indexPath(for: cell)?.row
-        presenter?.DeletePersonClicked(person: personSectionData![index!].0)
-    }
-    
     @IBAction func AddItemClicked(_ sender: Any) {
         presenter?.AddItemClicked()
-    }
-    
-    @IBAction func DeleteItemClicked(_ sender: Any) {
-        let sender = sender as! UIButton
-        let cell = sender.superview?.superview as! UITableViewCell
-        let index = meetingTable.indexPath(for: cell)?.row
-        presenter?.DeleteItemClicked(item: itemSectionData![index!])
     }
 }

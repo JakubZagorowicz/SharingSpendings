@@ -69,7 +69,6 @@ extension Meeting {
                 }
             }
             debts.append(Debt(from: from, to: to, howMuch: howMuch))
-            print(balances.count)
             condition = false
             for person in balances{
                 if person.1 > 0.001{

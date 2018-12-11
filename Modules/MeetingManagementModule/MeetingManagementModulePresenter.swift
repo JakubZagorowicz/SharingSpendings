@@ -9,19 +9,41 @@
 import Foundation
 
 class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol{
-    func ViewWillAppear() {        
+    var items = [Item]()
+
+    func ViewWillAppear() {
         view?.SetMeetingName(name: (meeting?.name)!)
-        
         if(meeting?.peopleAttending == nil){
             meeting?.peopleAttending = NSSet()
         }
-        var items = [Item]()
+        items = [Item]()
         people = meeting?.CalculateBalance()
         for person in people! {
             for item in person.0.itemsBought!{
                 items.append(item as! Item)
             }
         }
+        
+        if(meeting?.peopleAttending?.count == 0){
+            view?.SetAddItemButton(isEnabled: false)
+        }
+        else{
+            view?.SetAddItemButton(isEnabled: true)
+        }
+        var doesAnyDebtExist = false
+        for tuple in people!{
+            if tuple.1 != 0{
+                doesAnyDebtExist = true
+            }
+        }
+        
+        if((meeting?.peopleAttending?.count)! > 1 && items.count > 0 && doesAnyDebtExist){
+            view?.SetSettleUpButton(isEnabled: true)
+        }
+        else{
+            view?.SetSettleUpButton(isEnabled: false)
+        }
+        
         view?.SetTableData(people: people!, items: items)
     }
     
