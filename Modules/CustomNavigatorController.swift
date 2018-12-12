@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 class CustomNavigatorController: UINavigationController {
+    var backgroundView: UIImageView = UIImageView(frame: .zero)
+    
     override func viewDidLoad() {
-        let backgroundView = UIImageView(image: UIImage(named: "bg2"))
+        backgroundView = UIImageView(image: UIImage(named: "bg2"))
         backgroundView.frame = UIScreen.main.bounds
         
         self.view.addSubview(backgroundView)
@@ -19,6 +21,10 @@ class CustomNavigatorController: UINavigationController {
         self.delegate = self as UINavigationControllerDelegate
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        backgroundView.frame = UIScreen.main.bounds
+    }
 }
 
 extension CustomNavigatorController: UINavigationControllerDelegate {

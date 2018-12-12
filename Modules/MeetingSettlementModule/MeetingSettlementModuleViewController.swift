@@ -10,7 +10,11 @@ import UIKit
 
 class MeetingSettlementModuleViewController: UIViewController, MeetingSettlementModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var topLeftLabel: UILabel!
+    @IBOutlet weak var topMiddleLabel: UILabel!
+    @IBOutlet weak var topRightLabel: UILabel!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var debtsTableView: UITableView!
     
     var debts: [Debt]?
@@ -23,6 +27,11 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         debtsTableView.delegate = self
         debtsTableView.dataSource = self
         
+        titleLabel.font = EsteticsModel.titleLabelFont
+        titleLabel.textColor = EsteticsModel.titleLabelTextColor
+        
+        setLabels()
+        
         presenter?.ViewWillAppear()
     }
 
@@ -31,6 +40,17 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         // Dispose of any resources that can be recreated.
     }
 
+    func setLabels(){
+        let labels = [topLeftLabel,topRightLabel,topMiddleLabel]
+        for label in labels{
+            label?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+            label?.textColor = EsteticsModel.inCellTextColor
+        }
+        topLeftLabel.text = "From:"
+        topMiddleLabel.text = "Amount:"
+        topRightLabel.text = "To:"
+    }
+    
     @IBAction func BackButtonClick(_ sender: Any) {
         presenter?.BackButtonClicked()
     }
@@ -39,14 +59,13 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         self.debts = debts
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableCell(withIdentifier: "DebtsHeaderCell")
-        return header
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40.0
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let header = tableView.dequeueReusableCell(withIdentifier: "DebtsHeaderCell")
+//        return header
+//    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 40.0
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TableViewModel.cellHeight
@@ -62,5 +81,9 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         cell.SetDebt(debt: debts![indexPath.row])
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: .zero)
     }
 }

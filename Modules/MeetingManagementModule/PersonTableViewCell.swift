@@ -13,6 +13,7 @@ class PersonTableViewCell: UITableViewCell{
     @IBOutlet weak var balanceLabel: UILabel!
     let gradientLayer = CAGradientLayer()
     let gradientLayerView = UIView(frame: .zero)
+    
     func SetUpGradient(color: UIColor){
 
         gradientLayer.colors = [color.withAlphaComponent(0.7).cgColor, color.withAlphaComponent(0).cgColor]
@@ -26,12 +27,8 @@ class PersonTableViewCell: UITableViewCell{
         self.addSubview(gradientLayerView)
         self.sendSubviewToBack(gradientLayerView)
 
-  //      balanceLabel.layer.addSublayer(gradientLayer)
-  //      gradientLayer.zPosition = 1
         self.bringSubviewToFront(balanceLabel!)
-
     }
-    
     func SetBalance(balance: Double){
         var color = UIColor.clear
         if balance < 0{

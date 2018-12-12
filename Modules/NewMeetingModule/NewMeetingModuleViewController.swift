@@ -13,12 +13,15 @@ class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewCont
     var presenter: NewMeetingModulePresenterProtocol?
     @IBOutlet weak var NameTextField: UITextField!
     @IBOutlet weak var messageLabel: UILabel!
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NameTextField.delegate = self
         self.hideKeyboardOnTapOutside()
+        titleLabel.font = EsteticsModel.titleLabelFont
+        titleLabel.textColor = EsteticsModel.titleLabelTextColor
         // Do any additional setup after loading the view.
     }
 

@@ -12,13 +12,16 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
     
     var presenter: MeetingsModulePresenterProtocol?
     var meetings: [Meeting]?
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         meetingsTable.delegate = self
         meetingsTable.dataSource = self
         
+        titleLabel.font = EsteticsModel.titleLabelFont
+        titleLabel.textColor = EsteticsModel.titleLabelTextColor
     //    presenter?.ViewWillAppear()
     }
     

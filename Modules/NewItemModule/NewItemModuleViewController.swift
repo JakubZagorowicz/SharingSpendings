@@ -9,7 +9,13 @@
 import UIKit
 
 class NewItemModuleViewController: UIViewController, NewItemModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var paidByLabel: UILabel!
+    @IBOutlet weak var usedByLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var paidByButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
@@ -33,6 +39,9 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         NameTextField.delegate = self
         
         self.hideKeyboardOnTapOutside()
+        
+        titleLabel.font = EsteticsModel.titleLabelFont
+        titleLabel.textColor = EsteticsModel.titleLabelTextColor
         
         presenter?.ViewWillAppear()
         SetUpView()
@@ -94,6 +103,10 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
                     presenter?.InvalidInput(error: ItemAdditionError.NegativePrice)
                 }
                 else{
+                    if(pickedPerson == nil)
+                    {
+                        status = false
+                    }
                     if(usedBy.isEmpty){
                         status = false
                         presenter?.InvalidInput(error: ItemAdditionError.NoPersonUsingItem)
@@ -128,6 +141,7 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         
         if textField == PriceTextField{
             allowedCharacters = CharacterSet.decimalDigits
+            allowedCharacters.insert(charactersIn: ".")
         }
         return newString.length <= maxLength && allowedCharacters.isSuperset(of: CharacterSet(charactersIn: newString as String))
     }
@@ -246,8 +260,18 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
     
 
     func SetUpView(){
+        nameLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        priceLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        paidByLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        usedByLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        
         NameTextField.textColor = EsteticsModel.textFieldTextColor
         NameTextField.alpha = CGFloat(EsteticsModel.textFieldTransparency)
+        NameTextField.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        PriceTextField.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        paidByButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        
+        
         MessageLabel.textColor = EsteticsModel.messageLabelTextColor
         
     }

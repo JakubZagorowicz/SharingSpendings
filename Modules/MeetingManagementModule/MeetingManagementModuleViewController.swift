@@ -35,7 +35,9 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
 
         ItemsLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
         PeopleLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
-        meetingNameLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+4)
+        meetingNameLabel.font = EsteticsModel.titleLabelFont
+        meetingNameLabel.textColor = EsteticsModel.titleLabelTextColor
+        
       //  SettleUpButton.translatesAutoresizingMaskIntoConstraints = true
      //   SettleUpButton.frame = CGRect(x: SettleUpButton.frame.minX, y: SettleUpButton.frame.minY, width: SettleUpButton.frame.width, height: TableViewModel.cellHeight)
        // SettleUpButton.frame = .zero
@@ -43,6 +45,10 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
     }
     override func viewWillAppear(_ animated: Bool) {
         presenter?.ViewWillAppear()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        peopleTable.reloadData()
     }
     
     func SetMessageLabel(message: String) {
@@ -151,6 +157,8 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
         delete.backgroundColor = EsteticsModel.deleteButtonBackgroungColor
         
         let configuration = UISwipeActionsConfiguration(actions: [delete])
+        configuration.performsFirstActionWithFullSwipe = false
+
         return configuration
     }
     

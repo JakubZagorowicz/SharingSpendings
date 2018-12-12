@@ -10,6 +10,7 @@ import UIKit
 
 class NewPersonModuleViewController: UIViewController, NewPersonModuleViewControllerProtocol, UITextFieldDelegate {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var AddButton: UIButton!
     @IBOutlet weak var ConfirmButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
@@ -22,6 +23,9 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
 
         nameTextField.delegate = self
         self.hideKeyboardOnTapOutside()
+        
+        titleLabel.font = EsteticsModel.titleLabelFont
+        titleLabel.textColor = EsteticsModel.titleLabelTextColor
         
         presenter?.ViewWillAppear()
     }
