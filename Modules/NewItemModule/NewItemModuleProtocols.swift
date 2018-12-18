@@ -15,6 +15,8 @@ protocol NewItemModuleViewControllerProtocol {
     func FillWithItemData(item: Item)
     func GetItemData()-> ItemData
     func SwitchButtons()
+    func ShowPopUp(_with message: String)
+    func SetTitle(title: String)
 }
 
 protocol NewItemModulePresenterProtocol {

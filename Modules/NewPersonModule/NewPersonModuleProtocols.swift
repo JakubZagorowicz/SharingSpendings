@@ -21,4 +21,6 @@ protocol NewPersonModuleViewControllerProtocol {
     func GetTextFieldData() -> String
     func SetLabeLMessage(message: String)
     func SwitchButtons()
+    func ShowPopUp(_with message: String)
+    func SetTitle(title: String)
 }

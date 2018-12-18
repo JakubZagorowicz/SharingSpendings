@@ -19,6 +19,7 @@ class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
         if person != nil{
             view?.ShowPersonDetails(person: person!)
             view?.SwitchButtons()
+            view?.SetTitle(title: "Edit person")
         }
     }
     
@@ -52,7 +53,8 @@ class NewPersonModulePresenter : NewPersonModulePresenterProtocol {
     }
     
     func InvalidInput() {
-        view?.SetLabeLMessage(message: "Enter person name")
+      //  view?.SetLabeLMessage(message: "Enter person name")
+        view?.ShowPopUp(_with: "Enter person name")
     }
 
 }

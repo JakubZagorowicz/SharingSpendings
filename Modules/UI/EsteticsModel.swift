@@ -11,7 +11,7 @@ import UIKit
 
 class EsteticsModel {
     static var inCellTextColor = UIColor.white
-    static var messageLabelTextColor = UIColor.white
+    static var messageLabelTextColor = UIColor.black
     static var pickerViewTextColor = UIColor.white
     static var textFieldTextColor = UIColor.white
     static var titleLabelTextColor = UIColor.white
@@ -26,6 +26,7 @@ class EsteticsModel {
     
     static var deleteButtonBackgroungColor = UIColor(rgb: 0xa73737)
     static var editButtonBackgroundColor = UIColor(rgb: 0x377ca7)
+    static var placeholderTextColor = UIColor(rgb: 0x4e6469)
 }
 
 class TableViewModel {

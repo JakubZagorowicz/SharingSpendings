@@ -16,6 +16,7 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var ItemsTable: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameLabel: UILabel!
     var presenter: NewPersonModulePresenterProtocol?
  
     override func viewDidLoad() {
@@ -26,6 +27,10 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
         
         titleLabel.font = EsteticsModel.titleLabelFont
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
+        
+        nameLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        nameTextField.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        nameTextField.attributedPlaceholder = NSAttributedString(string: nameTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
         
         presenter?.ViewWillAppear()
     }
@@ -48,9 +53,23 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
         messageLabel.text = message
     }
     
+    func SetTitle(title: String) {
+        titleLabel.text = title
+    }
+    
     func ShowPersonDetails(person: Person) {
         //  ItemsTable.isHidden = false
         nameTextField.text = person.name
+    }
+    
+    func ShowPopUp(_with message: String){
+        let popUp = ErrorPopUpViewController()
+        popUp.message = message
+        popUp.modalPresentationStyle = .overCurrentContext
+        
+        self.present(popUp, animated: true) {
+        }
+
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

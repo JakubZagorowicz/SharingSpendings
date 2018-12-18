@@ -33,10 +33,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="bgR-HX-z2t" userLabel="Background View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8l-3c-JNh" userLabel="whiteLine">
                                 <rect key="frame" x="5" y="89" width="370" height="1"/>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -168,6 +164,7 @@
                         <outlet property="ConfirmButton" destination="nOj-Sk-tqz" id="WQT-XC-v34"/>
                         <outlet property="ItemsTable" destination="y1r-c0-aEE" id="gvf-Ut-XeX"/>
                         <outlet property="messageLabel" destination="bs3-RO-bCU" id="mGg-AW-g71"/>
+                        <outlet property="nameLabel" destination="b8f-BM-rPk" id="han-V2-E7S"/>
                         <outlet property="nameTextField" destination="jbu-55-T85" id="u9u-e0-149"/>
                         <outlet property="titleLabel" destination="k49-zd-SkW" id="fqy-OD-k5Q"/>
                     </connections>
@@ -184,10 +181,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="sG8-5k-xzq" userLabel="Background View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s14-hb-g26" userLabel="whiteLine">
                                 <rect key="frame" x="5" y="170" width="370" height="1"/>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

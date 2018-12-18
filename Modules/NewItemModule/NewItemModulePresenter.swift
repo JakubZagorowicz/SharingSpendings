@@ -23,11 +23,13 @@ class NewItemModulePresenter: NewItemModulePresenterProtocol {
         if(item != nil){
             view?.FillWithItemData(item: item!)
             view?.SwitchButtons()
+            view?.SetTitle(title: "Edit item")
         }
     }
     
     func InvalidInput(error: ItemAdditionError){
-        view?.SetMessageLabel(message: error.GetErrorMessage())
+//        view?.SetMessageLabel(message: error.GetErrorMessage())
+        view?.ShowPopUp(_with: error.GetErrorMessage())
     }
     
     func AddButtonClicked() {

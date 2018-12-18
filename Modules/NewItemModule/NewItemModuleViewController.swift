@@ -95,7 +95,7 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         else{
             if(PriceTextField.text == "" || Double(PriceTextField.text!) == nil){
                 status = false
-                presenter?.InvalidInput(error: ItemAdditionError.InvalidPriceFormat)
+                presenter?.InvalidInput(error: ItemAdditionError.NoPriceEntered)
             }
             else{
                 if(Double(PriceTextField.text!)! <= 0.0){
@@ -105,6 +105,7 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
                 else{
                     if(pickedPerson == nil)
                     {
+                        presenter?.InvalidInput(error: ItemAdditionError.NoBuyerPicked)
                         status = false
                     }
                     if(usedBy.isEmpty){
@@ -119,6 +120,20 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
     
     func SetMessageLabel(message: String){
         MessageLabel.text = message
+    }
+    
+    func SetTitle(title: String){
+        titleLabel.text = title
+    }
+    
+    func ShowPopUp(_with message: String){
+        let popUp = ErrorPopUpViewController()
+        popUp.message = message
+        popUp.modalPresentationStyle = .overCurrentContext
+        
+        self.present(popUp, animated: true) {
+        }
+        
     }
     
     func GetItemData() -> ItemData {
@@ -268,6 +283,8 @@ class NewItemModuleViewController: UIViewController, NewItemModuleViewController
         NameTextField.textColor = EsteticsModel.textFieldTextColor
         NameTextField.alpha = CGFloat(EsteticsModel.textFieldTransparency)
         NameTextField.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        NameTextField.attributedPlaceholder = NSAttributedString(string: NameTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
+        PriceTextField.attributedPlaceholder = NSAttributedString(string: PriceTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
         PriceTextField.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
         paidByButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
         

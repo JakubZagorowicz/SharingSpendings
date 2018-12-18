@@ -39,8 +39,8 @@ class PersonTableViewCell: UITableViewCell{
         }
         SetUpGradient(color: color)
         balanceLabel.text = String(format: EsteticsModel.numberFormat, balance)
-        balanceLabel.textColor = EsteticsModel.inCellTextColor.withAlphaComponent(1)
-      //  balanceLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        balanceLabel.textColor = EsteticsModel.inCellTextColor
+        balanceLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize-1)
 
     }
 }

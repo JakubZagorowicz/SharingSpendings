@@ -102,11 +102,13 @@ class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol
                 ViewWillAppear()
             }
             else{
-                view?.SetMessageLabel(message: "Can't delete person, who is the only user of \(blockingItem.name!), and didn't pay for it.")
+//                view?.SetMessageLabel(message: "Can't delete person, who is the only user of \(blockingItem.name!), and didn't pay for it.")
+                view?.ShowPopUp(_with: "Can't delete person, who is the only user of \(blockingItem.name!), and didn't pay for it.")
             }
         }
         else{
-            view?.SetMessageLabel(message: "Can't delete person that paid for items.")
+//            view?.SetMessageLabel(message: "Can't delete person that paid for items.")
+            view?.ShowPopUp(_with: "Can't delete person that paid for items.")
         }
     }
     

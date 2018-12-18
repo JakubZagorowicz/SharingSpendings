@@ -26,7 +26,8 @@ class NewMeetingModulePresenter : NewMeetingModulePresenterProtocol{
     }
     
     func InvalidName(){
-        view?.SetMessageLabel(message: "Enter meeting name")
+//        view?.SetMessageLabel(message: "Enter meeting name")
+        view?.ShowPopUp(_with: "Enter meeting name")
     }
     var view : NewMeetingModuleViewControllerProtocol?
     var router: BackableProtocol?

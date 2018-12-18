@@ -55,6 +55,16 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
         MessageLabel.text = message
         MessageLabel.textColor = EsteticsModel.messageLabelTextColor
     }
+    
+    func ShowPopUp(_with message: String){
+        let popUp = ErrorPopUpViewController()
+        popUp.message = message
+        popUp.modalPresentationStyle = .overCurrentContext
+        
+        self.present(popUp, animated: true) {
+        }
+        
+    }
 
     func SetMeetingName(name: String){
         meetingNameLabel.text = name

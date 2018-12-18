@@ -22,6 +22,8 @@ class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewCont
         self.hideKeyboardOnTapOutside()
         titleLabel.font = EsteticsModel.titleLabelFont
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
+        
+        NameTextField.attributedPlaceholder = NSAttributedString(string: NameTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
         // Do any additional setup after loading the view.
     }
 
@@ -36,6 +38,16 @@ class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewCont
     
     func SetMessageLabel(message: String) {
         messageLabel.text = message
+    }
+    
+    func ShowPopUp(_with message: String){
+        let popUp = ErrorPopUpViewController()
+        popUp.message = message
+        popUp.modalPresentationStyle = .overCurrentContext
+        
+        self.present(popUp, animated: true) {
+        }
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

@@ -10,21 +10,24 @@ import Foundation
 
 enum ItemAdditionError {
     case NoNameEntered
-    case InvalidPriceFormat
+    case NoPriceEntered
     case NegativePrice
     case NoPersonUsingItem
+    case NoBuyerPicked
     
     func GetErrorMessage() -> String {
         var message: String
         switch self {
-        case ItemAdditionError.InvalidPriceFormat:
-            message = "Invalid price format"
+        case ItemAdditionError.NoPriceEntered:
+            message = "Enter price"
         case ItemAdditionError.NegativePrice:
             message = "Price has to be positive number"
         case ItemAdditionError.NoNameEntered:
             message = "Enter item name"
         case ItemAdditionError.NoPersonUsingItem:
-            message = "Atleast one person have to be using this item"
+            message = "Atleast one participant have to be using this item"
+        case ItemAdditionError.NoBuyerPicked:
+            message = "Pick participant, who paid for item"
 //        default:
 //            message = ""
         }
