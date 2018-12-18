@@ -10,17 +10,6 @@ import Foundation
 import UIKit
 
 class Builder {
-    static func BuildMainModule(router: Mothership) -> MainModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainModuleViewController") as! MainModuleViewController
-        let presenter = MainModulePresenter()
-        
-        viewController.presenter = presenter
-        
-        presenter.view = viewController
-        presenter.router = router
-        
-        return viewController
-    }
     
     static func BuildNewMeetingModule(router: Mothership) -> NewMeetingModuleViewController{
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMeetingModuleViewController") as! NewMeetingModuleViewController
@@ -37,18 +26,6 @@ class Builder {
     static func BuildMeetingsModule(router: Mothership) -> MeetingsModuleViewController{
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingsModuleViewController") as! MeetingsModuleViewController
         let presenter = MeetingsModulePresenter()
-        
-        viewController.presenter = presenter
-        
-        presenter.view = viewController
-        presenter.router = router
-        
-        return viewController
-    }
-    
-    static func BuildLoginModule(router: Mothership) -> LoginModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginModuleViewController") as! LoginModuleViewController
-        let presenter = LoginModulePresenter()
         
         viewController.presenter = presenter
         

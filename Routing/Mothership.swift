@@ -21,10 +21,6 @@ class Mothership {
         navigator?.navigationBar.isHidden = true
     }
     
-    func GoToMainModule(){
-       // navigator?.popToRootViewController(animated: true)
-    }
-    
     func GoToNewMeetingModule(){
         navigator?.pushViewController(Builder.BuildNewMeetingModule(router: self), animated: true)
     }
@@ -36,10 +32,6 @@ class Mothership {
     
     func GoToMeetingsModule(){
         navigator?.popToRootViewController(animated: true)
-    }
-    
-    func GoToLoginModule(animated: Bool){
-        navigator?.pushViewController(Builder.BuildLoginModule(router: self), animated: animated)
     }
     
     func GoToNewItemModule(meeting: Meeting){

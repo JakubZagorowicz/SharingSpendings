@@ -15,18 +15,12 @@
 		CE45AB112133E8AB00A45856 /* NewItemModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB102133E8AB00A45856 /* NewItemModuleProtocols.swift */; };
 		CE45AB132133E8CD00A45856 /* NewItemModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB122133E8CD00A45856 /* NewItemModuleViewController.swift */; };
 		CE4F125A20F5FAE7006EFA97 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F125920F5FAE7006EFA97 /* Builder.swift */; };
-		CE4F125C20F5FBEB006EFA97 /* LoginModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F125B20F5FBEB006EFA97 /* LoginModuleProtocols.swift */; };
-		CE4F125E20F5FBF8006EFA97 /* MainModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F125D20F5FBF8006EFA97 /* MainModuleProtocols.swift */; };
 		CE4F126020F5FC0A006EFA97 /* MeetingsModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F125F20F5FC0A006EFA97 /* MeetingsModuleProtocols.swift */; };
 		CE4F126220F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126120F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift */; };
 		CE4F126420F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126320F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift */; };
-		CE4F126620F5FC5D006EFA97 /* LoginModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126520F5FC5D006EFA97 /* LoginModulePresenter.swift */; };
-		CE4F126820F5FC6C006EFA97 /* MainModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126720F5FC6C006EFA97 /* MainModulePresenter.swift */; };
 		CE4F126A20F5FC8C006EFA97 /* MeetingsModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126920F5FC8C006EFA97 /* MeetingsModulePresenter.swift */; };
 		CE4F126C20F5FCB3006EFA97 /* MeetingManagementModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126B20F5FCB3006EFA97 /* MeetingManagementModulePresenter.swift */; };
 		CE4F126E20F5FCF3006EFA97 /* NewMeetingModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126D20F5FCF3006EFA97 /* NewMeetingModulePresenter.swift */; };
-		CE4F127020F6104C006EFA97 /* LoginModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F126F20F6104C006EFA97 /* LoginModuleViewController.swift */; };
-		CE4F127220F61089006EFA97 /* MainModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127120F61089006EFA97 /* MainModuleViewController.swift */; };
 		CE4F127420F610AB006EFA97 /* MeetingsModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127320F610AB006EFA97 /* MeetingsModuleViewController.swift */; };
 		CE4F127620F610BF006EFA97 /* MeetingManagementModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127520F610BF006EFA97 /* MeetingManagementModuleViewController.swift */; };
 		CE4F127820F61132006EFA97 /* NewMeetingModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127720F61132006EFA97 /* NewMeetingModuleViewController.swift */; };
@@ -70,18 +64,12 @@
 		CE45AB102133E8AB00A45856 /* NewItemModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemModuleProtocols.swift; sourceTree = "<group>"; };
 		CE45AB122133E8CD00A45856 /* NewItemModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemModuleViewController.swift; sourceTree = "<group>"; };
 		CE4F125920F5FAE7006EFA97 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
-		CE4F125B20F5FBEB006EFA97 /* LoginModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleProtocols.swift; sourceTree = "<group>"; };
-		CE4F125D20F5FBF8006EFA97 /* MainModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleProtocols.swift; sourceTree = "<group>"; };
 		CE4F125F20F5FC0A006EFA97 /* MeetingsModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsModuleProtocols.swift; sourceTree = "<group>"; };
 		CE4F126120F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingManagementModuleProtocols.swift; sourceTree = "<group>"; };
 		CE4F126320F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingModuleProtocols.swift; sourceTree = "<group>"; };
-		CE4F126520F5FC5D006EFA97 /* LoginModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModulePresenter.swift; sourceTree = "<group>"; };
-		CE4F126720F5FC6C006EFA97 /* MainModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModulePresenter.swift; sourceTree = "<group>"; };
 		CE4F126920F5FC8C006EFA97 /* MeetingsModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsModulePresenter.swift; sourceTree = "<group>"; };
 		CE4F126B20F5FCB3006EFA97 /* MeetingManagementModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingManagementModulePresenter.swift; sourceTree = "<group>"; };
 		CE4F126D20F5FCF3006EFA97 /* NewMeetingModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingModulePresenter.swift; sourceTree = "<group>"; };
-		CE4F126F20F6104C006EFA97 /* LoginModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleViewController.swift; sourceTree = "<group>"; };
-		CE4F127120F61089006EFA97 /* MainModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleViewController.swift; sourceTree = "<group>"; };
 		CE4F127320F610AB006EFA97 /* MeetingsModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsModuleViewController.swift; sourceTree = "<group>"; };
 		CE4F127520F610BF006EFA97 /* MeetingManagementModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingManagementModuleViewController.swift; sourceTree = "<group>"; };
 		CE4F127720F61132006EFA97 /* NewMeetingModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingModuleViewController.swift; sourceTree = "<group>"; };
@@ -160,26 +148,6 @@
 			path = NewPersonModule;
 			sourceTree = "<group>";
 		};
-		CE4F125220F5F651006EFA97 /* LoginModule */ = {
-			isa = PBXGroup;
-			children = (
-				CE4F125B20F5FBEB006EFA97 /* LoginModuleProtocols.swift */,
-				CE4F126520F5FC5D006EFA97 /* LoginModulePresenter.swift */,
-				CE4F126F20F6104C006EFA97 /* LoginModuleViewController.swift */,
-			);
-			path = LoginModule;
-			sourceTree = "<group>";
-		};
-		CE4F125420F5F9E7006EFA97 /* MainModule */ = {
-			isa = PBXGroup;
-			children = (
-				CE4F125D20F5FBF8006EFA97 /* MainModuleProtocols.swift */,
-				CE4F126720F5FC6C006EFA97 /* MainModulePresenter.swift */,
-				CE4F127120F61089006EFA97 /* MainModuleViewController.swift */,
-			);
-			path = MainModule;
-			sourceTree = "<group>";
-		};
 		CE4F125520F5F9F5006EFA97 /* MeetingsModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,8 +194,6 @@
 				CE4F125720F5FA17006EFA97 /* NewMeetingModule */,
 				CE4F125620F5FA06006EFA97 /* MeetingManagementModule */,
 				CE4F125520F5F9F5006EFA97 /* MeetingsModule */,
-				CE4F125420F5F9E7006EFA97 /* MainModule */,
-				CE4F125220F5F651006EFA97 /* LoginModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -409,7 +375,6 @@
 				CEB0E3562164DFA4004810D3 /* Debt.swift in Sources */,
 				CE45AB092133E7B300A45856 /* NewPersonModuleProtocols.swift in Sources */,
 				CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */,
-				CE4F126620F5FC5D006EFA97 /* LoginModulePresenter.swift in Sources */,
 				CE4F126420F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift in Sources */,
 				CE4F127620F610BF006EFA97 /* MeetingManagementModuleViewController.swift in Sources */,
 				CEC24078219466A2006CC029 /* DataManager.swift in Sources */,
@@ -418,7 +383,6 @@
 				CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */,
 				CE4F126C20F5FCB3006EFA97 /* MeetingManagementModulePresenter.swift in Sources */,
 				CE4F127E20F64A11006EFA97 /* MeetingData.swift in Sources */,
-				CE4F127020F6104C006EFA97 /* LoginModuleViewController.swift in Sources */,
 				CEA75D572138195600350F84 /* DataController.swift in Sources */,
 				CE88FA8421625A2F0006C4C9 /* EntityDataProtocol.swift in Sources */,
 				CEB0E3502164BA75004810D3 /* MeetingSettlementModuleProtocols.swift in Sources */,
@@ -427,9 +391,7 @@
 				CEA78656216669C0009841D9 /* Meeting.swift in Sources */,
 				CE4F127B20F61791006EFA97 /* Mothership.swift in Sources */,
 				CEADF01021AFF15700D9784E /* CustomNavigatorController.swift in Sources */,
-				CE4F125C20F5FBEB006EFA97 /* LoginModuleProtocols.swift in Sources */,
 				CE45AB0F2133E89900A45856 /* NewItemModulePresenter.swift in Sources */,
-				CE4F125E20F5FBF8006EFA97 /* MainModuleProtocols.swift in Sources */,
 				CE4F126020F5FC0A006EFA97 /* MeetingsModuleProtocols.swift in Sources */,
 				CEEEA93E219C22B200F4FFE9 /* EsteticsModel.swift in Sources */,
 				CE4F127820F61132006EFA97 /* NewMeetingModuleViewController.swift in Sources */,
@@ -449,8 +411,6 @@
 				CE4F126220F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift in Sources */,
 				CEFFF0FC21C13ED600C86CAA /* ErrorPopUp.swift in Sources */,
 				CE4F128020F64A2A006EFA97 /* PersonData.swift in Sources */,
-				CE4F127220F61089006EFA97 /* MainModuleViewController.swift in Sources */,
-				CE4F126820F5FC6C006EFA97 /* MainModulePresenter.swift in Sources */,
 				CEB0E3522164C44D004810D3 /* MeetingSettlementModulePresenter.swift in Sources */,
 				CEADF01221B00FF900D9784E /* Animator.swift in Sources */,
 				CEEEA940219C581F00F4FFE9 /* AddItemCell.swift in Sources */,
