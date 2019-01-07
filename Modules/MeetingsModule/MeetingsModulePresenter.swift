@@ -47,6 +47,10 @@ class MeetingsModulePresenter : MeetingsModulePresenterProtocol{
         ViewWillAppear()
     }
     
+    func SectionButtonClicked(sectionIndex: Int) {
+        view?.ScrollToSection(index: sectionIndex)
+    }
+    
     var view: MeetingsModuleViewControllerProtocol?
     var router: MeetingModuleRoutingProtocol?
     

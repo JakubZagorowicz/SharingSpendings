@@ -14,6 +14,7 @@ struct MeetingData: EntityDataProtocol {
     var entityName: String = "Meeting"
     var name: String
     var peopleAttending: [Person]
+    var status = "active"
     
     init(name: String) {
         self.name = name

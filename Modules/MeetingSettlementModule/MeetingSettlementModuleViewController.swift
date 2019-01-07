@@ -17,6 +17,8 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var debtsTableView: UITableView!
     
+    var closeEventButton = UIButton(frame: .zero)
+    
     var debts: [Debt]?
     
     var presenter: MeetingSettlementModulePresenterProtocol?
@@ -30,7 +32,8 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         titleLabel.font = EsteticsModel.titleLabelFont
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
         
-        setLabels()
+        SetLabels()
+        SetButton()
         
         presenter?.ViewWillAppear()
     }
@@ -40,7 +43,7 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         // Dispose of any resources that can be recreated.
     }
 
-    func setLabels(){
+    func SetLabels(){
         let labels = [topLeftLabel,topRightLabel,topMiddleLabel]
         for label in labels{
             label?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
@@ -49,6 +52,20 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         topLeftLabel.text = "From:"
         topMiddleLabel.text = "Amount:"
         topRightLabel.text = "To:"
+    }
+    
+    func SetButton(){
+        closeEventButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(closeEventButton)
+        closeEventButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        closeEventButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        closeEventButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
+        closeEventButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        closeEventButton.backgroundColor = UIColor(red: 0, green: 143, blue: 0)
+        closeEventButton.setTitle("Close event", for: .normal)
+        closeEventButton.setTitleColor(EsteticsModel.inCellTextColor, for: .normal)
+        
+        view.bringSubviewToFront(closeEventButton)
     }
     
     @IBAction func BackButtonClick(_ sender: Any) {

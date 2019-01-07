@@ -8,20 +8,35 @@
 
 import UIKit
 
-class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControllerProtocol,UITableViewDataSource, UITableViewDelegate {
+class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControllerProtocol,UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var presenter: MeetingsModulePresenterProtocol?
     var meetings: [Meeting]?
+    
+    var activeMeetingsTable = UITableView()
+    var closedMeetingsTable = UITableView()
+    var settledMeetingsTable = UITableView()
+    
+    var activeSectionButton = UIButton()
+    var closedSectionButton = UIButton()
+    var settledSectionButton = UIButton()
+    
+    var addButton = UIButton()
+    
+    var highlightBar = UIView()
+    var highligthBarLeftAnchor: NSLayoutConstraint?
+
+    var layout : UICollectionViewFlowLayout?
+    var collection : UICollectionView?
+    
+    var presentedSection: Int = 0
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        meetingsTable.delegate = self
-        meetingsTable.dataSource = self
         
-        titleLabel.font = EsteticsModel.titleLabelFont
-        titleLabel.textColor = EsteticsModel.titleLabelTextColor
+        SetupView()
     //    presenter?.ViewWillAppear()
     }
     
@@ -34,23 +49,42 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        let sectionBeforeRotation = presentedSection
+        self.collection?.reloadData()
+        DispatchQueue.main.async {
+            self.collection?.scrollToItem(at: IndexPath(row: sectionBeforeRotation, section: 0), at: [], animated: false)
+        }
+    }
+    
     //------------------------------------Table view section--------------------------------
     
-    @IBOutlet weak var meetingsTable: UITableView!
+//    @IBOutlet weak var meetingsTable: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if meetings?.count == 0{
+            return 1
+        }
         return meetings!.count
     }
     
     func SetTableData(meetings: [Meeting]) {
         self.meetings = meetings
-        meetingsTable.reloadData()
+//        meetingsTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MeetingCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = meetings![indexPath.row].name
-        cell.textLabel?.textColor = EsteticsModel.inCellTextColor
+        let cell = UITableViewCell()
+
+        if meetings?.count == 0{
+            cell.textLabel?.text = "Start by adding an event"
+            cell.textLabel?.textColor = EsteticsModel.placeholderTextColor
+        }
+        else{
+            cell.textLabel?.text = meetings![indexPath.row].name
+            cell.textLabel?.textColor = EsteticsModel.inCellTextColor
+        }
         cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        cell.backgroundColor = .clear
         return cell
     }
 
@@ -68,39 +102,82 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
         }
     }
     
-
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TableViewModel.cellHeight
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .normal, title: "delete", handler: { (action, view, completionHandler) in
-            self.presenter?.DeleteMeetingClicked(index: indexPath.row)
-            completionHandler(true)
-        })
-        delete.image = #imageLiteral(resourceName: "delete_icon")
-        delete.backgroundColor = EsteticsModel.deleteButtonBackgroungColor
-
-        let configuration = UISwipeActionsConfiguration(actions: [delete])
-        configuration.performsFirstActionWithFullSwipe = false
-        return configuration
+//--------------------- collection view section -------------------------
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let subviews = cell.subviews
+        for subview in subviews{
+            subview.removeFromSuperview()
+        }
+        if indexPath.row == 0{
+            cell.addSubview(activeMeetingsTable)
+            activeMeetingsTable.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+            activeMeetingsTable.backgroundColor = .clear
+        }
+        else{
+            if indexPath.row == 1{
+                cell.addSubview(closedMeetingsTable)
+                closedMeetingsTable.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+                closedMeetingsTable.backgroundColor = .clear
+            }
+            else{
+                cell.addSubview(settledMeetingsTable)
+                settledMeetingsTable.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+                settledMeetingsTable.backgroundColor = .clear
+            }
+        }
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: collectionView.frame.height)
+    }
+    
+    func ScrollToSection(index: Int) {
+        collection?.scrollToItem(at: IndexPath(item: index, section: 0), at: [], animated: true)
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == collection{
+            highligthBarLeftAnchor!.constant = scrollView.contentOffset.x/3
+            let visibleRect = CGRect(origin: collection!.contentOffset, size: collection!.bounds.size)
+            let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+            let visibleIndexPath = collection!.indexPathForItem(at: visiblePoint)
+            presentedSection = (visibleIndexPath?.row)!
+//            presenter?.SetPresentedSection(toIndex: presentedSection)
+        }
     }
 }
 
 extension MeetingsModuleViewController{ // Button clicks handling methods
-    
-    @IBAction func AddButtonClicked(_ sender: Any) {
+    @objc func AddButtonClicked(sender: UIButton) {
         presenter?.AddMeetingClicked()
     }
     
     @IBAction func DeleteButtonClicked(_ sender: Any) {
-        let sender = sender as! UIButton
-        let cell = sender.superview?.superview as! UITableViewCell
-        let index = meetingsTable.indexPath(for: cell)?.row
-        presenter?.DeleteMeetingClicked(index: index!)
+
+    }
+    
+    @objc func SectionButtonClicked(sender: UIButton){
+        let index: Int
+        if sender == activeSectionButton{
+            index = 0
+        }
+        else{
+            if sender == closedSectionButton{
+                index = 1
+            }
+            else{
+                index = 2
+            }
+        }
+        presenter?.SectionButtonClicked(sectionIndex: index)
     }
 }

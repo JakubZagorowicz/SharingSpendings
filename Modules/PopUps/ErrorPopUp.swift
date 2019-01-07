@@ -48,8 +48,8 @@ class ErrorPopUpViewController : UIViewController{
         messageLabel.textAlignment = .center
         messageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         messageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-//        messageLabel.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.7).isActive = true
-        messageLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
+        messageLabel.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.7).isActive = true
+//        messageLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
 //            messageLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8)
         messageLabel.adjustsFontSizeToFitWidth = true
 
@@ -57,7 +57,7 @@ class ErrorPopUpViewController : UIViewController{
         
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        containerView.widthAnchor.constraint(equalTo: messageLabel.widthAnchor, multiplier: 1.2).isActive = true
+        containerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: messageLabel.frame.height + 80).isActive = true
         
         okButton.addTarget(self, action: #selector(okButtonClicked), for: .touchDown)

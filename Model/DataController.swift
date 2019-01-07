@@ -28,6 +28,7 @@ class DataController: NSObject {
         
         managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
         
+        
         return managedObjectContext
     }()
     
@@ -53,11 +54,14 @@ class DataController: NSObject {
         
         let persistentStoreURL = documentsDirectoryURL.appendingPathComponent(storeName)
         
+        
         do {
+            let options = [ NSInferMappingModelAutomaticallyOption : true,
+                            NSMigratePersistentStoresAutomaticallyOption : true]
             try persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType,
                                                               configurationName: nil,
                                                               at: persistentStoreURL,
-                                                              options: nil)
+                                                              options: options)
         } catch {
             fatalError("Unable to Load Persistent Store")
         }

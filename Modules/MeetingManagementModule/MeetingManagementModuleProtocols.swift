@@ -11,22 +11,25 @@ import CoreData
 
 protocol MeetingManagementModuleViewControllerProtocol {
     func SetTableData(people: [(Person, Double)], items: [Item])
-    func SetMessageLabel(message: String)
+    func SetDebtsData(debts: [Debt])
     func ShowPopUp(_with message: String)
     func SetMeetingName(name: String)
     func SetAddItemButton(isEnabled: Bool)
-    func SetSettleUpButton(isEnabled: Bool)
-
+    func AddButtonIsVisible(isVisible: Bool)
+    func ScrollToSection(index: Int)
 }
 
 protocol MeetingManagementModulePresenterProtcol {
     func ViewWillAppear()
     func ItemClicked(item: Item)
     func PersonClicked(person: Person)
-    func AddPersonClicked()
-    func AddItemClicked()
     func DeleteItemClicked(item:Item)
     func DeletePersonClicked(person:Person)
     func BackButtonClicked()
-    func SettleUpButtonClicked()
+    func AddButtonClicked()
+    func PeopleButtonClicked()
+    func ItemsButtonClicked()
+    func SettlementButtonClicked()
+    func SetPresentedSection(toIndex: Int)
+    func CloseEventButtonClicked()
 }

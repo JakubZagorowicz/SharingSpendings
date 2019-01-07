@@ -8,52 +8,59 @@
 
 import UIKit
 
-class MeetingManagementModuleViewController: UIViewController, MeetingManagementModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet weak var ItemsLabel: UILabel!
-    @IBOutlet weak var PeopleLabel: UILabel!
-    @IBOutlet weak var SettleUpButton: UIButton!
-    @IBOutlet weak var itemsTable: UITableView!
-    @IBOutlet weak var MessageLabel: UILabel!
-    @IBOutlet weak var peopleTable: UITableView!
+class MeetingManagementModuleViewController: UIViewController, MeetingManagementModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    var itemsTable = UITableView(frame: .zero)
+    var peopleTable = UITableView(frame: .zero)
+    var debtsTable = UITableView(frame: .zero)
     @IBOutlet weak var meetingNameLabel: UILabel!
-    @IBOutlet weak var addItemButton: UIButton!
     
+    var highlightBar = UIView(frame: .zero)
+    var highligthBarLeftAnchor: NSLayoutConstraint?
+    var collection: UICollectionView?
+    var layout: UICollectionViewFlowLayout?
+    var peopleButton = UIButton()
+    var itemsButton = UIButton()
+    var settlementButton = UIButton()
+    var addButton = UIButton()
+    let closeEventButton = UIButton(frame: .zero)
+    let fromLabel = UILabel(frame: .zero)
+    let howMuchLabel = UILabel(frame: .zero)
+    let toLabel = UILabel(frame: .zero)
+
     var presenter: MeetingManagementModulePresenterProtcol?
     var personSectionData: [(Person, Double)]?
     var itemSectionData: [Item]?
-
+    var debtsSectionData: [Debt]?
+    var presentedSection: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     //    presenter?.ViewWillAppear()
         
-        peopleTable.delegate = self
-        peopleTable.dataSource = self
-        itemsTable.delegate = self
-        itemsTable.dataSource = self
-
-        ItemsLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
-        PeopleLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
-        meetingNameLabel.font = EsteticsModel.titleLabelFont
-        meetingNameLabel.textColor = EsteticsModel.titleLabelTextColor
-        
-      //  SettleUpButton.translatesAutoresizingMaskIntoConstraints = true
-     //   SettleUpButton.frame = CGRect(x: SettleUpButton.frame.minX, y: SettleUpButton.frame.minY, width: SettleUpButton.frame.width, height: TableViewModel.cellHeight)
-       // SettleUpButton.frame = .zero
-        // Do any additional setup after loading the view.
+        SetupView()
     }
     override func viewWillAppear(_ animated: Bool) {
         presenter?.ViewWillAppear()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        peopleTable.reloadData()
-    }
-    
-    func SetMessageLabel(message: String) {
-        MessageLabel.text = message
-        MessageLabel.textColor = EsteticsModel.messageLabelTextColor
+        let sectionBeforeRotation = presentedSection
+        self.collection?.reloadData()
+//        self.collection?.scrollToItem(at: IndexPath(row: self.presentedSection, section: 0), at: [], animated: true)
+
+//        layout?.invalidateLayout()
+//
+//        for cell in (collection?.visibleCells)!{
+//            cell.setNeedsLayout()
+//        }
+//        super.viewWillTransition(to: size, with: coordinator)
+//        coordinator.animate(alongsideTransition: nil) { (_) in
+//            self.collection?.scrollToItem(at: IndexPath(row: self.presentedSection, section: 0), at: [], animated: true)
+//        }
+        DispatchQueue.main.async {
+            self.collection?.scrollToItem(at: IndexPath(row: sectionBeforeRotation, section: 0), at: [], animated: true)
+        }
     }
     
     func ShowPopUp(_with message: String){
@@ -61,25 +68,21 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
         
-        self.present(popUp, animated: true) {
-        }
-        
+        self.present(popUp, animated: true) {}
     }
 
     func SetMeetingName(name: String){
         meetingNameLabel.text = name
         meetingNameLabel.textColor = EsteticsModel.titleLabelTextColor
-        
     }
     
     func SetAddItemButton(isEnabled: Bool){
-        addItemButton.isEnabled = isEnabled
+        addButton.isEnabled = isEnabled
     }
     
-    func SetSettleUpButton(isEnabled: Bool){
-        SettleUpButton.isEnabled = isEnabled
+    func AddButtonIsVisible(isVisible: Bool) {
+        addButton.isHidden = !isVisible
     }
-
     
     // -----------------------------------TableView section-------------------------------
     
@@ -97,79 +100,71 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(tableView == peopleTable){
+            if personSectionData?.count == 0{
+                return 1
+            }
             return personSectionData!.count
         }
         else{
-            return itemSectionData!.count
+            if tableView == itemsTable{
+                return itemSectionData!.count
+            }
+            else{
+                return debtsSectionData!.count
+            }
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         if(tableView == peopleTable){
-
-            cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
-            let myCell = cell as! PersonTableViewCell
-            myCell.textLabel?.text = personSectionData![indexPath.row].0.name
-            myCell.textLabel?.textColor = EsteticsModel.inCellTextColor
-            myCell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
-            myCell.SetBalance(balance: personSectionData![indexPath.row].1)
-            
+            if personSectionData?.count == 0{
+                cell.textLabel?.text = "Add some participants"
+                cell.textLabel?.textColor = EsteticsModel.placeholderTextColor
+                cell.backgroundColor = .clear
+                cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+            }
+            else{
+                cell = PersonTableViewCell()
+                if let myCell = cell as? PersonTableViewCell{
+                    myCell.SetUpCell(name: personSectionData![indexPath.row].0.name!)
+                    myCell.SetBalance(balance: personSectionData![indexPath.row].1)
+                }
+            }
         }
         else{
-    
-            cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as UITableViewCell
-            cell.textLabel?.textColor = EsteticsModel.inCellTextColor
-            cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
-
-            cell.textLabel?.text = itemSectionData![indexPath.row].name
-            
+            if tableView == itemsTable{
+                cell.textLabel?.textColor = EsteticsModel.inCellTextColor
+                cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+                
+                cell.textLabel?.text = itemSectionData![indexPath.row].name
+            }
+            else{
+                if debtsSectionData?.count == 0{
+                    
+                }
+                else{
+                    cell = debtCell()
+                    if let myCell = cell as? debtCell{
+                        myCell.SetDebt(debt: debtsSectionData![indexPath.row])
+                    }
+                    
+                }
+            }
         }
+        cell.backgroundColor = .clear
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(tableView == peopleTable){
-            presenter?.PersonClicked(person: personSectionData![indexPath.row].0)
+            if personSectionData?.count != 0{
+                presenter?.PersonClicked(person: personSectionData![indexPath.row].0)
+            }
         }
         if(tableView == itemsTable){
             presenter?.ItemClicked(item: itemSectionData![indexPath.row])
         }
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let edit = UIContextualAction(style: .normal, title: "edit") { (edit, view, completionHandler) in
-            if tableView == self.peopleTable {
-                self.presenter?.PersonClicked(person: self.personSectionData![indexPath.row].0)
-            }
-            else{
-                self.presenter?.ItemClicked(item: self.itemSectionData![indexPath.row])
-            }
-            completionHandler(true)
-        }
-        edit.image = #imageLiteral(resourceName: "edit_icon")
-        edit.backgroundColor = EsteticsModel.editButtonBackgroundColor
-        
-        let delete = UIContextualAction(style: .normal, title: "delete") { (delete, view, completionHandler) in
-            if tableView == self.peopleTable {
-                self.presenter?.DeletePersonClicked(person: self.personSectionData![indexPath.row].0)
-            }
-            else{
-                self.presenter?.DeleteItemClicked(item: self.itemSectionData![indexPath.row])
-            }
-            completionHandler(true)
-        }
-        delete.image = #imageLiteral(resourceName: "delete_icon")
-        delete.backgroundColor = EsteticsModel.deleteButtonBackgroungColor
-        
-        let configuration = UISwipeActionsConfiguration(actions: [delete])
-        configuration.performsFirstActionWithFullSwipe = false
-
-        return configuration
     }
     
     func SetTableData(people: [(Person, Double)], items: [Item]) {
@@ -178,24 +173,83 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
         peopleTable.reloadData()
         itemsTable.reloadData()
     }
-
-
+    
+    func SetDebtsData(debts: [Debt]) {
+        debtsSectionData = debts
+        debtsTable.reloadData()
+    }
+    // ---------------------------------- Collection view section --------------------------------
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+       // let cell = UICollectionViewCell()
+        let subviews = cell.subviews
+        for subview in subviews{
+            subview.removeFromSuperview()
+        }
+        if indexPath.row == 0{
+            
+            cell.addSubview(peopleTable)
+            peopleTable.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+            peopleTable.backgroundColor = .clear
+        }
+        else{
+            if indexPath.row == 1{
+                cell.addSubview(itemsTable)
+                itemsTable.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+                itemsTable.backgroundColor = .clear
+            }
+            else{
+                SetupSettlementCell(cell: cell)
+            }
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: collectionView.frame.height)
+    }
+    
+    func ScrollToSection(index: Int) {
+        collection?.scrollToItem(at: IndexPath(item: index, section: 0), at: [], animated: true)
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == collection{
+            highligthBarLeftAnchor!.constant = scrollView.contentOffset.x/3
+            let visibleRect = CGRect(origin: collection!.contentOffset, size: collection!.bounds.size)
+            let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+            let visibleIndexPath = collection!.indexPathForItem(at: visiblePoint)
+            presentedSection = (visibleIndexPath?.row)!
+            presenter?.SetPresentedSection(toIndex: presentedSection)
+        }
+    }
 }
 
 extension MeetingManagementModuleViewController{
-    @IBAction func SettleUpButtonClicked(_ sender: Any) {
-        presenter?.SettleUpButtonClicked()
-    }
-
     @IBAction func BackButtonClicked(_ sender: Any) {
         presenter?.BackButtonClicked()
     }
     
-    @IBAction func AddPersonClicked(_ sender: Any) {
-        presenter?.AddPersonClicked()
+    @objc func PeopleButtonClick(sender: UIButton){
+        presenter?.PeopleButtonClicked()
     }
     
-    @IBAction func AddItemClicked(_ sender: Any) {
-        presenter?.AddItemClicked()
+    @objc func ItemsButtonClick(sender: UIButton){
+        presenter?.ItemsButtonClicked()
+    }
+    @objc func SettlementButtonClick(sender: UIButton){
+        presenter?.SettlementButtonClicked()
+    }
+    
+    @objc func AddButtonClick(sender: UIButton){
+        presenter?.AddButtonClicked()
+    }
+    
+    @objc func CloseEventButtonClick(){
+        presenter?.CloseEventButtonClicked()
     }
 }

@@ -9,6 +9,46 @@
 import Foundation
 
 class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol{
+    func CloseEventButtonClicked() {
+        
+    }
+    
+    func SetPresentedSection(toIndex: Int) {
+        presentedSection = toIndex
+    }
+    
+    func AddButtonClicked() {
+        if(presentedSection == 0){
+            router?.NewPersonClicked(meeting: meeting!)
+        }
+        else{
+            router?.NewItemButtonClicked(meeting: meeting!)
+        }
+    }
+    
+    func PeopleButtonClicked() {
+        view?.ScrollToSection(index: 0)
+    }
+    
+    func ItemsButtonClicked() {
+        view?.ScrollToSection(index: 1)
+    }
+    
+    func SettlementButtonClicked() {
+        view?.ScrollToSection(index: 2)
+    }
+    
+    var presentedSection: Int = 0 {
+        didSet{
+            if presentedSection == 2{
+                view?.AddButtonIsVisible(isVisible: false)
+            }
+            else{
+                view?.AddButtonIsVisible(isVisible: true)
+                view?.SetAddItemButton(isEnabled: !(people?.count == 0 && presentedSection == 1))
+            }
+        }
+    }
     var items = [Item]()
 
     func ViewWillAppear() {
@@ -24,26 +64,25 @@ class MeetingManagementModulePresenter : MeetingManagementModulePresenterProtcol
             }
         }
         
-        if(meeting?.peopleAttending?.count == 0){
-            view?.SetAddItemButton(isEnabled: false)
-        }
-        else{
-            view?.SetAddItemButton(isEnabled: true)
-        }
+//        if(meeting?.peopleAttending?.count == 0){
+//            view?.SetAddItemButton(isEnabled: false)
+//        }
+//        else{
+//            view?.SetAddItemButton(isEnabled: true)
+//        }
         var doesAnyDebtExist = false
         for tuple in people!{
             if tuple.1 != 0{
                 doesAnyDebtExist = true
             }
         }
-        
-        if((meeting?.peopleAttending?.count)! > 1 && items.count > 0 && doesAnyDebtExist){
-            view?.SetSettleUpButton(isEnabled: true)
+        if doesAnyDebtExist{
+            view?.SetDebtsData(debts: (meeting?.CalculateDebts(balances: people!))!)
         }
         else{
-            view?.SetSettleUpButton(isEnabled: false)
+            view?.SetDebtsData(debts: [Debt]())
         }
-        
+
         view?.SetTableData(people: people!, items: items)
     }
     

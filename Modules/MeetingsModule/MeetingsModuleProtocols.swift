@@ -10,6 +10,8 @@ import Foundation
 
 protocol MeetingsModuleViewControllerProtocol {
     func SetTableData(meetings: [Meeting])
+    func ScrollToSection(index: Int)
+
 }
 
 protocol MeetingsModulePresenterProtocol {
@@ -17,4 +19,5 @@ protocol MeetingsModulePresenterProtocol {
     func AddMeetingClicked()
     func MeetingClicked(index: Int)
     func DeleteMeetingClicked(index: Int)
+    func SectionButtonClicked(sectionIndex: Int)
 }

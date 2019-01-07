@@ -88,7 +88,12 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
 
 extension NewPersonModuleViewController{ // Button click methods section
     @IBAction func ConformButtonClicked(_ sender: Any) {
-        presenter?.ConfirmButtonClicked()
+        if nameTextField.text == ""{
+            presenter?.InvalidInput()
+        }
+        else{
+            presenter?.ConfirmButtonClicked()
+        }
     }
     
     @IBAction func AddButtonClicked(_ sender: Any) {

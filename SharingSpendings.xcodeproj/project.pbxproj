@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE10C68621B818730076AA3D /* PaidByPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */; };
+		CE1BEEF321DE31F200B9961B /* MeetingManagementViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BEEF221DE31F200B9961B /* MeetingManagementViewControllerSetup.swift */; };
+		CE3E6FDF21E3A1DF00F07541 /* MeetingsModuleViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E6FDE21E3A1DF00F07541 /* MeetingsModuleViewControllerSetup.swift */; };
 		CE45AB092133E7B300A45856 /* NewPersonModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB082133E7B300A45856 /* NewPersonModuleProtocols.swift */; };
 		CE45AB0B2133E7C300A45856 /* NewPersonModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0A2133E7C300A45856 /* NewPersonModulePresenter.swift */; };
 		CE45AB0D2133E7D400A45856 /* NewPersonModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0C2133E7D400A45856 /* NewPersonModuleViewController.swift */; };
@@ -46,10 +48,10 @@
 		CEB7340A21B169C7007C2123 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7340921B169C7007C2123 /* Checkbox.swift */; };
 		CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24075219463C4006CC029 /* RoutingProtocols.swift */; };
 		CEC24078219466A2006CC029 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24077219466A2006CC029 /* DataManager.swift */; };
+		CEDBBB6B21C934F200461F61 /* DebtData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBBB6A21C934F200461F61 /* DebtData.swift */; };
 		CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D0C20F7A071005B5FAF /* ItemData.swift */; };
 		CEE46AA52188B13200A36AA0 /* debtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE46AA42188B13200A36AA0 /* debtCell.swift */; };
 		CEEEA93E219C22B200F4FFE9 /* EsteticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */; };
-		CEEEA940219C581F00F4FFE9 /* AddItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEA93F219C581F00F4FFE9 /* AddItemCell.swift */; };
 		CEF4444F213E81D5009C6DC5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF4444D213E81B0009C6DC5 /* CoreData.framework */; };
 		CEF44452213E8212009C6DC5 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEF44450213E8212009C6DC5 /* DataModel.xcdatamodeld */; };
 		CEFFF0FC21C13ED600C86CAA /* ErrorPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFFF0FB21C13ED600C86CAA /* ErrorPopUp.swift */; };
@@ -57,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidByPopUpViewController.swift; sourceTree = "<group>"; };
+		CE1BEEF221DE31F200B9961B /* MeetingManagementViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingManagementViewControllerSetup.swift; sourceTree = "<group>"; };
+		CE3E6FDE21E3A1DF00F07541 /* MeetingsModuleViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsModuleViewControllerSetup.swift; sourceTree = "<group>"; };
 		CE45AB082133E7B300A45856 /* NewPersonModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonModuleProtocols.swift; sourceTree = "<group>"; };
 		CE45AB0A2133E7C300A45856 /* NewPersonModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonModulePresenter.swift; sourceTree = "<group>"; };
 		CE45AB0C2133E7D400A45856 /* NewPersonModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonModuleViewController.swift; sourceTree = "<group>"; };
@@ -97,10 +101,11 @@
 		CEB7340921B169C7007C2123 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		CEC24075219463C4006CC029 /* RoutingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingProtocols.swift; sourceTree = "<group>"; };
 		CEC24077219466A2006CC029 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		CEDBBB6921C9236400461F61 /* DataModel 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 1.1.xcdatamodel"; sourceTree = "<group>"; };
+		CEDBBB6A21C934F200461F61 /* DebtData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtData.swift; sourceTree = "<group>"; };
 		CEDC1D0C20F7A071005B5FAF /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		CEE46AA42188B13200A36AA0 /* debtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debtCell.swift; sourceTree = "<group>"; };
 		CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsteticsModel.swift; sourceTree = "<group>"; };
-		CEEEA93F219C581F00F4FFE9 /* AddItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemCell.swift; sourceTree = "<group>"; };
 		CEF4444D213E81B0009C6DC5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CEF44451213E8212009C6DC5 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		CEFFF0FB21C13ED600C86CAA /* ErrorPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopUp.swift; sourceTree = "<group>"; };
@@ -154,6 +159,7 @@
 				CE4F125F20F5FC0A006EFA97 /* MeetingsModuleProtocols.swift */,
 				CE4F126920F5FC8C006EFA97 /* MeetingsModulePresenter.swift */,
 				CE4F127320F610AB006EFA97 /* MeetingsModuleViewController.swift */,
+				CE3E6FDE21E3A1DF00F07541 /* MeetingsModuleViewControllerSetup.swift */,
 			);
 			path = MeetingsModule;
 			sourceTree = "<group>";
@@ -164,8 +170,9 @@
 				CE4F126120F5FC20006EFA97 /* MeetingManagementModuleProtocols.swift */,
 				CE4F126B20F5FCB3006EFA97 /* MeetingManagementModulePresenter.swift */,
 				CE4F127520F610BF006EFA97 /* MeetingManagementModuleViewController.swift */,
+				CE1BEEF221DE31F200B9961B /* MeetingManagementViewControllerSetup.swift */,
 				CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */,
-				CEEEA93F219C581F00F4FFE9 /* AddItemCell.swift */,
+				CEE46AA42188B13200A36AA0 /* debtCell.swift */,
 			);
 			path = MeetingManagementModule;
 			sourceTree = "<group>";
@@ -267,6 +274,7 @@
 				CEDC1D0C20F7A071005B5FAF /* ItemData.swift */,
 				CE4F127F20F64A2A006EFA97 /* PersonData.swift */,
 				CE4F127D20F64A11006EFA97 /* MeetingData.swift */,
+				CEDBBB6A21C934F200461F61 /* DebtData.swift */,
 				CE88FA8321625A2F0006C4C9 /* EntityDataProtocol.swift */,
 			);
 			path = EntityData;
@@ -278,7 +286,6 @@
 				CEB0E34F2164BA74004810D3 /* MeetingSettlementModuleProtocols.swift */,
 				CEB0E3512164C44D004810D3 /* MeetingSettlementModulePresenter.swift */,
 				CEB0E3532164C48D004810D3 /* MeetingSettlementModuleViewController.swift */,
-				CEE46AA42188B13200A36AA0 /* debtCell.swift */,
 			);
 			path = MeetingSettlementModule;
 			sourceTree = "<group>";
@@ -377,6 +384,7 @@
 				CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */,
 				CE4F126420F5FC2F006EFA97 /* NewMeetingModuleProtocols.swift in Sources */,
 				CE4F127620F610BF006EFA97 /* MeetingManagementModuleViewController.swift in Sources */,
+				CE1BEEF321DE31F200B9961B /* MeetingManagementViewControllerSetup.swift in Sources */,
 				CEC24078219466A2006CC029 /* DataManager.swift in Sources */,
 				CEB0E3542164C48D004810D3 /* MeetingSettlementModuleViewController.swift in Sources */,
 				CE45AB112133E8AB00A45856 /* NewItemModuleProtocols.swift in Sources */,
@@ -394,6 +402,8 @@
 				CE45AB0F2133E89900A45856 /* NewItemModulePresenter.swift in Sources */,
 				CE4F126020F5FC0A006EFA97 /* MeetingsModuleProtocols.swift in Sources */,
 				CEEEA93E219C22B200F4FFE9 /* EsteticsModel.swift in Sources */,
+				CEDBBB6B21C934F200461F61 /* DebtData.swift in Sources */,
+				CE3E6FDF21E3A1DF00F07541 /* MeetingsModuleViewControllerSetup.swift in Sources */,
 				CE4F127820F61132006EFA97 /* NewMeetingModuleViewController.swift in Sources */,
 				CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */,
 				CE45AB132133E8CD00A45856 /* NewItemModuleViewController.swift in Sources */,
@@ -413,7 +423,6 @@
 				CE4F128020F64A2A006EFA97 /* PersonData.swift in Sources */,
 				CEB0E3522164C44D004810D3 /* MeetingSettlementModulePresenter.swift in Sources */,
 				CEADF01221B00FF900D9784E /* Animator.swift in Sources */,
-				CEEEA940219C581F00F4FFE9 /* AddItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,9 +627,10 @@
 		CEF44450213E8212009C6DC5 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CEDBBB6921C9236400461F61 /* DataModel 1.1.xcdatamodel */,
 				CEF44451213E8212009C6DC5 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = CEF44451213E8212009C6DC5 /* DataModel.xcdatamodel */;
+			currentVersion = CEDBBB6921C9236400461F61 /* DataModel 1.1.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
