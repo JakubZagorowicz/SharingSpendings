@@ -23,7 +23,6 @@ class DebtCell: UITableViewCell{
         toLabel.text = debt.to.name
         toLabel.textColor = EsteticsModel.inCellTextColor
         toLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
-
         
         howMuchLabel.text = String(format: EsteticsModel.numberFormat, debt.howMuch)
         howMuchLabel.textColor = EsteticsModel.inCellTextColor
