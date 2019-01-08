@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetingManagementViewController: UIViewController, MeetingManagementViewControllerProtocol, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MeetingManagementViewController: UIViewController, MeetingManagementViewControllerProtocol, UITableViewDelegate, UITableViewDataSource{
 
     var itemsTable = UITableView(frame: .zero)
     var peopleTable = UITableView(frame: .zero)
@@ -51,7 +51,7 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         }
     }
     
-    func showPopUp(_with message: String){
+    func showMessagePopUp(message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
@@ -136,7 +136,6 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
                     if let myCell = cell as? DebtCell{
                         myCell.setDebt(debt: debtsSectionData![indexPath.row])
                     }
-                    
                 }
             }
         }
@@ -167,8 +166,33 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         debtsSectionData = debts
         debtsTable.reloadData()
     }
+
+    @IBAction func backButtonClicked(_ sender: Any) {
+        presenter?.backButtonClicked()
+    }
     
-    // ---------------------------------- Collection view section --------------------------------
+    @objc func peopleButtonClick(sender: UIButton){
+        presenter?.peopleButtonClicked()
+    }
+    
+    @objc func itemsButtonClicked(sender: UIButton){
+        presenter?.itemsButtonClicked()
+    }
+    
+    @objc func settlementButtonClicked(sender: UIButton){
+        presenter?.settlementButtonClicked()
+    }
+    
+    @objc func addButtonClicked(sender: UIButton){
+        presenter?.addButtonClicked()
+    }
+    
+    @objc func closeEventButtonClicked(){
+        presenter?.closeEventButtonClicked()
+    }
+}
+
+extension MeetingManagementViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -216,31 +240,5 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
             presentedSection = (visibleIndexPath?.row)!
             presenter?.setPresentedSection(toIndex: presentedSection)
         }
-    }
-}
-
-extension MeetingManagementViewController{
-    @IBAction func backButtonClicked(_ sender: Any) {
-        presenter?.backButtonClicked()
-    }
-    
-    @objc func peopleButtonClick(sender: UIButton){
-        presenter?.peopleButtonClicked()
-    }
-    
-    @objc func itemsButtonClicked(sender: UIButton){
-        presenter?.itemsButtonClicked()
-    }
-    
-    @objc func settlementButtonClicked(sender: UIButton){
-        presenter?.settlementButtonClicked()
-    }
-    
-    @objc func addButtonClicked(sender: UIButton){
-        presenter?.addButtonClicked()
-    }
-    
-    @objc func closeEventButtonClicked(){
-        presenter?.closeEventButtonClicked()
     }
 }

@@ -28,6 +28,6 @@ class NewMeetingPresenter : NewMeetingPresenterProtocol{
     }
     
     func invalidNameProvided(){
-        view?.showPopUp(_with: "Enter meeting name")
+        view?.showMessagePopUp(message: "Enter meeting name")
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol, UITextFieldDelegate {
+class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var AddButton: UIButton!
@@ -71,22 +71,8 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
         }
 
     }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 14
-        let currentString: NSString = textField.text! as NSString
-        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        
-        return false
-    }
-}
 
-extension NewPersonViewController{ // Button click methods section
+    
     @IBAction func ConformButtonClicked(_ sender: Any) {
         if nameTextField.text == ""{
             presenter?.invalidInput()
@@ -104,7 +90,24 @@ extension NewPersonViewController{ // Button click methods section
             presenter?.addButtonClicked()
         }
     }
+    
     @IBAction func BackButtonClicked(_ sender: Any) {
         presenter?.backButtonClicked()
+    }
+}
+
+extension NewPersonViewController : UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 14
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        
+        return false
     }
 }

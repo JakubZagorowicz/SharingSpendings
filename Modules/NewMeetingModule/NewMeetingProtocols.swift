@@ -10,8 +10,7 @@ import Foundation
 
 protocol NewMeetingViewControllerProtocol {
     func getTextFieldData() -> String
-    func setMessageLabel(message: String)
-    func showPopUp(_with message: String)
+    func showMessagePopUp(message: String)
 }
 
 protocol NewMeetingPresenterProtocol {

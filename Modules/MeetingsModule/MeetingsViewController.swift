@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
     var presenter: MeetingsPresenterProtocol?
     var meetings: [Meeting]?
@@ -42,7 +42,6 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,U
         super.viewDidLoad()
         
         setupView()
-    //    presenter?.ViewWillAppear()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -158,11 +157,31 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,U
                 tablesTable[presentedSection].cellForRow(at: indexPath)
                 presenter?.cellLongPress(section: presentedSection, row: indexPath.row)
             }
-
         }
     }
     
-//--------------------- collection view section -------------------------
+    @objc func addButtonClicked(sender: UIButton) {
+        presenter?.addMeetingClicked()
+    }
+    
+    @objc func sectionButtonClicked(sender: UIButton){
+        let index: Int
+        if sender == activeSectionButton{
+            index = 0
+        }
+        else{
+            if sender == closedSectionButton{
+                index = 1
+            }
+            else{
+                index = 2
+            }
+        }
+        presenter?.sectionButtonClicked(sectionIndex: index)
+    }
+}
+
+extension MeetingsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -207,33 +226,6 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,U
             let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
             let visibleIndexPath = collection!.indexPathForItem(at: visiblePoint)
             presentedSection = (visibleIndexPath?.row)!
-//            presenter?.SetPresentedSection(toIndex: presentedSection)
         }
-    }
-}
-
-extension MeetingsViewController{ // Button clicks handling methods
-    @objc func addButtonClicked(sender: UIButton) {
-        presenter?.addMeetingClicked()
-    }
-    
-    @IBAction func deleteButtonClicked(_ sender: Any) {
-
-    }
-    
-    @objc func sectionButtonClicked(sender: UIButton){
-        let index: Int
-        if sender == activeSectionButton{
-            index = 0
-        }
-        else{
-            if sender == closedSectionButton{
-                index = 1
-            }
-            else{
-                index = 2
-            }
-        }
-        presenter?.sectionButtonClicked(sectionIndex: index)
     }
 }

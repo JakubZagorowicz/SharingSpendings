@@ -36,18 +36,12 @@ class NewMeetingViewController: UIViewController, NewMeetingViewControllerProtoc
         return nameTextField.text!
     }
     
-    func setMessageLabel(message: String) {
-        messageLabel.text = message
-    }
-    
-    func showPopUp(_with message: String){
+    func showMessagePopUp(message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
         
-        self.present(popUp, animated: true) {
-        }
-        
+        self.present(popUp, animated: true) {}
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -63,7 +57,7 @@ class NewMeetingViewController: UIViewController, NewMeetingViewControllerProtoc
     }
 }
 
-extension NewMeetingViewController{ // Button clicks handling methods
+extension NewMeetingViewController{
     @IBAction func backButtonClicked(_ sender: Any) {
         presenter?.backButtonClicked()
     }
@@ -77,7 +71,6 @@ extension NewMeetingViewController{ // Button clicks handling methods
         }
     }
 }
-
 
 extension UIViewController {
     func hideKeyboardOnTapOutside(){

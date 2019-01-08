@@ -10,12 +10,10 @@ import Foundation
 //import CoreData
 
 class NewItemPresenter: NewItemPresenterProtocol {
-    
     var view: NewItemViewControllerProtocol?
     var router: BackableProtocol?
     var meeting: Meeting?
     
-  //  var people: [Person]?
     var item: Item?
     
     func viewWillAppear() {
@@ -28,8 +26,7 @@ class NewItemPresenter: NewItemPresenterProtocol {
     }
     
     func invalidInput(error: itemAdditionError){
-//        view?.SetMessageLabel(message: error.GetErrorMessage())
-        view?.showPopUp(_with: error.GetErrorMessage())
+        view?.showErrorPopUp(_with: error.GetErrorMessage())
     }
     
     func addButtonClicked() {
@@ -41,7 +38,6 @@ class NewItemPresenter: NewItemPresenterProtocol {
         catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-
         router?.back()
     }
     
@@ -53,12 +49,11 @@ class NewItemPresenter: NewItemPresenterProtocol {
         }
         catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
-            
         }
         router?.back()
     }
+    
     func backButtonClicked() {
         router?.back()
     }
-
 }

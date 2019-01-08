@@ -9,13 +9,12 @@
 import Foundation
 
 protocol NewItemViewControllerProtocol {
-    func setMessageLabel(message: String)
     func setPeopleData(people: [Person])
     func updateMessage(message: String)
     func fillWithItemData(item: Item)
     func getItemData()-> ItemData
     func switchButtons()
-    func showPopUp(_with message: String)
+    func showErrorPopUp(_with message: String)
     func setTitle(title: String)
 }
 

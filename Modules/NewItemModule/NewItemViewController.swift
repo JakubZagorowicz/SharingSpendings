@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewItemViewController: UIViewController, NewItemViewControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -102,22 +102,16 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol, UI
         return status
     }
     
-    func setMessageLabel(message: String){
-        messageLabel.text = message
-    }
-    
     func setTitle(title: String){
         titleLabel.text = title
     }
     
-    func showPopUp(_with message: String){
+    func showErrorPopUp(_with message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
         
-        self.present(popUp, animated: true) {
-        }
-        
+        self.present(popUp, animated: true) {}
     }
     
     func getItemData() -> ItemData {
@@ -128,72 +122,6 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol, UI
         
         return itemData
     }
-    
-    //--------------------------------Text field section---------------------------------
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 20
-        let currentString: NSString = textField.text! as NSString
-        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-        var allowedCharacters = CharacterSet.alphanumerics
-        
-        if textField == priceTextField{
-            allowedCharacters = CharacterSet.decimalDigits
-            allowedCharacters.insert(charactersIn: ".")
-        }
-        return newString.length <= maxLength && allowedCharacters.isSuperset(of: CharacterSet(charactersIn: newString as String))
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        
-        return false
-    }
-    
-    //---------------------------------Table view section--------------------------------
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (eventMembers?.count)!
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return TableViewModel.cellHeight
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView(frame: .zero)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! CheckboxCell
-        cell.textLabel?.text = eventMembers![indexPath.row].name
-        cell.textLabel?.textColor = EsteticsModel.inCellTextColor
-        cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
-        cell.selectionStyle = .none
-    //    cell.usedBySwitch.isOn = usedBy.contains(people![indexPath.row])
-        cell.usedByCheckbox.isChecked = usersList.contains(eventMembers![indexPath.row])
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! CheckboxCell
-        cell.usedByCheckbox.isChecked = !cell.usedByCheckbox.isChecked
-        if cell.usedByCheckbox.isChecked{
-            usersList.append(eventMembers![indexPath.row])
-        }
-        else{
-            let upperBound = usersList.count-1
-            for i in stride(from: upperBound, to: -1, by: -1){
-                if usersList[i] == eventMembers![indexPath.row]{
-                    usersList.remove(at: i)
-                }
-            }
-        }
-        
-    }
-    
-    //----------------------------------Checkbox section--------------------------------
     
     @IBAction func checkboxValueChanged(_ sender: Any) {
         let sender = sender as! Checkbox
@@ -238,17 +166,13 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol, UI
         
         messageLabel.textColor = EsteticsModel.messageLabelTextColor
     }
-}
-
-extension NewItemViewController{// Button clicks handling methods
     
     @IBAction func paidBySpaceTapped(_ sender: Any) {
         let popOverVC = PaidByPopUpViewController()
         popOverVC.tableViewData = eventMembers
         popOverVC.delegate = self
         popOverVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(popOverVC, animated: true) {
-        }
+        self.present(popOverVC, animated: true) {}
     }
     
     @IBAction func addButtonClicked(_ sender: Any) {
@@ -265,5 +189,67 @@ extension NewItemViewController{// Button clicks handling methods
     
     @IBAction func backButtonClicked(_ sender: Any) {
         presenter?.backButtonClicked()
+    }
+}
+
+extension NewItemViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (eventMembers?.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return TableViewModel.cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: .zero)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! CheckboxCell
+        cell.textLabel?.text = eventMembers![indexPath.row].name
+        cell.textLabel?.textColor = EsteticsModel.inCellTextColor
+        cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        cell.selectionStyle = .none
+        cell.usedByCheckbox.isChecked = usersList.contains(eventMembers![indexPath.row])
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! CheckboxCell
+        cell.usedByCheckbox.isChecked = !cell.usedByCheckbox.isChecked
+        if cell.usedByCheckbox.isChecked{
+            usersList.append(eventMembers![indexPath.row])
+        }
+        else{
+            let upperBound = usersList.count-1
+            for i in stride(from: upperBound, to: -1, by: -1){
+                if usersList[i] == eventMembers![indexPath.row]{
+                    usersList.remove(at: i)
+                }
+            }
+        }
+    }
+}
+
+extension NewItemViewController : UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 20
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+        var allowedCharacters = CharacterSet.alphanumerics
+        
+        if textField == priceTextField{
+            allowedCharacters = CharacterSet.decimalDigits
+            allowedCharacters.insert(charactersIn: ".")
+        }
+        return newString.length <= maxLength && allowedCharacters.isSuperset(of: CharacterSet(charactersIn: newString as String))
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        
+        return false
     }
 }

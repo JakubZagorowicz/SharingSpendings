@@ -139,11 +139,11 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
                 viewWillAppear()
             }
             else{
-                view?.showPopUp(_with: "Can't delete person, who is the only user of \(blockingItem.name!), and didn't pay for it.")
+                view?.showMessagePopUp(message: "Can't delete person, who is the only user of \(blockingItem.name!), and didn't pay for it.")
             }
         }
         else{
-            view?.showPopUp(_with: "Can't delete person that paid for items.")
+            view?.showMessagePopUp(message: "Can't delete person that paid for items.")
         }
     }
 }

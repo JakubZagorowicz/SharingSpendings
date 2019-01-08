@@ -11,7 +11,7 @@ import Foundation
 protocol MeetingManagementViewControllerProtocol {
     func setTableData(people: [(Person, Double)], items: [Item])
     func setDebtsData(debts: [Debt])
-    func showPopUp(_with message: String)
+    func showMessagePopUp(message: String)
     func setMeetingName(name: String)
     func setAddItemButton(isEnabled: Bool)
     func addButtonIsVisible(isVisible: Bool)
