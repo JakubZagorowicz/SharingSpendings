@@ -31,7 +31,6 @@ class DebtCell: UITableViewCell{
         setLabelsConstraints()
     }
     private func setLabelsConstraints(){
-        
         addSubview(fromLabel)
         fromLabel.translatesAutoresizingMaskIntoConstraints = false
         fromLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
