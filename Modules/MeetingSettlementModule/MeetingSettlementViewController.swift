@@ -87,7 +87,7 @@ class MeetingSettlementViewController: UIViewController, MeetingSettlementViewCo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "debtCell", for: indexPath) as! DebtCell
-        cell.SetDebt(debt: debts![indexPath.row])
+        cell.setDebt(debt: debts![indexPath.row])
 
         return cell
     }

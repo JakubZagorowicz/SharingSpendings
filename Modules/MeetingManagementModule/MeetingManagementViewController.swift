@@ -134,7 +134,7 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
                 else{
                     cell = DebtCell()
                     if let myCell = cell as? DebtCell{
-                        myCell.SetDebt(debt: debtsSectionData![indexPath.row])
+                        myCell.setDebt(debt: debtsSectionData![indexPath.row])
                     }
                     
                 }

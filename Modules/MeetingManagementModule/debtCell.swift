@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class debtCell: UITableViewCell{
+class DebtCell: UITableViewCell{
     
     var fromLabel = UILabel()
     var toLabel = UILabel()
     var howMuchLabel = UILabel()
     
-    func SetDebt(debt: Debt){
+    func setDebt(debt: Debt){
         fromLabel.text = debt.from.name
         fromLabel.textColor = EsteticsModel.inCellTextColor
         fromLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
@@ -29,9 +29,9 @@ class debtCell: UITableViewCell{
         howMuchLabel.textColor = EsteticsModel.inCellTextColor
         howMuchLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
         
-        SetLabelsConstraints()
+        setLabelsConstraints()
     }
-    private func SetLabelsConstraints(){
+    private func setLabelsConstraints(){
         
         addSubview(fromLabel)
         fromLabel.translatesAutoresizingMaskIntoConstraints = false
