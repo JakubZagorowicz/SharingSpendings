@@ -51,6 +51,10 @@ class MeetingsModulePresenter : MeetingsModulePresenterProtocol{
         view?.ScrollToSection(index: sectionIndex)
     }
     
+    func CellLongPress(section: Int, row: Int) {
+        
+    }
+    
     var view: MeetingsModuleViewControllerProtocol?
     var router: MeetingModuleRoutingProtocol?
     

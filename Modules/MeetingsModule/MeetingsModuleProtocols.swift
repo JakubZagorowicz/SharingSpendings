@@ -20,4 +20,5 @@ protocol MeetingsModulePresenterProtocol {
     func MeetingClicked(index: Int)
     func DeleteMeetingClicked(index: Int)
     func SectionButtonClicked(sectionIndex: Int)
+    func CellLongPress(section: Int, row: Int)
 }

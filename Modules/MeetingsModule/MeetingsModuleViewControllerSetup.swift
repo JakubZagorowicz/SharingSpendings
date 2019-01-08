@@ -111,6 +111,16 @@ extension MeetingsModuleViewController{
         collection?.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         collection?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        longPressRecognizer.delegate = self
+        longPressRecognizer.minimumPressDuration = 1.0
+//        activeMeetingsTable.addGestureRecognizer(longPressRecognizer)
+//        closedMeetingsTable.addGestureRecognizer(longPressRecognizer)
+//        settledMeetingsTable.addGestureRecognizer(longPressRecognizer)
+        view.addGestureRecognizer(longPressRecognizer)
+        
+        tablesTable = [activeMeetingsTable, closedMeetingsTable, settledMeetingsTable]
+        
         view.bringSubviewToFront(addButton)
     }
 }

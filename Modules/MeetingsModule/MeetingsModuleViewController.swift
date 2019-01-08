@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControllerProtocol,UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControllerProtocol,UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     var presenter: MeetingsModulePresenterProtocol?
     var meetings: [Meeting]?
@@ -16,6 +16,11 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
     var activeMeetingsTable = UITableView()
     var closedMeetingsTable = UITableView()
     var settledMeetingsTable = UITableView()
+    var tablesTable = [UITableView]()
+    
+    var activeMeetings = [Meeting]()
+    var closedMeetings = [Meeting]()
+    var settledMeetings = [Meeting]()
     
     var activeSectionButton = UIButton()
     var closedSectionButton = UIButton()
@@ -61,26 +66,50 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
     
 //    @IBOutlet weak var meetingsTable: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if meetings?.count == 0{
-            return 1
+        if tableView == activeMeetingsTable{
+            return activeMeetings.count == 0 ? 1 : activeMeetings.count
         }
-        return meetings!.count
+        if tableView == closedMeetingsTable{
+            return closedMeetings.count == 0 ? 1 : closedMeetings.count
+        }
+        if tableView == settledMeetingsTable{
+            return settledMeetings.count == 0 ? 1 : settledMeetings.count
+        }
+        return 0
     }
     
     func SetTableData(meetings: [Meeting]) {
         self.meetings = meetings
-//        meetingsTable.reloadData()
+        SetDataSources()
+        activeMeetingsTable.reloadData()
+        closedMeetingsTable.reloadData()
+        settledMeetingsTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-
-        if meetings?.count == 0{
-            cell.textLabel?.text = "Start by adding an event"
+        var dataSource: [Meeting]
+        var noEventsMessage: String
+        if tableView == activeMeetingsTable{
+            dataSource = activeMeetings
+            noEventsMessage = "There is no active events."
+        }
+        else{
+            if tableView == closedMeetingsTable{
+                dataSource = closedMeetings
+                noEventsMessage = "There is no closed events."
+            }
+            else{
+                dataSource = settledMeetings
+                noEventsMessage = "There is no settled events."
+            }
+        }
+        if dataSource.count == 0{
+            cell.textLabel?.text = noEventsMessage
             cell.textLabel?.textColor = EsteticsModel.placeholderTextColor
         }
         else{
-            cell.textLabel?.text = meetings![indexPath.row].name
+            cell.textLabel?.text = dataSource[indexPath.row].name
             cell.textLabel?.textColor = EsteticsModel.inCellTextColor
         }
         cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
@@ -104,6 +133,34 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TableViewModel.cellHeight
+    }
+    
+    func SetDataSources(){
+        activeMeetings = [Meeting]()
+        closedMeetings = [Meeting]()
+        settledMeetings = [Meeting]()
+        for meeting in meetings!{
+            if meeting.status == "active" || meeting.status == nil{
+                activeMeetings.append(meeting)
+            }
+            if meeting.status == "closed"{
+                closedMeetings.append(meeting)
+            }
+            if meeting.status == "settled"{
+                closedMeetings.append(meeting)
+            }
+        }
+    }
+    
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer){
+        if longPressGestureRecognizer.state == .ended {
+            let touchPoint = longPressGestureRecognizer.location(in: tablesTable[presentedSection])
+            if let indexPath = tablesTable[presentedSection].indexPathForRow(at: touchPoint){
+                tablesTable[presentedSection].cellForRow(at: indexPath)
+                presenter?.CellLongPress(section: presentedSection, row: indexPath.row)
+            }
+
+        }
     }
     
 //--------------------- collection view section -------------------------
