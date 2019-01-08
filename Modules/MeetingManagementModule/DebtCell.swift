@@ -1,9 +1,9 @@
 //
-//  debtCell.swift
+//  DebtCell.swift
 //  SharingSpendings
 //
-//  Created by User on 30.10.2018.
-//  Copyright © 2018 Jakub Zagórowicz. All rights reserved.
+//  Created by User on 08.01.2019.
+//  Copyright © 2019 Jakub Zagórowicz. All rights reserved.
 //
 
 import Foundation
@@ -31,7 +31,6 @@ class DebtCell: UITableViewCell{
         setLabelsConstraints()
     }
     private func setLabelsConstraints(){
-        
         addSubview(fromLabel)
         fromLabel.translatesAutoresizingMaskIntoConstraints = false
         fromLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true

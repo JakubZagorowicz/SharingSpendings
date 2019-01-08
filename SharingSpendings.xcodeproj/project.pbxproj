@@ -31,6 +31,7 @@
 		CE4F127E20F64A11006EFA97 /* MeetingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127D20F64A11006EFA97 /* MeetingData.swift */; };
 		CE4F128020F64A2A006EFA97 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127F20F64A2A006EFA97 /* PersonData.swift */; };
 		CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */; };
+		CE58A50521E4FE71009988F1 /* DebtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58A50421E4FE71009988F1 /* DebtCell.swift */; };
 		CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */; };
 		CE7B4D9920F49A7E005FCBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9720F49A7E005FCBEB /* Main.storyboard */; };
 		CE7B4D9B20F49A80005FCBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		CE4F127D20F64A11006EFA97 /* MeetingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingData.swift; sourceTree = "<group>"; };
 		CE4F127F20F64A2A006EFA97 /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		CE58A50421E4FE71009988F1 /* DebtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtCell.swift; sourceTree = "<group>"; };
 		CE7B4D9020F49A7E005FCBEB /* SharingSpendings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingSpendings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7B4D9820F49A7E005FCBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				CE4F127520F610BF006EFA97 /* MeetingManagementViewController.swift */,
 				CE1BEEF221DE31F200B9961B /* MeetingManagementViewControllerSetup.swift */,
 				CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */,
+				CE58A50421E4FE71009988F1 /* DebtCell.swift */,
 			);
 			path = MeetingManagementModule;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */,
 				CE4F126C20F5FCB3006EFA97 /* MeetingManagementPresenter.swift in Sources */,
 				CE4F127E20F64A11006EFA97 /* MeetingData.swift in Sources */,
+				CE58A50521E4FE71009988F1 /* DebtCell.swift in Sources */,
 				CEA75D572138195600350F84 /* DataController.swift in Sources */,
 				CE88FA8421625A2F0006C4C9 /* EntityDataProtocol.swift in Sources */,
 				CEB0E3502164BA75004810D3 /* MeetingSettlementProtocols.swift in Sources */,
