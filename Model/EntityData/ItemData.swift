@@ -30,6 +30,6 @@ struct ItemData: EntityDataProtocol{
 //        attributes.append(("buyer", buyer))
         self.usedBy = usedBy
 //        attributes.append(("usedBy", usedBy))
-        AssignAttributes()
+        assignAttributes()
     }
 }

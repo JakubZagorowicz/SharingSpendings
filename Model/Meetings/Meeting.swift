@@ -9,7 +9,7 @@
 import Foundation
 
 extension Meeting {
-    func CalculateDebts(balances: [(Person, Double)]) -> [Debt]{
+    func calculateDebts(balances: [(Person, Double)]) -> [Debt]{
         var balances = balances
         var debts = [Debt]()
         var maxDebt: Double = 0
@@ -80,7 +80,7 @@ extension Meeting {
 
         return debts
     }
-    func CalculateBalance() -> [(Person, Double)]{
+    func calculateBalance() -> [(Person, Double)]{
         var balanceArray = [(Person, Double)]()
         var balance: Double
         

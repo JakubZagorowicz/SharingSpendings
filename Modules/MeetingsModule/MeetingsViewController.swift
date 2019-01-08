@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControllerProtocol,UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
-    var presenter: MeetingsModulePresenterProtocol?
+    var presenter: MeetingsPresenterProtocol?
     var meetings: [Meeting]?
     
     var activeMeetingsTable = UITableView()
@@ -41,12 +41,12 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SetupView()
+        setupView()
     //    presenter?.ViewWillAppear()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        presenter?.ViewWillAppear()
+        presenter?.viewWillAppear()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +64,6 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
     
     //------------------------------------Table view section--------------------------------
     
-//    @IBOutlet weak var meetingsTable: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == activeMeetingsTable{
             return activeMeetings.count == 0 ? 1 : activeMeetings.count
@@ -78,9 +77,9 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
         return 0
     }
     
-    func SetTableData(meetings: [Meeting]) {
+    func setTableData(meetings: [Meeting]) {
         self.meetings = meetings
-        SetDataSources()
+        setDataSources()
         activeMeetingsTable.reloadData()
         closedMeetingsTable.reloadData()
         settledMeetingsTable.reloadData()
@@ -127,7 +126,7 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.row != meetings?.count){
-            presenter?.MeetingClicked(index: indexPath.row)
+            presenter?.meetingClicked(index: indexPath.row)
         }
     }
     
@@ -135,7 +134,7 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
         return TableViewModel.cellHeight
     }
     
-    func SetDataSources(){
+    func setDataSources(){
         activeMeetings = [Meeting]()
         closedMeetings = [Meeting]()
         settledMeetings = [Meeting]()
@@ -157,7 +156,7 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
             let touchPoint = longPressGestureRecognizer.location(in: tablesTable[presentedSection])
             if let indexPath = tablesTable[presentedSection].indexPathForRow(at: touchPoint){
                 tablesTable[presentedSection].cellForRow(at: indexPath)
-                presenter?.CellLongPress(section: presentedSection, row: indexPath.row)
+                presenter?.cellLongPress(section: presentedSection, row: indexPath.row)
             }
 
         }
@@ -198,7 +197,7 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
         return CGSize(width: view.frame.width, height: collectionView.frame.height)
     }
     
-    func ScrollToSection(index: Int) {
+    func scrollToSection(index: Int) {
         collection?.scrollToItem(at: IndexPath(item: index, section: 0), at: [], animated: true)
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -213,16 +212,16 @@ class MeetingsModuleViewController: UIViewController, MeetingsModuleViewControll
     }
 }
 
-extension MeetingsModuleViewController{ // Button clicks handling methods
-    @objc func AddButtonClicked(sender: UIButton) {
-        presenter?.AddMeetingClicked()
+extension MeetingsViewController{ // Button clicks handling methods
+    @objc func addButtonClicked(sender: UIButton) {
+        presenter?.addMeetingClicked()
     }
     
-    @IBAction func DeleteButtonClicked(_ sender: Any) {
+    @IBAction func deleteButtonClicked(_ sender: Any) {
 
     }
     
-    @objc func SectionButtonClicked(sender: UIButton){
+    @objc func sectionButtonClicked(sender: UIButton){
         let index: Int
         if sender == activeSectionButton{
             index = 0
@@ -235,6 +234,6 @@ extension MeetingsModuleViewController{ // Button clicks handling methods
                 index = 2
             }
         }
-        presenter?.SectionButtonClicked(sectionIndex: index)
+        presenter?.sectionButtonClicked(sectionIndex: index)
     }
 }

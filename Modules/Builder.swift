@@ -11,9 +11,9 @@ import UIKit
 
 class Builder {
     
-    static func BuildNewMeetingModule(router: Mothership) -> NewMeetingModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMeetingModuleViewController") as! NewMeetingModuleViewController
-        let presenter = NewMeetingModulePresenter()
+    static func buildNewMeetingModule(router: Mothership) -> NewMeetingViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMeetingModuleViewController") as! NewMeetingViewController
+        let presenter = NewMeetingPresenter()
         
         viewController.presenter = presenter
         
@@ -23,9 +23,9 @@ class Builder {
         return viewController
     }
     
-    static func BuildMeetingsModule(router: Mothership) -> MeetingsModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingsModuleViewController") as! MeetingsModuleViewController
-        let presenter = MeetingsModulePresenter()
+    static func buildMeetingsModule(router: Mothership) -> MeetingsViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingsModuleViewController") as! MeetingsViewController
+        let presenter = MeetingsPresenter()
         
         viewController.presenter = presenter
         
@@ -35,9 +35,9 @@ class Builder {
         return viewController
     }
     
-    static func BuildMeetingManagmentModule(router: Mothership, meeting: Meeting) -> MeetingManagementModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingManagmentModuleViewController") as! MeetingManagementModuleViewController
-        let presenter = MeetingManagementModulePresenter()
+    static func buildMeetingManagmentModule(router: Mothership, meeting: Meeting) -> MeetingManagementViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingManagmentModuleViewController") as! MeetingManagementViewController
+        let presenter = MeetingManagementPresenter()
         
         viewController.presenter = presenter
         
@@ -48,9 +48,9 @@ class Builder {
         return viewController
     }
     
-    static func BuildNewItemModule(router: Mothership, meeting: Meeting) -> NewItemModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewItemModuleViewController") as! NewItemModuleViewController
-        let presenter = NewItemModulePresenter()
+    static func buildNewItemModule(router: Mothership, meeting: Meeting) -> NewItemViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewItemModuleViewController") as! NewItemViewController
+        let presenter = NewItemPresenter()
         
         viewController.presenter = presenter
         
@@ -60,9 +60,9 @@ class Builder {
         
         return viewController
     }
-    static func BuildNewItemModule(router: Mothership, item: Item, meeting: Meeting) -> NewItemModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewItemModuleViewController") as! NewItemModuleViewController
-        let presenter = NewItemModulePresenter()
+    static func buildNewItemModule(router: Mothership, item: Item, meeting: Meeting) -> NewItemViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewItemModuleViewController") as! NewItemViewController
+        let presenter = NewItemPresenter()
         
         viewController.presenter = presenter
         
@@ -74,9 +74,9 @@ class Builder {
         return viewController
     }
     
-    static func BuildNewPersonModule(router: Mothership, meeting: Meeting) -> NewPersonModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPersonModuleViewController") as! NewPersonModuleViewController
-        let presenter = NewPersonModulePresenter()
+    static func buildNewPersonModule(router: Mothership, meeting: Meeting) -> NewPersonViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPersonModuleViewController") as! NewPersonViewController
+        let presenter = NewPersonPresenter()
         
         viewController.presenter = presenter
         
@@ -87,9 +87,9 @@ class Builder {
         return viewController
     }
     
-    static func BuildNewPersonModule(router: Mothership, person: Person, meeting: Meeting) -> NewPersonModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPersonModuleViewController") as! NewPersonModuleViewController
-        let presenter = NewPersonModulePresenter()
+    static func buildNewPersonModule(router: Mothership, person: Person, meeting: Meeting) -> NewPersonViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPersonModuleViewController") as! NewPersonViewController
+        let presenter = NewPersonPresenter()
         
         viewController.presenter = presenter
         
@@ -101,9 +101,9 @@ class Builder {
         return viewController
     }
     
-    static func BuildMeetingSettlementModule(router: Mothership, meeting: Meeting) -> MeetingSettlementModuleViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingSettlementModuleViewController") as! MeetingSettlementModuleViewController
-        let presenter = MeetingSettlementModulePresenter()
+    static func buildMeetingSettlementModule(router: Mothership, meeting: Meeting) -> MeetingSettlementViewController{
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingSettlementModuleViewController") as! MeetingSettlementViewController
+        let presenter = MeetingSettlementPresenter()
         
         viewController.presenter = presenter
         

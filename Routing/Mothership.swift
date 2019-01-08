@@ -13,85 +13,85 @@ class Mothership {
   //  var navigator: UINavigationController?
     var navigator: CustomNavigatorController?
     
-    func InitializeMothership(){
-        let rootVC = Builder.BuildMeetingsModule(router: self)
+    func initializeMothership(){
+        let rootVC = Builder.buildMeetingsModule(router: self)
   //      navigator = UINavigationController(rootViewController: rootVC)
      //   let rootVC = Builder.BuildModule(router: self)
         navigator = CustomNavigatorController(rootViewController: rootVC)
         navigator?.navigationBar.isHidden = true
     }
     
-    func GoToNewMeetingModule(){
-        navigator?.pushViewController(Builder.BuildNewMeetingModule(router: self), animated: true)
+    func goToNewMeetingModule(){
+        navigator?.pushViewController(Builder.buildNewMeetingModule(router: self), animated: true)
     }
     
-    func GoToMeetingManagmentModule(meeting: Meeting){
-       navigator?.pushViewController(Builder.BuildMeetingManagmentModule(router: self, meeting: meeting), animated: true)
+    func goToMeetingManagmentModule(meeting: Meeting){
+       navigator?.pushViewController(Builder.buildMeetingManagmentModule(router: self, meeting: meeting), animated: true)
       //  navigator?.setViewControllers([Builder.BuildMeetingManagmentModule(router: self, meeting: meeting)], animated: true)
     }
     
-    func GoToMeetingsModule(){
+    func goToMeetingsModule(){
         navigator?.popToRootViewController(animated: true)
     }
     
-    func GoToNewItemModule(meeting: Meeting){
-        navigator?.pushViewController(Builder.BuildNewItemModule(router: self,meeting: meeting), animated: true)
+    func goToNewItemModule(meeting: Meeting){
+        navigator?.pushViewController(Builder.buildNewItemModule(router: self,meeting: meeting), animated: true)
     }
     
-    func GoToNewItemModule(item: Item, meeting: Meeting){
-        navigator?.pushViewController(Builder.BuildNewItemModule(router: self,item: item, meeting: meeting), animated: true)
+    func goToNewItemModule(item: Item, meeting: Meeting){
+        navigator?.pushViewController(Builder.buildNewItemModule(router: self,item: item, meeting: meeting), animated: true)
     }
     
-    func GoToNewPersonModule(meeting: Meeting){
-        navigator?.pushViewController(Builder.BuildNewPersonModule(router: self, meeting: meeting), animated: true)
+    func goToNewPersonModule(meeting: Meeting){
+        navigator?.pushViewController(Builder.buildNewPersonModule(router: self, meeting: meeting), animated: true)
     }
     
-    func GoToNewPersonModule(person: Person, meeting: Meeting){
-        navigator?.pushViewController(Builder.BuildNewPersonModule(router: self, person: person, meeting: meeting), animated: true)
+    func goToNewPersonModule(person: Person, meeting: Meeting){
+        navigator?.pushViewController(Builder.buildNewPersonModule(router: self, person: person, meeting: meeting), animated: true)
     }
     
-    func GoToMeetingSettlementModule(meeting: Meeting){
-        navigator?.pushViewController(Builder.BuildMeetingSettlementModule(router: self, meeting: meeting), animated: true)
+    func goToMeetingSettlementModule(meeting: Meeting){
+        navigator?.pushViewController(Builder.buildMeetingSettlementModule(router: self, meeting: meeting), animated: true)
     }
-    func GoBack(){
+    func goBack(){
         navigator?.popViewController(animated: true)
     }
 }
 
-extension Mothership : BackableProtocol{
-    func Back(){
-        GoBack()
+extension Mothership : BackableProtocol{    
+    func back(){
+        goBack()
     }
 }
 extension Mothership : MeetingManagementRoutingProtocol{
 
     
-    func ItemClicked(item: Item, meeting: Meeting) {
-        GoToNewItemModule(item: item, meeting: meeting)
+    func itemClicked(item: Item, meeting: Meeting) {
+        goToNewItemModule(item: item, meeting: meeting)
     }
     
-    func NewItemButtonClicked(meeting: Meeting) {
-        GoToNewItemModule(meeting: meeting)
+    func newItemButtonClicked(meeting: Meeting) {
+        goToNewItemModule(meeting: meeting)
     }
     
-    func PersonClicked(person: Person, meeting: Meeting) {
-        GoToNewPersonModule(person: person, meeting: meeting)
+    func personClicked(person: Person, meeting: Meeting) {
+        goToNewPersonModule(person: person, meeting: meeting)
     }
     
-    func NewPersonClicked(meeting: Meeting) {
-        GoToNewPersonModule(meeting: meeting)
+    func newPersonClicked(meeting: Meeting) {
+        goToNewPersonModule(meeting: meeting)
     }
     
-    func SettleUpButtonClicked(meeting: Meeting) {
-        GoToMeetingSettlementModule(meeting: meeting)
+    func settleUpButtonClicked(meeting: Meeting) {
+        goToMeetingSettlementModule(meeting: meeting)
     }
 }
 
 extension Mothership : MeetingModuleRoutingProtocol{
-    func MeetingClicked(meeting: Meeting) {
-        GoToMeetingManagmentModule(meeting: meeting)
+    func meetingClicked(meeting: Meeting) {
+        goToMeetingManagmentModule(meeting: meeting)
     }
-    func NewMeetingButtonClicked(){
-        GoToNewMeetingModule()
+    func newMeetingButtonClicked(){
+        goToNewMeetingModule()
     }
 }

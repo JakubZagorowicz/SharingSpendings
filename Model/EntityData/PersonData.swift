@@ -26,6 +26,6 @@ struct PersonData: EntityDataProtocol {
         self.meeting = meeting
 //        attributes.append(("name", name))
 //        attributes.append(("meeting", meeting))
-        AssignAttributes()
+        assignAttributes()
     }
 }

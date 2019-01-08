@@ -9,18 +9,18 @@
 import Foundation
 
 protocol BackableProtocol {
-    func Back()
+    func back()
 }
 
 protocol MeetingManagementRoutingProtocol {
-    func ItemClicked(item: Item, meeting: Meeting)
-    func NewItemButtonClicked(meeting: Meeting)
-    func PersonClicked(person: Person, meeting: Meeting)
-    func NewPersonClicked(meeting: Meeting)
-    func SettleUpButtonClicked(meeting: Meeting)
+    func itemClicked(item: Item, meeting: Meeting)
+    func newItemButtonClicked(meeting: Meeting)
+    func personClicked(person: Person, meeting: Meeting)
+    func newPersonClicked(meeting: Meeting)
+    func settleUpButtonClicked(meeting: Meeting)
 }
 
 protocol MeetingModuleRoutingProtocol {
-    func MeetingClicked(meeting: Meeting)
-    func NewMeetingButtonClicked()
+    func meetingClicked(meeting: Meeting)
+    func newMeetingButtonClicked()
 }

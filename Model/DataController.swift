@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 
 protocol DataControllerProtocol {
-    func AddEntity<T: EntityDataProtocol>(entityData: T) throws
-    func UpdateEntity<T: EntityDataProtocol, Y:NSManagedObject>(entityData:T, entity:Y) throws
-    func DeleteEntity<T:NSManagedObject>(entity:T) throws
+    func addEntity<T: EntityDataProtocol>(entityData: T) throws
+    func updateEntity<T: EntityDataProtocol, Y:NSManagedObject>(entityData:T, entity:Y) throws
+    func deleteEntity<T:NSManagedObject>(entity:T) throws
 }
 
 class DataController: NSObject {
@@ -71,7 +71,7 @@ class DataController: NSObject {
 }
 
 extension DataController: DataControllerProtocol{
-    func AddEntity<T>(entityData: T) throws where T : EntityDataProtocol {
+    func addEntity<T>(entityData: T) throws where T : EntityDataProtocol {
         let record = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: entityData.entityName, in: managedObjectContext)!, insertInto: managedObjectContext)
         
         for tuple in entityData.attributes{
@@ -84,14 +84,14 @@ extension DataController: DataControllerProtocol{
             }
         }
         do {
-            try SaveContext()
+            try saveContext()
         }
         catch let error as NSError{
             throw error
         }
     }
     
-    func UpdateEntity<T: EntityDataProtocol,Y: NSManagedObject>(entityData: T, entity: Y) throws{
+    func updateEntity<T: EntityDataProtocol,Y: NSManagedObject>(entityData: T, entity: Y) throws{
         for tuple in entityData.attributes{
             if let att = tuple.1 as? NSArray {
                 let set = NSSet(array: att as! [Any])
@@ -102,24 +102,24 @@ extension DataController: DataControllerProtocol{
             }
         }
         do {
-            try SaveContext()
+            try saveContext()
         }
         catch let error as NSError{
             throw error
         }
     }
     
-    func DeleteEntity<T>(entity: T) throws where T : NSManagedObject {
+    func deleteEntity<T>(entity: T) throws where T : NSManagedObject {
         managedObjectContext.delete(entity)
         do {
-            try SaveContext()
+            try saveContext()
         }
         catch let error as NSError{
             throw error
         }
     }
     
-    func SaveContext() throws{
+    func saveContext() throws{
         do {
             try managedObjectContext.save()
         }

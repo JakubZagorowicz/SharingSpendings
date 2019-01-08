@@ -39,37 +39,12 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         
         toView?.view.frame = transitionContext.containerView.frame
         
-        
-        
         UIView.animate(withDuration: transition.duration, animations: {
             fromView?.view.removeFromSuperview()
             transitionContext.containerView.addSubview((toView?.view)!)
             
         }) { finished in
-            //fromView?.endAppearanceTransition()
-            //fromView?.removeFromParentViewController()
-            
-            //toView?.endAppearanceTransition()
-            //toView?.didMove(toParentViewController: toView)
-            
-            //if(finished){
                 transitionContext.completeTransition(true)
-            //}
-
         }
-        
-
-        
-//        UIView.transition(from: fromView!, to: toView!, duration: 0.64 , options: [UIViewAnimationOptions.transitionCurlUp, UIViewAnimationOptions.allowAnimatedContent], completion: ({ (finished) in
-//            transitionContext.completeTransition(finished)
-//        }))
-        
-        
     }
-    
-//    - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext;
-//
-//
-//    // This method can only  be a nop if the transition is interactive and not a percentDriven interactive transition.
-//    - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext;
 }

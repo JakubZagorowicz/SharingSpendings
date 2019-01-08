@@ -8,25 +8,25 @@
 
 import Foundation
 
-enum ItemAdditionError {
-    case NoNameEntered
-    case NoPriceEntered
-    case NegativePrice
-    case NoPersonUsingItem
-    case NoBuyerPicked
+enum itemAdditionError {
+    case noNameEntered
+    case noPriceEntered
+    case negativePrice
+    case noPersonUsingItem
+    case noBuyerPicked
     
     func GetErrorMessage() -> String {
         var message: String
         switch self {
-        case ItemAdditionError.NoPriceEntered:
+        case itemAdditionError.noPriceEntered:
             message = "Enter price"
-        case ItemAdditionError.NegativePrice:
+        case itemAdditionError.negativePrice:
             message = "Price has to be positive number"
-        case ItemAdditionError.NoNameEntered:
+        case itemAdditionError.noNameEntered:
             message = "Enter item name"
-        case ItemAdditionError.NoPersonUsingItem:
+        case itemAdditionError.noPersonUsingItem:
             message = "Atleast one participant have to be using this item"
-        case ItemAdditionError.NoBuyerPicked:
+        case itemAdditionError.noBuyerPicked:
             message = "Pick participant, who paid for item"
 //        default:
 //            message = ""

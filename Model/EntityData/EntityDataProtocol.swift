@@ -13,7 +13,7 @@ protocol EntityDataProtocol {
     var attributes: [(String, Any)] { get set }
 }
 extension EntityDataProtocol{
-    mutating func AssignAttributes(){
+    mutating func assignAttributes(){
         let mirror = Mirror(reflecting: self)
         for case let (label?, value) in mirror.children{
             if label != "entityName" && label != "attributes"{

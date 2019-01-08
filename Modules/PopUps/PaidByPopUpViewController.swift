@@ -14,17 +14,17 @@ class PaidByPopUpViewController: UIViewController, UITableViewDelegate, UITableV
     var tableView = UITableView(frame: .zero)
     var cancelButton: UIButton?
     var backgroundButton: UIButton?
-    var delegate : NewItemModuleViewController?
+    var delegate : NewItemViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
-        SetupView()
+        setupView()
         
     }
     
-    func SetupView(){
+    func setupView(){
         self.view.frame = super.view.frame
         
         backgroundButton = UIButton(frame: view.frame)
@@ -44,13 +44,11 @@ class PaidByPopUpViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.translatesAutoresizingMaskIntoConstraints = false
         cancelButton?.translatesAutoresizingMaskIntoConstraints = false
 
-
         tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         tableView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         tableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
         tableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
         
-//        cancelButton = UIButton(frame: CGRect(x: tableView.frame.minX, y: tableView.frame.maxY, width: tableView.frame.width, height: 40))
         cancelButton?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cancelButton?.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
         
@@ -87,13 +85,12 @@ class PaidByPopUpViewController: UIViewController, UITableViewDelegate, UITableV
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.pickedPerson = tableViewData?[indexPath.row]
         delegate?.paidByButton.setTitle(delegate?.pickedPerson?.name, for: .normal)
         backgroundButton?.isHidden = true
         self.dismiss(animated: true, completion: self.view.removeFromSuperview)
-
-      //  removeAnimate()
     }
     
     func showAnimate()
@@ -103,7 +100,6 @@ class PaidByPopUpViewController: UIViewController, UITableViewDelegate, UITableV
         UIView.animate(withDuration: 0.25, animations: {
             self.view.alpha = 1.0
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            
         });
     }
     

@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension MeetingsModuleViewController{
-    func SetupView(){
+extension MeetingsViewController{
+    func setupView(){
         titleLabel.font = EsteticsModel.titleLabelFont
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
         
@@ -27,7 +27,7 @@ extension MeetingsModuleViewController{
         addButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         addButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        addButton.addTarget(self, action: #selector(AddButtonClicked), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
         view.addSubview(activeSectionButton)
         view.addSubview(closedSectionButton)
@@ -42,7 +42,7 @@ extension MeetingsModuleViewController{
         activeSectionButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         activeSectionButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33).isActive = true
         activeSectionButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        activeSectionButton.addTarget(self, action: #selector(SectionButtonClicked), for: .touchUpInside)
+        activeSectionButton.addTarget(self, action: #selector(sectionButtonClicked), for: .touchUpInside)
         
         closedSectionButton.setTitle("Closed", for: .normal)
         closedSectionButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
@@ -52,7 +52,7 @@ extension MeetingsModuleViewController{
         closedSectionButton.leftAnchor.constraint(equalTo: activeSectionButton.rightAnchor).isActive = true
         closedSectionButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33).isActive = true
         closedSectionButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        closedSectionButton.addTarget(self, action: #selector(SectionButtonClicked), for: .touchUpInside)
+        closedSectionButton.addTarget(self, action: #selector(sectionButtonClicked), for: .touchUpInside)
         
         settledSectionButton.setTitle("Settled", for: .normal)
         settledSectionButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
@@ -62,7 +62,7 @@ extension MeetingsModuleViewController{
         settledSectionButton.leftAnchor.constraint(equalTo: closedSectionButton.rightAnchor).isActive = true
         settledSectionButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33).isActive = true
         settledSectionButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        settledSectionButton.addTarget(self, action: #selector(SectionButtonClicked), for: .touchUpInside)
+        settledSectionButton.addTarget(self, action: #selector(sectionButtonClicked), for: .touchUpInside)
         
         let backgroundMenuView = UIView(frame: .zero)
         backgroundMenuView.backgroundColor = UIColor(rgb: 0x244C59)
@@ -114,9 +114,6 @@ extension MeetingsModuleViewController{
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         longPressRecognizer.delegate = self
         longPressRecognizer.minimumPressDuration = 1.0
-//        activeMeetingsTable.addGestureRecognizer(longPressRecognizer)
-//        closedMeetingsTable.addGestureRecognizer(longPressRecognizer)
-//        settledMeetingsTable.addGestureRecognizer(longPressRecognizer)
         view.addGestureRecognizer(longPressRecognizer)
         
         tablesTable = [activeMeetingsTable, closedMeetingsTable, settledMeetingsTable]

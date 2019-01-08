@@ -8,22 +8,22 @@
 
 import UIKit
 
-class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewControllerProtocol, UITextFieldDelegate {
+class NewMeetingViewController: UIViewController, NewMeetingViewControllerProtocol, UITextFieldDelegate {
 
-    var presenter: NewMeetingModulePresenterProtocol?
-    @IBOutlet weak var NameTextField: UITextField!
+    var presenter: NewMeetingPresenterProtocol?
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NameTextField.delegate = self
+        nameTextField.delegate = self
         self.hideKeyboardOnTapOutside()
         titleLabel.font = EsteticsModel.titleLabelFont
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
         
-        NameTextField.attributedPlaceholder = NSAttributedString(string: NameTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
+        nameTextField.attributedPlaceholder = NSAttributedString(string: nameTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
         // Do any additional setup after loading the view.
     }
 
@@ -32,15 +32,15 @@ class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewCont
         // Dispose of any resources that can be recreated.
     }
     
-    func GetTextFieldData() -> String {
-        return NameTextField.text!
+    func getTextFieldData() -> String {
+        return nameTextField.text!
     }
     
-    func SetMessageLabel(message: String) {
+    func setMessageLabel(message: String) {
         messageLabel.text = message
     }
     
-    func ShowPopUp(_with message: String){
+    func showPopUp(_with message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
@@ -59,22 +59,21 @@ class NewMeetingModuleViewController: UIViewController, NewMeetingModuleViewCont
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        
         return false
     }
 }
 
-extension NewMeetingModuleViewController{ // Button clicks handling methods
-    @IBAction func BackButtonClicked(_ sender: Any) {
-        presenter?.BackButtonClicked()
+extension NewMeetingViewController{ // Button clicks handling methods
+    @IBAction func backButtonClicked(_ sender: Any) {
+        presenter?.backButtonClicked()
     }
     
-    @IBAction func AddButtonClicked(_ sender: Any) {
-        if((NameTextField.text) != ""){
-            presenter?.AddButtonClicked()
+    @IBAction func addButtonClicked(_ sender: Any) {
+        if((nameTextField.text) != ""){
+            presenter?.addButtonClicked()
         }
         else{
-            presenter?.InvalidName()
+            presenter?.invalidNameProvided()
         }
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetingSettlementModuleViewController: UIViewController, MeetingSettlementModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
+class MeetingSettlementViewController: UIViewController, MeetingSettlementViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var topLeftLabel: UILabel!
     @IBOutlet weak var topMiddleLabel: UILabel!
@@ -21,7 +21,7 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
     
     var debts: [Debt]?
     
-    var presenter: MeetingSettlementModulePresenterProtocol?
+    var presenter: MeetingSettlementPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +32,10 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         titleLabel.font = EsteticsModel.titleLabelFont
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
         
-        SetLabels()
-        SetButton()
+        setLabels()
+        setButton()
         
-        presenter?.ViewWillAppear()
+        presenter?.viewWillAppear()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +43,7 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         // Dispose of any resources that can be recreated.
     }
 
-    func SetLabels(){
+    func setLabels(){
         let labels = [topLeftLabel,topRightLabel,topMiddleLabel]
         for label in labels{
             label?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
@@ -54,7 +54,7 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         topRightLabel.text = "To:"
     }
     
-    func SetButton(){
+    func setButton(){
         closeEventButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(closeEventButton)
         closeEventButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -68,21 +68,13 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
         view.bringSubviewToFront(closeEventButton)
     }
     
-    @IBAction func BackButtonClick(_ sender: Any) {
-        presenter?.BackButtonClicked()
+    @IBAction func backButtonClick(_ sender: Any) {
+        presenter?.backButtonClicked()
     }
     
-    func SetTableViewData(debts: [Debt]) {
+    func setTableViewData(debts: [Debt]) {
         self.debts = debts
     }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = tableView.dequeueReusableCell(withIdentifier: "DebtsHeaderCell")
-//        return header
-//    }
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 40.0
-//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TableViewModel.cellHeight
@@ -94,7 +86,7 @@ class MeetingSettlementModuleViewController: UIViewController, MeetingSettlement
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "debtCell", for: indexPath) as! debtCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "debtCell", for: indexPath) as! DebtCell
         cell.SetDebt(debt: debts![indexPath.row])
 
         return cell

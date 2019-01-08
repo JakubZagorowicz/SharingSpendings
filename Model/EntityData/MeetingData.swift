@@ -19,7 +19,7 @@ struct MeetingData: EntityDataProtocol {
     init(name: String) {
         self.name = name
         peopleAttending = [Person]()
-        AssignAttributes()
+        assignAttributes()
     }
 }
 

@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-class UsedByCell: UITableViewCell{    
+class CheckboxCell: UITableViewCell{    
     @IBOutlet weak var usedByCheckbox: Checkbox!
 }

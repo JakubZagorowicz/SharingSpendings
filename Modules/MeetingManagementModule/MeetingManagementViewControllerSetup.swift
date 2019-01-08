@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-extension MeetingManagementModuleViewController{
-    func SetupView(){
+extension MeetingManagementViewController{
+    func setupView(){
         peopleTable.delegate = self
         peopleTable.dataSource = self
         itemsTable.delegate = self
@@ -26,7 +26,6 @@ extension MeetingManagementModuleViewController{
         view.addSubview(peopleButton)
         view.addSubview(itemsButton)
         view.addSubview(settlementButton)
-
         
         let backgroundMenuView = UIView(frame: .zero)
         backgroundMenuView.backgroundColor = UIColor(rgb: 0x244C59)
@@ -53,7 +52,7 @@ extension MeetingManagementModuleViewController{
         addButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         addButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        addButton.addTarget(self, action: #selector(AddButtonClick), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
         peopleButton.setTitle("Participants", for: .normal)
         peopleButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
@@ -63,7 +62,7 @@ extension MeetingManagementModuleViewController{
         peopleButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         peopleButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33).isActive = true
         peopleButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        peopleButton.addTarget(self, action: #selector(PeopleButtonClick), for: .touchUpInside)
+        peopleButton.addTarget(self, action: #selector(peopleButtonClick), for: .touchUpInside)
         
         itemsButton.setTitle("Expenses", for: .normal)
         itemsButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
@@ -73,7 +72,7 @@ extension MeetingManagementModuleViewController{
         itemsButton.leftAnchor.constraint(equalTo: peopleButton.rightAnchor).isActive = true
         itemsButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33).isActive = true
         itemsButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        itemsButton.addTarget(self, action: #selector(ItemsButtonClick), for: .touchUpInside)
+        itemsButton.addTarget(self, action: #selector(itemsButtonClicked), for: .touchUpInside)
         
         settlementButton.setTitle("Settlement", for: .normal)
         settlementButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
@@ -83,7 +82,7 @@ extension MeetingManagementModuleViewController{
         settlementButton.leftAnchor.constraint(equalTo: itemsButton.rightAnchor).isActive = true
         settlementButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33).isActive = true
         settlementButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        settlementButton.addTarget(self, action: #selector(SettlementButtonClick), for: .touchUpInside)
+        settlementButton.addTarget(self, action: #selector(settlementButtonClicked), for: .touchUpInside)
         
         highlightBar.backgroundColor = .white
         highlightBar.translatesAutoresizingMaskIntoConstraints = false
@@ -97,7 +96,6 @@ extension MeetingManagementModuleViewController{
         layout = UICollectionViewFlowLayout()
         layout?.scrollDirection = .horizontal
         layout?.minimumLineSpacing = 0
-        
         
         collection = UICollectionView(frame: .zero, collectionViewLayout: layout!)
         collection?.isPagingEnabled = true
@@ -116,14 +114,10 @@ extension MeetingManagementModuleViewController{
         view.bringSubviewToFront(addButton)
     }
     
-    func SetupSettlementCell(cell: UICollectionViewCell){
-//        let labelWidth = cell.frame.width/3
+    func setupSettlementCell(cell: UICollectionViewCell){
         let labelHeigth : CGFloat = 25
-//        fromLabel.frame = CGRect(x: 0, y: 0, width: labelWidth, height: labelHeigth)
         fromLabel.text = "From:"
-//        howMuchLabel.frame = CGRect(x: fromLabel.frame.maxX, y: 0, width: labelWidth, height: labelHeigth)
         howMuchLabel.text = "Amount:"
-//        toLabel.frame = CGRect(x: howMuchLabel.frame.maxX, y: 0, width: labelWidth, height: labelHeigth)
         toLabel.text = "To:"
 
         cell.addSubview(fromLabel)
@@ -152,7 +146,6 @@ extension MeetingManagementModuleViewController{
         toLabel.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 0.3).isActive = true
         toLabel.rightAnchor.constraint(equalTo: cell.rightAnchor, constant: 0).isActive = true
 
-//        debtsTable.frame = CGRect(x: 0, y: fromLabel.frame.maxY+10, width: cell.frame.width, height: cell.frame.height - labelHeigth - 40)
         debtsTable.backgroundColor = .clear
         cell.addSubview(debtsTable)
         cell.addSubview(closeEventButton)
@@ -163,7 +156,6 @@ extension MeetingManagementModuleViewController{
         debtsTable.rightAnchor.constraint(equalTo: cell.rightAnchor).isActive = true
         debtsTable.bottomAnchor.constraint(equalTo: closeEventButton.topAnchor, constant: 20).isActive = true
         
-//        closeEventButton.frame = CGRect(x: 0, y: debtsTable.frame.maxY - 10, width: cell.frame.width, height: 30)
         closeEventButton.setTitle("Close event", for: .normal)
         closeEventButton.backgroundColor = .red
         closeEventButton.translatesAutoresizingMaskIntoConstraints = false
@@ -171,7 +163,6 @@ extension MeetingManagementModuleViewController{
         closeEventButton.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
         closeEventButton.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 0.8).isActive = true
         closeEventButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        closeEventButton.addTarget(self, action: #selector(CloseEventButtonClick), for: .touchUpInside)
-
+        closeEventButton.addTarget(self, action: #selector(closeEventButtonClicked), for: .touchUpInside)
     }
 }

@@ -15,15 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        
         let mothership = Mothership()
-        mothership.InitializeMothership()
+        mothership.initializeMothership()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = mothership.navigator
         window?.makeKey()
-    //    mothership.GoToLoginModule(animated: false)
 
         return true
     }

@@ -9,11 +9,13 @@
 import Foundation
 import CoreData
 
-class MeetingsModulePresenter : MeetingsModulePresenterProtocol{
+class MeetingsPresenter : MeetingsPresenterProtocol{
     
+    var view: MeetingsViewControllerProtocol?
+    var router: MeetingModuleRoutingProtocol?
     var meetings = [Meeting]()
     
-    func ViewWillAppear() {
+    func viewWillAppear() {
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Meeting")
         do{
@@ -22,40 +24,34 @@ class MeetingsModulePresenter : MeetingsModulePresenterProtocol{
         catch let error{
             print("Could not fetch. \(error)")
         }
-
-
-        view?.SetTableData(meetings: meetings)
+        
+        view?.setTableData(meetings: meetings)
     }
     
-    func AddMeetingClicked() {
-        router?.NewMeetingButtonClicked()
+    func addMeetingClicked() {
+        router?.newMeetingButtonClicked()
     }
     
-    func MeetingClicked(index: Int) {
+    func meetingClicked(index: Int) {
         let meeting = meetings[index]
-        router?.MeetingClicked(meeting: meeting)
+        router?.meetingClicked(meeting: meeting)
     }
     
-    func DeleteMeetingClicked(index: Int) {
+    func deleteMeetingClicked(index: Int) {
         let meeting  = meetings[index]
-
         do {
-            try DataManager.dataManager.dataController.DeleteEntity(entity: meeting)
+            try DataManager.dataManager.dataController.deleteEntity(entity: meeting)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        ViewWillAppear()
+        viewWillAppear()
     }
     
-    func SectionButtonClicked(sectionIndex: Int) {
-        view?.ScrollToSection(index: sectionIndex)
+    func sectionButtonClicked(sectionIndex: Int) {
+        view?.scrollToSection(index: sectionIndex)
     }
     
-    func CellLongPress(section: Int, row: Int) {
+    func cellLongPress(section: Int, row: Int) {
         
     }
-    
-    var view: MeetingsModuleViewControllerProtocol?
-    var router: MeetingModuleRoutingProtocol?
-    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewPersonModuleViewController: UIViewController, NewPersonModuleViewControllerProtocol, UITextFieldDelegate {
+class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol, UITextFieldDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var AddButton: UIButton!
@@ -17,7 +17,7 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
     @IBOutlet weak var ItemsTable: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!
-    var presenter: NewPersonModulePresenterProtocol?
+    var presenter: NewPersonPresenterProtocol?
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
         nameTextField.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
         nameTextField.attributedPlaceholder = NSAttributedString(string: nameTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
         
-        presenter?.ViewWillAppear()
+        presenter?.viewWillAppear()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,29 +40,29 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
         // Dispose of any resources that can be recreated.
     }
     
-    func SwitchButtons() {
+    func switchButtons() {
         AddButton.isHidden = true
         ConfirmButton.isHidden = false
     }
     
-    func GetTextFieldData() -> String {
+    func getTextFieldData() -> String {
         return nameTextField.text!
     }
     
-    func SetLabeLMessage(message: String) {
+    func setLabeLMessage(message: String) {
         messageLabel.text = message
     }
     
-    func SetTitle(title: String) {
+    func setTitle(title: String) {
         titleLabel.text = title
     }
     
-    func ShowPersonDetails(person: Person) {
+    func showPersonDetails(person: Person) {
         //  ItemsTable.isHidden = false
         nameTextField.text = person.name
     }
     
-    func ShowPopUp(_with message: String){
+    func showPopUp(_with message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
@@ -86,25 +86,25 @@ class NewPersonModuleViewController: UIViewController, NewPersonModuleViewContro
     }
 }
 
-extension NewPersonModuleViewController{ // Button click methods section
+extension NewPersonViewController{ // Button click methods section
     @IBAction func ConformButtonClicked(_ sender: Any) {
         if nameTextField.text == ""{
-            presenter?.InvalidInput()
+            presenter?.invalidInput()
         }
         else{
-            presenter?.ConfirmButtonClicked()
+            presenter?.confirmButtonClicked()
         }
     }
     
     @IBAction func AddButtonClicked(_ sender: Any) {
         if nameTextField.text == ""{
-            presenter?.InvalidInput()
+            presenter?.invalidInput()
         }
         else{
-            presenter?.AddButtonClicked()
+            presenter?.addButtonClicked()
         }
     }
     @IBAction func BackButtonClicked(_ sender: Any) {
-        presenter?.BackButtonClicked()
+        presenter?.backButtonClicked()
     }
 }

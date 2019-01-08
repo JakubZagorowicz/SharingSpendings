@@ -19,10 +19,10 @@ class ErrorPopUpViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SetUpView()
+        setupView()
     }
     
-    func SetUpView(){
+    func setupView(){
         okButton.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,11 +49,7 @@ class ErrorPopUpViewController : UIViewController{
         messageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         messageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         messageLabel.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.7).isActive = true
-//        messageLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
-//            messageLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8)
         messageLabel.adjustsFontSizeToFitWidth = true
-
-
         
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -71,7 +67,6 @@ class ErrorPopUpViewController : UIViewController{
         
         view.bringSubviewToFront(okButton)
         view.bringSubviewToFront(messageLabel)
-        
     }
     
     @objc func okButtonClicked(sender: UIButton){

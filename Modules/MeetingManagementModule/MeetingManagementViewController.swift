@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetingManagementModuleViewController: UIViewController, MeetingManagementModuleViewControllerProtocol, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MeetingManagementViewController: UIViewController, MeetingManagementViewControllerProtocol, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     var itemsTable = UITableView(frame: .zero)
     var peopleTable = UITableView(frame: .zero)
@@ -28,7 +28,7 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
     let howMuchLabel = UILabel(frame: .zero)
     let toLabel = UILabel(frame: .zero)
 
-    var presenter: MeetingManagementModulePresenterProtcol?
+    var presenter: MeetingManagementPresenterProtcol?
     var personSectionData: [(Person, Double)]?
     var itemSectionData: [Item]?
     var debtsSectionData: [Debt]?
@@ -36,34 +36,22 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    //    presenter?.ViewWillAppear()
         
-        SetupView()
+        setupView()
     }
     override func viewWillAppear(_ animated: Bool) {
-        presenter?.ViewWillAppear()
+        presenter?.viewWillAppear()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let sectionBeforeRotation = presentedSection
         self.collection?.reloadData()
-//        self.collection?.scrollToItem(at: IndexPath(row: self.presentedSection, section: 0), at: [], animated: true)
-
-//        layout?.invalidateLayout()
-//
-//        for cell in (collection?.visibleCells)!{
-//            cell.setNeedsLayout()
-//        }
-//        super.viewWillTransition(to: size, with: coordinator)
-//        coordinator.animate(alongsideTransition: nil) { (_) in
-//            self.collection?.scrollToItem(at: IndexPath(row: self.presentedSection, section: 0), at: [], animated: true)
-//        }
         DispatchQueue.main.async {
             self.collection?.scrollToItem(at: IndexPath(row: sectionBeforeRotation, section: 0), at: [], animated: true)
         }
     }
     
-    func ShowPopUp(_with message: String){
+    func showPopUp(_with message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
@@ -71,16 +59,16 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
         self.present(popUp, animated: true) {}
     }
 
-    func SetMeetingName(name: String){
+    func setMeetingName(name: String){
         meetingNameLabel.text = name
         meetingNameLabel.textColor = EsteticsModel.titleLabelTextColor
     }
     
-    func SetAddItemButton(isEnabled: Bool){
+    func setAddItemButton(isEnabled: Bool){
         addButton.isEnabled = isEnabled
     }
     
-    func AddButtonIsVisible(isVisible: Bool) {
+    func addButtonIsVisible(isVisible: Bool) {
         addButton.isHidden = !isVisible
     }
     
@@ -114,6 +102,7 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
             }
         }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         if(tableView == peopleTable){
@@ -126,8 +115,8 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
             else{
                 cell = PersonTableViewCell()
                 if let myCell = cell as? PersonTableViewCell{
-                    myCell.SetUpCell(name: personSectionData![indexPath.row].0.name!)
-                    myCell.SetBalance(balance: personSectionData![indexPath.row].1)
+                    myCell.setUpCell(name: personSectionData![indexPath.row].0.name!)
+                    myCell.setBalance(balance: personSectionData![indexPath.row].1)
                 }
             }
         }
@@ -143,8 +132,8 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
                     
                 }
                 else{
-                    cell = debtCell()
-                    if let myCell = cell as? debtCell{
+                    cell = DebtCell()
+                    if let myCell = cell as? DebtCell{
                         myCell.SetDebt(debt: debtsSectionData![indexPath.row])
                     }
                     
@@ -159,25 +148,26 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(tableView == peopleTable){
             if personSectionData?.count != 0{
-                presenter?.PersonClicked(person: personSectionData![indexPath.row].0)
+                presenter?.personClicked(person: personSectionData![indexPath.row].0)
             }
         }
         if(tableView == itemsTable){
-            presenter?.ItemClicked(item: itemSectionData![indexPath.row])
+            presenter?.itemClicked(item: itemSectionData![indexPath.row])
         }
     }
     
-    func SetTableData(people: [(Person, Double)], items: [Item]) {
+    func setTableData(people: [(Person, Double)], items: [Item]) {
         personSectionData = people
         itemSectionData = items
         peopleTable.reloadData()
         itemsTable.reloadData()
     }
     
-    func SetDebtsData(debts: [Debt]) {
+    func setDebtsData(debts: [Debt]) {
         debtsSectionData = debts
         debtsTable.reloadData()
     }
+    
     // ---------------------------------- Collection view section --------------------------------
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -186,7 +176,6 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-       // let cell = UICollectionViewCell()
         let subviews = cell.subviews
         for subview in subviews{
             subview.removeFromSuperview()
@@ -204,7 +193,7 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
                 itemsTable.backgroundColor = .clear
             }
             else{
-                SetupSettlementCell(cell: cell)
+                setupSettlementCell(cell: cell)
             }
         }
         return cell
@@ -214,9 +203,10 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
         return CGSize(width: view.frame.width, height: collectionView.frame.height)
     }
     
-    func ScrollToSection(index: Int) {
+    func scrollToSection(index: Int) {
         collection?.scrollToItem(at: IndexPath(item: index, section: 0), at: [], animated: true)
     }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == collection{
             highligthBarLeftAnchor!.constant = scrollView.contentOffset.x/3
@@ -224,32 +214,33 @@ class MeetingManagementModuleViewController: UIViewController, MeetingManagement
             let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
             let visibleIndexPath = collection!.indexPathForItem(at: visiblePoint)
             presentedSection = (visibleIndexPath?.row)!
-            presenter?.SetPresentedSection(toIndex: presentedSection)
+            presenter?.setPresentedSection(toIndex: presentedSection)
         }
     }
 }
 
-extension MeetingManagementModuleViewController{
-    @IBAction func BackButtonClicked(_ sender: Any) {
-        presenter?.BackButtonClicked()
+extension MeetingManagementViewController{
+    @IBAction func backButtonClicked(_ sender: Any) {
+        presenter?.backButtonClicked()
     }
     
-    @objc func PeopleButtonClick(sender: UIButton){
-        presenter?.PeopleButtonClicked()
+    @objc func peopleButtonClick(sender: UIButton){
+        presenter?.peopleButtonClicked()
     }
     
-    @objc func ItemsButtonClick(sender: UIButton){
-        presenter?.ItemsButtonClicked()
-    }
-    @objc func SettlementButtonClick(sender: UIButton){
-        presenter?.SettlementButtonClicked()
+    @objc func itemsButtonClicked(sender: UIButton){
+        presenter?.itemsButtonClicked()
     }
     
-    @objc func AddButtonClick(sender: UIButton){
-        presenter?.AddButtonClicked()
+    @objc func settlementButtonClicked(sender: UIButton){
+        presenter?.settlementButtonClicked()
     }
     
-    @objc func CloseEventButtonClick(){
-        presenter?.CloseEventButtonClicked()
+    @objc func addButtonClicked(sender: UIButton){
+        presenter?.addButtonClicked()
+    }
+    
+    @objc func closeEventButtonClicked(){
+        presenter?.closeEventButtonClicked()
     }
 }
