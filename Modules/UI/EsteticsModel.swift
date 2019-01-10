@@ -6,10 +6,9 @@
 //  Copyright © 2018 Jakub Zagórowicz. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class EsteticsModel {
+struct EsteticsModel {
     static var inCellTextColor = UIColor.white
     static var messageLabelTextColor = UIColor.black
     static var pickerViewTextColor = UIColor.white
@@ -27,11 +26,35 @@ class EsteticsModel {
     static var deleteButtonBackgroungColor = UIColor(rgb: 0xa73737)
     static var editButtonBackgroundColor = UIColor(rgb: 0x377ca7)
     static var placeholderTextColor = UIColor(rgb: 0x4e6469)
-}
-
-class TableViewModel {
+    
     static var cellHeight = 30 + UIScreen.main.bounds.height*0.025
     static var inCellFontSize = floor(10 + UIScreen.main.bounds.height*0.015)
+    static var headerLabelFontSize = inCellFontSize + 2
+    static var headerLabelTextColor = UIColor.white
+    
+    static func setLabel(style: UILabelStyle, label: UILabel){
+        switch style {
+        case .header:
+            label.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
+            label.textColor = EsteticsModel.headerLabelTextColor
+        case .title:
+            label.font = EsteticsModel.titleLabelFont
+            label.textColor = EsteticsModel.titleLabelTextColor
+        case .tableCell:
+            label.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
+            label.textColor = EsteticsModel.inCellTextColor
+        case .inactiveTableCell:
+            label.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
+            label.textColor = EsteticsModel.placeholderTextColor
+        }
+    }
+}
+
+enum UILabelStyle {
+    case title
+    case header
+    case tableCell
+    case inactiveTableCell
 }
 
 extension UIColor {
