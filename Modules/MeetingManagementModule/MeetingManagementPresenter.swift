@@ -121,16 +121,8 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     
     func deletePersonClicked(person: Person) {
         if(person.itemsBought?.count == 0){
-            var personCanBeDeleted = true
-            var blockingItem: Item = Item()
-            for item in person.itemsUsed!{
-                let item = item as! Item
-                if (item.usedBy?.count == 1 && item.buyer != person){
-                    personCanBeDeleted = false
-                    blockingItem = item
-                }
-            }
-            if(personCanBeDeleted){
+            let deleteabillityCheck = checkIfDeleteable(person: person)
+            if(deleteabillityCheck.0){
                 do {
                     try DataController.entityManager.deleteEntity(entity: person)
                 } catch let error as NSError {
@@ -139,11 +131,21 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
                 viewWillAppear()
             }
             else{
-                view?.showMessagePopUp(message: "Can't delete person, who is the only user of \(blockingItem.name!), and didn't pay for it.")
+                view?.showMessagePopUp(message: "Can't delete person, who is the only user of \(deleteabillityCheck.1!.name!), and didn't pay for it.")
             }
         }
         else{
             view?.showMessagePopUp(message: "Can't delete person that paid for items.")
         }
+    }
+    
+    func checkIfDeleteable(person: Person) -> (Bool, Item?){
+        for item in person.itemsUsed!{
+            let item = item as! Item
+            if (item.usedBy?.count == 1 && item.buyer != person){
+                return (false, item)
+            }
+        }
+        return (true, nil)
     }
 }
