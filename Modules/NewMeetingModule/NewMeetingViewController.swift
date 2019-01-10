@@ -64,7 +64,7 @@ extension NewMeetingViewController{
     
     @IBAction func addButtonClicked(_ sender: Any) {
         if((nameTextField.text) != ""){
-            presenter?.addButtonClicked()
+            presenter?.addButtonClicked(nameData: nameTextField.text!)
         }
         else{
             presenter?.invalidNameProvided()

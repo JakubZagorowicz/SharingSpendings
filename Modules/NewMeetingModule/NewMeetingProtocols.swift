@@ -9,12 +9,11 @@
 import Foundation
 
 protocol NewMeetingViewControllerProtocol {
-    func getTextFieldData() -> String
     func showMessagePopUp(message: String)
 }
 
 protocol NewMeetingPresenterProtocol {
-    func addButtonClicked()
+    func addButtonClicked(nameData: String)
     func backButtonClicked()
     func invalidNameProvided()
 }

@@ -9,16 +9,15 @@
 import Foundation
 
 protocol NewPersonPresenterProtocol {
-    func addButtonClicked()
+    func addButtonClicked(nameData: String)
     func backButtonClicked()
     func viewWillAppear()
     func invalidInput()
-    func confirmButtonClicked()
+    func confirmButtonClicked(nameData: String)
 }
 
 protocol NewPersonViewControllerProtocol {
     func showPersonDetails(person: Person)
-    func getTextFieldData() -> String
     func setLabeLMessage(message: String)
     func switchButtons()
     func showAdditionErrorPopUp(with message: String)

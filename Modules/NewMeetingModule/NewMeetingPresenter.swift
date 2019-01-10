@@ -13,10 +13,9 @@ class NewMeetingPresenter : NewMeetingPresenterProtocol{
     var view : NewMeetingViewControllerProtocol?
     var router: BackableProtocol?
     
-    func addButtonClicked() {
-        let name = view?.getTextFieldData()
+    func addButtonClicked(nameData: String) {
         do {
-            try DataController.entityManager.addEntity(entityData: MeetingData(name: name!))
+            try DataController.entityManager.addEntity(entityData: MeetingData(name: nameData))
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }

@@ -23,10 +23,9 @@ class NewPersonPresenter : NewPersonPresenterProtocol {
         }
     }
     
-    func addButtonClicked() {
-        let name = view?.getTextFieldData()
+    func addButtonClicked(nameData: String) {
         do{
-            let personData = PersonData(name: name!, meeting: meeting!)
+            let personData = PersonData(name: nameData, meeting: meeting!)
             try DataController.entityManager.addEntity(entityData: personData)
         }
         catch let error as NSError{
@@ -39,10 +38,9 @@ class NewPersonPresenter : NewPersonPresenterProtocol {
         router?.back()
     }
     
-    func confirmButtonClicked() {
-        let name = view?.getTextFieldData()
+    func confirmButtonClicked(nameData: String) {
         do{
-            try DataController.entityManager.updateEntity(entityData: PersonData(name: name!, meeting: meeting!), entity: person!)
+            try DataController.entityManager.updateEntity(entityData: PersonData(name: nameData, meeting: meeting!), entity: person!)
         }
         catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")

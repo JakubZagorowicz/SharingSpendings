@@ -75,7 +75,7 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
             presenter?.invalidInput()
         }
         else{
-            presenter?.confirmButtonClicked()
+            presenter?.confirmButtonClicked(nameData: nameTextField.text!)
         }
     }
     
@@ -84,7 +84,7 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
             presenter?.invalidInput()
         }
         else{
-            presenter?.addButtonClicked()
+            presenter?.addButtonClicked(nameData: nameTextField.text!)
         }
     }
     
