@@ -32,8 +32,7 @@ class MeetingsPresenter : MeetingsPresenterProtocol{
         router?.newMeetingButtonClicked()
     }
     
-    func meetingClicked(index: Int) {
-        let meeting = meetings[index]
+    func meetingClicked(meeting: Meeting) {
         router?.meetingClicked(meeting: meeting)
     }
     

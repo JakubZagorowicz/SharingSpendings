@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
+class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol, UIGestureRecognizerDelegate {
     
     var presenter: MeetingsPresenterProtocol?
     var meetings: [Meeting]?
@@ -17,6 +17,10 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,U
     var closedMeetingsTable = UITableView()
     var settledMeetingsTable = UITableView()
     var tablesTable = [UITableView]()
+    
+    var activeEventsTableManager : ActiveEventsTableManager?
+    var closedEventsTableManager : ClosedEventsTableManager?
+    var settledEventsTableManager : SettledEventsTableManager?
     
     var activeMeetings = [Meeting]()
     var closedMeetings = [Meeting]()
@@ -60,77 +64,13 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,U
             self.collection?.scrollToItem(at: IndexPath(row: sectionBeforeRotation, section: 0), at: [], animated: false)
         }
     }
-    
-    //------------------------------------Table view section--------------------------------
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == activeMeetingsTable{
-            return activeMeetings.count == 0 ? 1 : activeMeetings.count
-        }
-        if tableView == closedMeetingsTable{
-            return closedMeetings.count == 0 ? 1 : closedMeetings.count
-        }
-        if tableView == settledMeetingsTable{
-            return settledMeetings.count == 0 ? 1 : settledMeetings.count
-        }
-        return 0
-    }
-    
+
     func setTableData(meetings: [Meeting]) {
         self.meetings = meetings
         setDataSources()
         activeMeetingsTable.reloadData()
         closedMeetingsTable.reloadData()
         settledMeetingsTable.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        var dataSource: [Meeting]
-        var noEventsMessage: String
-        if tableView == activeMeetingsTable{
-            dataSource = activeMeetings
-            noEventsMessage = "There is no active events."
-        }
-        else{
-            if tableView == closedMeetingsTable{
-                dataSource = closedMeetings
-                noEventsMessage = "There is no closed events."
-            }
-            else{
-                dataSource = settledMeetings
-                noEventsMessage = "There is no settled events."
-            }
-        }
-        if dataSource.count == 0{
-            cell.textLabel?.text = noEventsMessage
-            cell.textLabel?.textColor = EsteticsModel.placeholderTextColor
-        }
-        else{
-            cell.textLabel?.text = dataSource[indexPath.row].name
-            cell.textLabel?.textColor = EsteticsModel.inCellTextColor
-        }
-        cell.textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
-        cell.backgroundColor = .clear
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView(frame: .zero)
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.row != meetings?.count){
-            presenter?.meetingClicked(index: indexPath.row)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return EsteticsModel.cellHeight
     }
     
     func setDataSources(){
@@ -148,6 +88,13 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,U
                 closedMeetings.append(meeting)
             }
         }
+        activeEventsTableManager?.tableData = activeMeetings
+        closedEventsTableManager?.tableData = closedMeetings
+        settledEventsTableManager?.tableData = settledMeetings
+    }
+    
+    func meetingClicked(meeintg: Meeting){
+        presenter?.meetingClicked(meeting: meeintg)
     }
     
     @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer){

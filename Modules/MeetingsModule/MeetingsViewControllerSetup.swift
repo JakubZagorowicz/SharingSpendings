@@ -13,12 +13,16 @@ extension MeetingsViewController{
         titleLabel.font = EsteticsModel.titleLabelFont
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
         
-        activeMeetingsTable.dataSource = self
-        activeMeetingsTable.delegate = self
-        closedMeetingsTable.dataSource = self
-        closedMeetingsTable.delegate = self
-        settledMeetingsTable.dataSource = self
-        settledMeetingsTable.delegate = self
+        activeEventsTableManager = ActiveEventsTableManager(cellSelectionCallback: meetingClicked)
+        closedEventsTableManager = ClosedEventsTableManager(cellSelectionCallback: meetingClicked)
+        settledEventsTableManager = SettledEventsTableManager(cellSelectionCallback: meetingClicked)
+        
+        activeMeetingsTable.dataSource = activeEventsTableManager
+        activeMeetingsTable.delegate = activeEventsTableManager
+        closedMeetingsTable.dataSource = closedEventsTableManager
+        closedMeetingsTable.delegate = closedEventsTableManager
+        settledMeetingsTable.dataSource = settledEventsTableManager
+        settledMeetingsTable.delegate = settledEventsTableManager
         
         view.addSubview(addButton)
         addButton.setImage(UIImage(named: "add_button2"), for: .normal)

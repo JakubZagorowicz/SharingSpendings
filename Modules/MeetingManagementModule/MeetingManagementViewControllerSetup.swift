@@ -11,12 +11,16 @@ import UIKit
 
 extension MeetingManagementViewController{
     func setupView(){
-        peopleTable.delegate = self
-        peopleTable.dataSource = self
-        itemsTable.delegate = self
-        itemsTable.dataSource = self
-        debtsTable.delegate = self
-        debtsTable.dataSource = self
+        peopleTableManager = PeopleTableManager(cellSelectionCallback: personClicked)
+        itemsTableManager = ItemsTableManager(cellSelectionCallback: itemClicked)
+        debtsTableManager = DebtsTableManager(cellSelectionCallback: debtClicked)
+        
+        peopleTable.delegate = peopleTableManager
+        peopleTable.dataSource = peopleTableManager
+        itemsTable.delegate = itemsTableManager
+        itemsTable.dataSource = itemsTableManager
+        debtsTable.delegate = debtsTableManager
+        debtsTable.dataSource = debtsTableManager
         
         meetingNameLabel.font = EsteticsModel.titleLabelFont
         meetingNameLabel.textColor = EsteticsModel.titleLabelTextColor

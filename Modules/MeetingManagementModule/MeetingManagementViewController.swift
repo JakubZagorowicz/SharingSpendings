@@ -8,11 +8,16 @@
 
 import UIKit
 
-class MeetingManagementViewController: UIViewController, MeetingManagementViewControllerProtocol, UITableViewDelegate, UITableViewDataSource{
+class MeetingManagementViewController: UIViewController, MeetingManagementViewControllerProtocol{
 
     var itemsTable = UITableView(frame: .zero)
     var peopleTable = UITableView(frame: .zero)
     var debtsTable = UITableView(frame: .zero)
+    
+    var peopleTableManager: PeopleTableManager?
+    var itemsTableManager: ItemsTableManager?
+    var debtsTableManager: DebtsTableManager?
+    
     @IBOutlet weak var meetingNameLabel: UILabel!
     
     var highlightBar = UIView(frame: .zero)
@@ -72,101 +77,33 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         addButton.isHidden = !isVisible
     }
     
-    // -----------------------------------TableView section-------------------------------
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return EsteticsModel.cellHeight
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView(frame: .zero)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(tableView == peopleTable){
-            if personSectionData?.count == 0{
-                return 1
-            }
-            return personSectionData!.count
-        }
-        else{
-            if tableView == itemsTable{
-                return itemSectionData!.count
-            }
-            else{
-                return debtsSectionData!.count
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        if(tableView == peopleTable){
-            if personSectionData?.count == 0{
-                cell.textLabel?.text = "Add some participants"
-                cell.textLabel?.textColor = EsteticsModel.placeholderTextColor
-                cell.backgroundColor = .clear
-                cell.textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
-            }
-            else{
-                cell = PersonTableViewCell()
-                if let myCell = cell as? PersonTableViewCell{
-                    myCell.setUpCell(name: personSectionData![indexPath.row].0.name!)
-                    myCell.setBalance(balance: personSectionData![indexPath.row].1)
-                }
-            }
-        }
-        else{
-            if tableView == itemsTable{
-                cell.textLabel?.textColor = EsteticsModel.inCellTextColor
-                cell.textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
-                
-                cell.textLabel?.text = itemSectionData![indexPath.row].name
-            }
-            else{
-                if debtsSectionData?.count == 0{
-                    
-                }
-                else{
-                    cell = DebtCell()
-                    if let myCell = cell as? DebtCell{
-                        myCell.setDebt(debt: debtsSectionData![indexPath.row])
-                    }
-                }
-            }
-        }
-        cell.backgroundColor = .clear
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(tableView == peopleTable){
-            if personSectionData?.count != 0{
-                presenter?.personClicked(person: personSectionData![indexPath.row].0)
-            }
-        }
-        if(tableView == itemsTable){
-            presenter?.itemClicked(item: itemSectionData![indexPath.row])
-        }
-    }
-    
     func setTableData(people: [(Person, Double)], items: [Item]) {
         personSectionData = people
         itemSectionData = items
+        peopleTableManager?.tableData = personSectionData
+        itemsTableManager?.tableData = itemSectionData
         peopleTable.reloadData()
         itemsTable.reloadData()
     }
     
     func setDebtsData(debts: [Debt]) {
         debtsSectionData = debts
+        debtsTableManager?.tableData = debtsSectionData
         debtsTable.reloadData()
     }
-
+    
+    func personClicked(person: Person){
+        presenter?.personClicked(person: person)
+    }
+    
+    func itemClicked(item: Item){
+        presenter?.itemClicked(item: item)
+    }
+    
+    func debtClicked(debt: Debt){
+        
+    }
+    
     @IBAction func backButtonClicked(_ sender: Any) {
         presenter?.backButtonClicked()
     }
