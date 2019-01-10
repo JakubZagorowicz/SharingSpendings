@@ -26,7 +26,7 @@ class NewItemPresenter: NewItemPresenterProtocol {
     }
     
     func invalidInput(error: itemAdditionError){
-        view?.showErrorPopUp(_with: error.GetErrorMessage())
+        view?.showAdditionErrorPopUp(with: error.GetErrorMessage())
     }
     
     func addButtonClicked() {

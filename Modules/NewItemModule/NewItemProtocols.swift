@@ -14,7 +14,7 @@ protocol NewItemViewControllerProtocol {
     func fillWithItemData(item: Item)
     func getItemData()-> ItemData
     func switchButtons()
-    func showErrorPopUp(_with message: String)
+    func showAdditionErrorPopUp(with message: String)
     func setTitle(title: String)
 }
 

@@ -38,7 +38,7 @@
                                 <inset key="imageEdgeInsets" minX="7" minY="2" maxX="7" maxY="2"/>
                                 <state key="normal" image="back_icon"/>
                                 <connections>
-                                    <action selector="BackButtonClicked:" destination="yWE-lb-sca" eventType="touchDown" id="fYJ-gD-Koq"/>
+                                    <action selector="backButtonClicked:" destination="yWE-lb-sca" eventType="touchDown" id="fYJ-gD-Koq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Person name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbu-55-T85">
@@ -73,7 +73,7 @@
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
-                                    <action selector="AddButtonClicked:" destination="yWE-lb-sca" eventType="touchDown" id="HLK-A7-JYX"/>
+                                    <action selector="addButtonClicked:" destination="yWE-lb-sca" eventType="touchDown" id="HLK-A7-JYX"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOj-Sk-tqz" userLabel="ConfirmButton">
@@ -86,7 +86,7 @@
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
-                                    <action selector="ConformButtonClicked:" destination="yWE-lb-sca" eventType="touchDown" id="D2g-mZ-8eA"/>
+                                    <action selector="confirmButtonClicked:" destination="yWE-lb-sca" eventType="touchDown" id="D2g-mZ-8eA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="New person" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k49-zd-SkW">
@@ -141,9 +141,9 @@
                         <viewLayoutGuide key="safeArea" id="J92-O3-3Ht"/>
                     </view>
                     <connections>
-                        <outlet property="AddButton" destination="Opz-yh-VpH" id="qBj-19-Hpo"/>
-                        <outlet property="ConfirmButton" destination="nOj-Sk-tqz" id="WQT-XC-v34"/>
-                        <outlet property="ItemsTable" destination="y1r-c0-aEE" id="gvf-Ut-XeX"/>
+                        <outlet property="addButton" destination="Opz-yh-VpH" id="qBj-19-Hpo"/>
+                        <outlet property="confirmButton" destination="nOj-Sk-tqz" id="WQT-XC-v34"/>
+                        <outlet property="itemsTable" destination="y1r-c0-aEE" id="gvf-Ut-XeX"/>
                         <outlet property="messageLabel" destination="bs3-RO-bCU" id="mGg-AW-g71"/>
                         <outlet property="nameLabel" destination="b8f-BM-rPk" id="han-V2-E7S"/>
                         <outlet property="nameTextField" destination="jbu-55-T85" id="u9u-e0-149"/>
@@ -481,13 +481,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txd-48-Mid">
-                                                    <rect key="frame" x="122" y="11" width="99" height="22"/>
+                                                    <rect key="frame" x="234.5" y="11" width="99" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bav-UF-5QN">
-                                                    <rect key="frame" x="282" y="11" width="26" height="22"/>
+                                                    <rect key="frame" x="507" y="11" width="26" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>

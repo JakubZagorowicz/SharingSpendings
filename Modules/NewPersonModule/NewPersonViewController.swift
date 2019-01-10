@@ -11,10 +11,10 @@ import UIKit
 class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var AddButton: UIButton!
-    @IBOutlet weak var ConfirmButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var ItemsTable: UITableView!
+    @IBOutlet weak var itemsTable: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!
     var presenter: NewPersonPresenterProtocol?
@@ -41,8 +41,8 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
     }
     
     func switchButtons() {
-        AddButton.isHidden = true
-        ConfirmButton.isHidden = false
+        addButton.isHidden = true
+        confirmButton.isHidden = false
     }
     
     func getTextFieldData() -> String {
@@ -62,18 +62,15 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
         nameTextField.text = person.name
     }
     
-    func showPopUp(_with message: String){
+    func showAdditionErrorPopUp(with message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
         
-        self.present(popUp, animated: true) {
-        }
-
+        self.present(popUp, animated: true) {}
     }
-
     
-    @IBAction func ConformButtonClicked(_ sender: Any) {
+    @IBAction func confirmButtonClicked(_ sender: Any) {
         if nameTextField.text == ""{
             presenter?.invalidInput()
         }
@@ -82,7 +79,7 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
         }
     }
     
-    @IBAction func AddButtonClicked(_ sender: Any) {
+    @IBAction func addButtonClicked(_ sender: Any) {
         if nameTextField.text == ""{
             presenter?.invalidInput()
         }
@@ -91,7 +88,7 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
         }
     }
     
-    @IBAction func BackButtonClicked(_ sender: Any) {
+    @IBAction func backButtonClicked(_ sender: Any) {
         presenter?.backButtonClicked()
     }
 }

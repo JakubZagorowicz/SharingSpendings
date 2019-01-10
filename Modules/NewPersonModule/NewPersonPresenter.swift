@@ -51,7 +51,7 @@ class NewPersonPresenter : NewPersonPresenterProtocol {
     }
     
     func invalidInput() {
-        view?.showPopUp(_with: "Enter person name")
+        view?.showAdditionErrorPopUp(with: "Enter person name")
     }
 
 }

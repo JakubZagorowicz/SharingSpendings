@@ -106,7 +106,7 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
         titleLabel.text = title
     }
     
-    func showErrorPopUp(_with message: String){
+    func showAdditionErrorPopUp(with message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
