@@ -15,7 +15,7 @@ protocol NewItemViewControllerProtocol {
     func getItemData()-> ItemData
     func switchButtons()
     func showAdditionErrorPopUp(with message: String)
-    func setTitle(title: String)
+    func toggleToEditMode()
 }
 
 protocol NewItemPresenterProtocol {

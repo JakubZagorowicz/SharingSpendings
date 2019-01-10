@@ -102,8 +102,8 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
         return status
     }
     
-    func setTitle(title: String){
-        titleLabel.text = title
+    func toggleToEditMode(){
+        titleLabel.text = "Edit item"
     }
     
     func showAdditionErrorPopUp(with message: String){

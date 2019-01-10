@@ -21,7 +21,7 @@ class NewItemPresenter: NewItemPresenterProtocol {
         if(item != nil){
             view?.fillWithItemData(item: item!)
             view?.switchButtons()
-            view?.setTitle(title: "Edit item")
+            view?.toggleToEditMode()
         }
     }
     
