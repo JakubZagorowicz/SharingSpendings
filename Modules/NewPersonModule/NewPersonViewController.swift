@@ -28,8 +28,8 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
         titleLabel.font = EsteticsModel.titleLabelFont
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
         
-        nameLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
-        nameTextField.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        nameLabel.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
+        nameTextField.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
         nameTextField.attributedPlaceholder = NSAttributedString(string: nameTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
         
         presenter?.viewWillAppear()

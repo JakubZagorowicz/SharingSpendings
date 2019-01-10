@@ -110,7 +110,7 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,U
             cell.textLabel?.text = dataSource[indexPath.row].name
             cell.textLabel?.textColor = EsteticsModel.inCellTextColor
         }
-        cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
         cell.backgroundColor = .clear
         return cell
     }
@@ -130,7 +130,7 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol,U
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return TableViewModel.cellHeight
+        return EsteticsModel.cellHeight
     }
     
     func setDataSources(){

@@ -55,7 +55,7 @@ extension MeetingManagementViewController{
         addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
         peopleButton.setTitle("Participants", for: .normal)
-        peopleButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        peopleButton.titleLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
         peopleButton.setTitleColor(EsteticsModel.inCellTextColor, for: .normal)
         peopleButton.translatesAutoresizingMaskIntoConstraints = false
         peopleButton.topAnchor.constraint(equalTo: meetingNameLabel.bottomAnchor, constant: 20).isActive = true
@@ -65,7 +65,7 @@ extension MeetingManagementViewController{
         peopleButton.addTarget(self, action: #selector(peopleButtonClick), for: .touchUpInside)
         
         itemsButton.setTitle("Expenses", for: .normal)
-        itemsButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        itemsButton.titleLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
         itemsButton.setTitleColor(EsteticsModel.inCellTextColor, for: .normal)
         itemsButton.translatesAutoresizingMaskIntoConstraints = false
         itemsButton.topAnchor.constraint(equalTo: meetingNameLabel.bottomAnchor, constant: 20).isActive = true
@@ -75,7 +75,7 @@ extension MeetingManagementViewController{
         itemsButton.addTarget(self, action: #selector(itemsButtonClicked), for: .touchUpInside)
         
         settlementButton.setTitle("Settlement", for: .normal)
-        settlementButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        settlementButton.titleLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
         settlementButton.setTitleColor(EsteticsModel.inCellTextColor, for: .normal)
         settlementButton.translatesAutoresizingMaskIntoConstraints = false
         settlementButton.topAnchor.constraint(equalTo: meetingNameLabel.bottomAnchor, constant: 20).isActive = true
@@ -125,7 +125,7 @@ extension MeetingManagementViewController{
         cell.addSubview(toLabel)
         let labels = [fromLabel,howMuchLabel,toLabel]
         for label in labels{
-            label.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+            label.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
             label.textColor = EsteticsModel.inCellTextColor
         }
         fromLabel.translatesAutoresizingMaskIntoConstraints = false

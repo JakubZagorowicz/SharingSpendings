@@ -35,7 +35,7 @@ extension MeetingsViewController{
         view.addSubview(highlightBar)
         
         activeSectionButton.setTitle("Active", for: .normal)
-        activeSectionButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        activeSectionButton.titleLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
         activeSectionButton.setTitleColor(EsteticsModel.inCellTextColor, for: .normal)
         activeSectionButton.translatesAutoresizingMaskIntoConstraints = false
         activeSectionButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
@@ -45,7 +45,7 @@ extension MeetingsViewController{
         activeSectionButton.addTarget(self, action: #selector(sectionButtonClicked), for: .touchUpInside)
         
         closedSectionButton.setTitle("Closed", for: .normal)
-        closedSectionButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        closedSectionButton.titleLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
         closedSectionButton.setTitleColor(EsteticsModel.inCellTextColor, for: .normal)
         closedSectionButton.translatesAutoresizingMaskIntoConstraints = false
         closedSectionButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
@@ -55,7 +55,7 @@ extension MeetingsViewController{
         closedSectionButton.addTarget(self, action: #selector(sectionButtonClicked), for: .touchUpInside)
         
         settledSectionButton.setTitle("Settled", for: .normal)
-        settledSectionButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        settledSectionButton.titleLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
         settledSectionButton.setTitleColor(EsteticsModel.inCellTextColor, for: .normal)
         settledSectionButton.translatesAutoresizingMaskIntoConstraints = false
         settledSectionButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true

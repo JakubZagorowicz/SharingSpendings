@@ -46,7 +46,7 @@ class MeetingSettlementViewController: UIViewController, MeetingSettlementViewCo
     func setLabels(){
         let labels = [topLeftLabel,topRightLabel,topMiddleLabel]
         for label in labels{
-            label?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+            label?.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
             label?.textColor = EsteticsModel.inCellTextColor
         }
         topLeftLabel.text = "From:"
@@ -77,7 +77,7 @@ class MeetingSettlementViewController: UIViewController, MeetingSettlementViewCo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return TableViewModel.cellHeight
+        return EsteticsModel.cellHeight
     }
     
     

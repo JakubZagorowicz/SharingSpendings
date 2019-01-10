@@ -24,10 +24,10 @@ class PersonTableViewCell: UITableViewCell{
         gradientLayerView.translatesAutoresizingMaskIntoConstraints = false
         gradientLayerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         gradientLayerView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        gradientLayerView.heightAnchor.constraint(equalToConstant: TableViewModel.cellHeight).isActive = true
+        gradientLayerView.heightAnchor.constraint(equalToConstant: EsteticsModel.cellHeight).isActive = true
         gradientLayerView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
-        gradientLayer.frame = CGRect(x: 5, y: 0, width: 100, height: TableViewModel.cellHeight)
+        gradientLayer.frame = CGRect(x: 5, y: 0, width: 100, height: EsteticsModel.cellHeight)
         
         gradientLayerView.layer.addSublayer(gradientLayer)
     }
@@ -43,7 +43,7 @@ class PersonTableViewCell: UITableViewCell{
         balanceLabel.textAlignment = .right
         balanceLabel.text = String(format: EsteticsModel.numberFormat, balance)
         balanceLabel.textColor = EsteticsModel.inCellTextColor
-        balanceLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize-1)
+        balanceLabel.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize-1)
 
         setUpGradient(color: color)
     }
@@ -57,6 +57,6 @@ class PersonTableViewCell: UITableViewCell{
         
         textLabel?.text = name
         textLabel?.textColor = EsteticsModel.inCellTextColor
-        textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
     }
 }

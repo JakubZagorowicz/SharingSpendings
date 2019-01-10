@@ -44,7 +44,7 @@ class ErrorPopUpViewController : UIViewController{
         messageLabel.text = message
         messageLabel.numberOfLines = 2
         messageLabel.textColor = EsteticsModel.messageLabelTextColor
-        messageLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        messageLabel.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
         messageLabel.textAlignment = .center
         messageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         messageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

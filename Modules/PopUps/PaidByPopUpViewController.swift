@@ -73,13 +73,13 @@ class PaidByPopUpViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = UITableViewCell()
         cell.textLabel?.text = tableViewData![indexPath.row].name
         cell.textLabel?.textColor = UIColor.darkGray
-        cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return TableViewModel.cellHeight
+        return EsteticsModel.cellHeight
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

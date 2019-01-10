@@ -151,18 +151,18 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
         
         titleLabel.font = EsteticsModel.titleLabelFont
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
-        nameLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
-        priceLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
-        paidByLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
-        usedByLabel.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize+2)
+        nameLabel.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
+        priceLabel.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
+        paidByLabel.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
+        usedByLabel.font = UIFont.systemFont(ofSize: EsteticsModel.headerLabelFontSize)
         
         nameTextField.textColor = EsteticsModel.textFieldTextColor
         nameTextField.alpha = CGFloat(EsteticsModel.textFieldTransparency)
-        nameTextField.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        nameTextField.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
         nameTextField.attributedPlaceholder = NSAttributedString(string: nameTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
         priceTextField.attributedPlaceholder = NSAttributedString(string: priceTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
-        priceTextField.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
-        paidByButton.titleLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        priceTextField.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
+        paidByButton.titleLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
         
         messageLabel.textColor = EsteticsModel.messageLabelTextColor
     }
@@ -198,7 +198,7 @@ extension NewItemViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return TableViewModel.cellHeight
+        return EsteticsModel.cellHeight
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -209,7 +209,7 @@ extension NewItemViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! CheckboxCell
         cell.textLabel?.text = eventMembers![indexPath.row].name
         cell.textLabel?.textColor = EsteticsModel.inCellTextColor
-        cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
         cell.selectionStyle = .none
         cell.usedByCheckbox.isChecked = usersList.contains(eventMembers![indexPath.row])
         

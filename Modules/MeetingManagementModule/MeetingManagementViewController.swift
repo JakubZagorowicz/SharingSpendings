@@ -79,7 +79,7 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return TableViewModel.cellHeight
+        return EsteticsModel.cellHeight
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -110,7 +110,7 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
                 cell.textLabel?.text = "Add some participants"
                 cell.textLabel?.textColor = EsteticsModel.placeholderTextColor
                 cell.backgroundColor = .clear
-                cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+                cell.textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
             }
             else{
                 cell = PersonTableViewCell()
@@ -123,7 +123,7 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         else{
             if tableView == itemsTable{
                 cell.textLabel?.textColor = EsteticsModel.inCellTextColor
-                cell.textLabel?.font = UIFont.systemFont(ofSize: TableViewModel.inCellFontSize)
+                cell.textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
                 
                 cell.textLabel?.text = itemSectionData![indexPath.row].name
             }
