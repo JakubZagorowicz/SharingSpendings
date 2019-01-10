@@ -16,11 +16,11 @@ protocol DataControllerProtocol {
 }
 
 class DataController: NSObject {
-
+    static let entityManager = DataController()
     var dataModelName: String
     
-    init(dataModelName: String){
-        self.dataModelName = dataModelName
+    private override init(){
+        self.dataModelName = "DataModel"
     }
     
     private(set) lazy var managedObjectContext: NSManagedObjectContext = {

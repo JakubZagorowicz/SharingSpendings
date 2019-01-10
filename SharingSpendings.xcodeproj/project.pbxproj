@@ -55,7 +55,6 @@
 		CEB0E3562164DFA4004810D3 /* Debt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3552164DFA4004810D3 /* Debt.swift */; };
 		CEB7340A21B169C7007C2123 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7340921B169C7007C2123 /* Checkbox.swift */; };
 		CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24075219463C4006CC029 /* RoutingProtocols.swift */; };
-		CEC24078219466A2006CC029 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24077219466A2006CC029 /* DataManager.swift */; };
 		CEDBBB6B21C934F200461F61 /* DebtData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBBB6A21C934F200461F61 /* DebtData.swift */; };
 		CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D0C20F7A071005B5FAF /* ItemData.swift */; };
 		CEEEA93E219C22B200F4FFE9 /* EsteticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */; };
@@ -115,7 +114,6 @@
 		CEB0E3552164DFA4004810D3 /* Debt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debt.swift; sourceTree = "<group>"; };
 		CEB7340921B169C7007C2123 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		CEC24075219463C4006CC029 /* RoutingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingProtocols.swift; sourceTree = "<group>"; };
-		CEC24077219466A2006CC029 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CEDBBB6921C9236400461F61 /* DataModel 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 1.1.xcdatamodel"; sourceTree = "<group>"; };
 		CEDBBB6A21C934F200461F61 /* DebtData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtData.swift; sourceTree = "<group>"; };
 		CEDC1D0C20F7A071005B5FAF /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				CEA75D562138195600350F84 /* DataController.swift */,
-				CEC24077219466A2006CC029 /* DataManager.swift */,
 				CEA7865321666950009841D9 /* EntityData */,
 				CE9699F320FF652C000CF3E6 /* Meetings */,
 			);
@@ -424,7 +421,6 @@
 				CE4F126420F5FC2F006EFA97 /* NewMeetingProtocols.swift in Sources */,
 				CE4F127620F610BF006EFA97 /* MeetingManagementViewController.swift in Sources */,
 				CE1BEEF321DE31F200B9961B /* MeetingManagementViewControllerSetup.swift in Sources */,
-				CEC24078219466A2006CC029 /* DataManager.swift in Sources */,
 				CEB0E3542164C48D004810D3 /* MeetingSettlementViewController.swift in Sources */,
 				CE45AB112133E8AB00A45856 /* NewItemProtocols.swift in Sources */,
 				CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */,

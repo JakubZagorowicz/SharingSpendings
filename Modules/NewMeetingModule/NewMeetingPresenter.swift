@@ -16,7 +16,7 @@ class NewMeetingPresenter : NewMeetingPresenterProtocol{
     func addButtonClicked() {
         let name = view?.getTextFieldData()
         do {
-            try DataManager.dataManager.dataController.addEntity(entityData: MeetingData(name: name!))
+            try DataController.entityManager.addEntity(entityData: MeetingData(name: name!))
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }

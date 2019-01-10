@@ -112,7 +112,7 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     
     func deleteItemClicked(item: Item) {
         do {
-            try DataManager.dataManager.dataController.deleteEntity(entity: item)
+            try DataController.entityManager.deleteEntity(entity: item)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -132,7 +132,7 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
             }
             if(personCanBeDeleted){
                 do {
-                    try DataManager.dataManager.dataController.deleteEntity(entity: person)
+                    try DataController.entityManager.deleteEntity(entity: person)
                 } catch let error as NSError {
                     print("Could not save. \(error), \(error.userInfo)")
                 }

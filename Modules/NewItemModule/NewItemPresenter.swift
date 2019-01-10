@@ -33,7 +33,7 @@ class NewItemPresenter: NewItemPresenterProtocol {
         let itemData = view?.getItemData()
 
         do{
-          try DataManager.dataManager.dataController.addEntity(entityData: itemData!)
+          try DataController.entityManager.addEntity(entityData: itemData!)
         }
         catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
@@ -45,7 +45,7 @@ class NewItemPresenter: NewItemPresenterProtocol {
         let itemData = view?.getItemData()
         
         do{
-            try DataManager.dataManager.dataController.updateEntity(entityData: itemData!, entity: item!)
+            try DataController.entityManager.updateEntity(entityData: itemData!, entity: item!)
         }
         catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")

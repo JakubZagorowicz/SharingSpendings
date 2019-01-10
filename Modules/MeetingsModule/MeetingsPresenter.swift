@@ -19,7 +19,7 @@ class MeetingsPresenter : MeetingsPresenterProtocol{
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Meeting")
         do{
-            self.meetings = try Array((DataManager.dataManager.dataController.managedObjectContext.fetch(fetchRequest))) as! [Meeting]
+            self.meetings = try Array((DataController.entityManager.managedObjectContext.fetch(fetchRequest))) as! [Meeting]
         }
         catch let error{
             print("Could not fetch. \(error)")
@@ -39,7 +39,7 @@ class MeetingsPresenter : MeetingsPresenterProtocol{
     func deleteMeetingClicked(index: Int) {
         let meeting  = meetings[index]
         do {
-            try DataManager.dataManager.dataController.deleteEntity(entity: meeting)
+            try DataController.entityManager.deleteEntity(entity: meeting)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
