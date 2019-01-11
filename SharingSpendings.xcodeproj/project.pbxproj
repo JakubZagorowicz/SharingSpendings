@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		CE10C68621B818730076AA3D /* PaidByPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */; };
 		CE1BEEF321DE31F200B9961B /* MeetingManagementViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BEEF221DE31F200B9961B /* MeetingManagementViewControllerSetup.swift */; };
+		CE1D39B021E8BAC900BCC182 /* ItemsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39AD21E8BAC900BCC182 /* ItemsTableManager.swift */; };
+		CE1D39B121E8BAC900BCC182 /* PeopleTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39AE21E8BAC900BCC182 /* PeopleTableManager.swift */; };
+		CE1D39B221E8BAC900BCC182 /* DebtsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39AF21E8BAC900BCC182 /* DebtsTableManager.swift */; };
+		CE1D39B721E8BAD300BCC182 /* SettledEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B421E8BAD300BCC182 /* SettledEventsTableManager.swift */; };
+		CE1D39B821E8BAD300BCC182 /* ClosedEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B521E8BAD300BCC182 /* ClosedEventsTableManager.swift */; };
+		CE1D39B921E8BAD300BCC182 /* ActiveEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B621E8BAD300BCC182 /* ActiveEventsTableManager.swift */; };
 		CE39AB6E21E4BDFC00767734 /* CellOptionsPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39AB6D21E4BDFC00767734 /* CellOptionsPopUp.swift */; };
 		CE3E6FDF21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E6FDE21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift */; };
 		CE45AB092133E7B300A45856 /* NewPersonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB082133E7B300A45856 /* NewPersonProtocols.swift */; };
@@ -37,12 +43,6 @@
 		CE7B4D9B20F49A80005FCBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */; };
 		CE7B4D9E20F49A80005FCBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9C20F49A80005FCBEB /* LaunchScreen.storyboard */; };
 		CE88FA8421625A2F0006C4C9 /* EntityDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88FA8321625A2F0006C4C9 /* EntityDataProtocol.swift */; };
-		CEA702A221E754840000F115 /* ItemsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7029F21E754840000F115 /* ItemsTableManager.swift */; };
-		CEA702A321E754840000F115 /* PeopleTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA702A021E754840000F115 /* PeopleTableManager.swift */; };
-		CEA702A421E754840000F115 /* DebtsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA702A121E754840000F115 /* DebtsTableManager.swift */; };
-		CEA702A921E768D80000F115 /* SettledEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA702A621E768D80000F115 /* SettledEventsTableManager.swift */; };
-		CEA702AA21E768D80000F115 /* ClosedEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA702A721E768D80000F115 /* ClosedEventsTableManager.swift */; };
-		CEA702AB21E768D80000F115 /* ActiveEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA702A821E768D80000F115 /* ActiveEventsTableManager.swift */; };
 		CEA75D572138195600350F84 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA75D562138195600350F84 /* DataController.swift */; };
 		CEA78656216669C0009841D9 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA78655216669C0009841D9 /* Meeting.swift */; };
 		CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */; };
@@ -66,6 +66,12 @@
 /* Begin PBXFileReference section */
 		CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidByPopUpViewController.swift; sourceTree = "<group>"; };
 		CE1BEEF221DE31F200B9961B /* MeetingManagementViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingManagementViewControllerSetup.swift; sourceTree = "<group>"; };
+		CE1D39AD21E8BAC900BCC182 /* ItemsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableManager.swift; sourceTree = "<group>"; };
+		CE1D39AE21E8BAC900BCC182 /* PeopleTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableManager.swift; sourceTree = "<group>"; };
+		CE1D39AF21E8BAC900BCC182 /* DebtsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebtsTableManager.swift; sourceTree = "<group>"; };
+		CE1D39B421E8BAD300BCC182 /* SettledEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettledEventsTableManager.swift; sourceTree = "<group>"; };
+		CE1D39B521E8BAD300BCC182 /* ClosedEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedEventsTableManager.swift; sourceTree = "<group>"; };
+		CE1D39B621E8BAD300BCC182 /* ActiveEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveEventsTableManager.swift; sourceTree = "<group>"; };
 		CE39AB6D21E4BDFC00767734 /* CellOptionsPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellOptionsPopUp.swift; sourceTree = "<group>"; };
 		CE3E6FDE21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsViewControllerSetup.swift; sourceTree = "<group>"; };
 		CE45AB082133E7B300A45856 /* NewPersonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonProtocols.swift; sourceTree = "<group>"; };
@@ -96,12 +102,6 @@
 		CE7B4D9D20F49A80005FCBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7B4D9F20F49A80005FCBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE88FA8321625A2F0006C4C9 /* EntityDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDataProtocol.swift; sourceTree = "<group>"; };
-		CEA7029F21E754840000F115 /* ItemsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableManager.swift; sourceTree = "<group>"; };
-		CEA702A021E754840000F115 /* PeopleTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableManager.swift; sourceTree = "<group>"; };
-		CEA702A121E754840000F115 /* DebtsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebtsTableManager.swift; sourceTree = "<group>"; };
-		CEA702A621E768D80000F115 /* SettledEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettledEventsTableManager.swift; sourceTree = "<group>"; };
-		CEA702A721E768D80000F115 /* ClosedEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedEventsTableManager.swift; sourceTree = "<group>"; };
-		CEA702A821E768D80000F115 /* ActiveEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveEventsTableManager.swift; sourceTree = "<group>"; };
 		CEA75D562138195600350F84 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		CEA78655216669C0009841D9 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAdditionErrors.swift; sourceTree = "<group>"; };
@@ -145,6 +145,26 @@
 			path = PopUps;
 			sourceTree = "<group>";
 		};
+		CE1D39AC21E8BAC900BCC182 /* TableViewsManagers */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D39AD21E8BAC900BCC182 /* ItemsTableManager.swift */,
+				CE1D39AE21E8BAC900BCC182 /* PeopleTableManager.swift */,
+				CE1D39AF21E8BAC900BCC182 /* DebtsTableManager.swift */,
+			);
+			path = TableViewsManagers;
+			sourceTree = "<group>";
+		};
+		CE1D39B321E8BAD300BCC182 /* TableViewsManagers */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D39B421E8BAD300BCC182 /* SettledEventsTableManager.swift */,
+				CE1D39B521E8BAD300BCC182 /* ClosedEventsTableManager.swift */,
+				CE1D39B621E8BAD300BCC182 /* ActiveEventsTableManager.swift */,
+			);
+			path = TableViewsManagers;
+			sourceTree = "<group>";
+		};
 		CE45AB062133E78C00A45856 /* NewItemModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,11 +189,11 @@
 		CE4F125520F5F9F5006EFA97 /* MeetingsModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D39B321E8BAD300BCC182 /* TableViewsManagers */,
 				CE4F125F20F5FC0A006EFA97 /* MeetingsProtocols.swift */,
 				CE4F126920F5FC8C006EFA97 /* MeetingsPresenter.swift */,
 				CE4F127320F610AB006EFA97 /* MeetingsViewController.swift */,
 				CE3E6FDE21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift */,
-				CEA702A521E768D80000F115 /* TableViewsManagers */,
 			);
 			path = MeetingsModule;
 			sourceTree = "<group>";
@@ -181,11 +201,11 @@
 		CE4F125620F5FA06006EFA97 /* MeetingManagementModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D39AC21E8BAC900BCC182 /* TableViewsManagers */,
 				CE4F126120F5FC20006EFA97 /* MeetingManagementProtocols.swift */,
 				CE4F126B20F5FCB3006EFA97 /* MeetingManagementPresenter.swift */,
 				CE4F127520F610BF006EFA97 /* MeetingManagementViewController.swift */,
 				CE1BEEF221DE31F200B9961B /* MeetingManagementViewControllerSetup.swift */,
-				CEA7029E21E754840000F115 /* TableViewsManagers */,
 				CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */,
 				CE58A50421E4FE71009988F1 /* DebtCell.swift */,
 			);
@@ -280,28 +300,6 @@
 				CEA78655216669C0009841D9 /* Meeting.swift */,
 			);
 			path = Meetings;
-			sourceTree = "<group>";
-		};
-		CEA7029E21E754840000F115 /* TableViewsManagers */ = {
-			isa = PBXGroup;
-			children = (
-				CEA7029F21E754840000F115 /* ItemsTableManager.swift */,
-				CEA702A021E754840000F115 /* PeopleTableManager.swift */,
-				CEA702A121E754840000F115 /* DebtsTableManager.swift */,
-			);
-			name = TableViewsManagers;
-			path = ../../../SharingSpendingsbackup/Modules/MeetingManagementModule/TableViewsManagers;
-			sourceTree = "<group>";
-		};
-		CEA702A521E768D80000F115 /* TableViewsManagers */ = {
-			isa = PBXGroup;
-			children = (
-				CEA702A621E768D80000F115 /* SettledEventsTableManager.swift */,
-				CEA702A721E768D80000F115 /* ClosedEventsTableManager.swift */,
-				CEA702A821E768D80000F115 /* ActiveEventsTableManager.swift */,
-			);
-			name = TableViewsManagers;
-			path = ../../../SharingSpendingsbackup/Modules/MeetingsModule/TableViewsManagers;
 			sourceTree = "<group>";
 		};
 		CEA7865321666950009841D9 /* EntityData */ = {
@@ -416,11 +414,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB0E3562164DFA4004810D3 /* Debt.swift in Sources */,
+				CE1D39B121E8BAC900BCC182 /* PeopleTableManager.swift in Sources */,
 				CE45AB092133E7B300A45856 /* NewPersonProtocols.swift in Sources */,
 				CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */,
 				CE4F126420F5FC2F006EFA97 /* NewMeetingProtocols.swift in Sources */,
 				CE4F127620F610BF006EFA97 /* MeetingManagementViewController.swift in Sources */,
 				CE1BEEF321DE31F200B9961B /* MeetingManagementViewControllerSetup.swift in Sources */,
+				CE1D39B921E8BAD300BCC182 /* ActiveEventsTableManager.swift in Sources */,
 				CEB0E3542164C48D004810D3 /* MeetingSettlementViewController.swift in Sources */,
 				CE45AB112133E8AB00A45856 /* NewItemProtocols.swift in Sources */,
 				CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */,
@@ -429,35 +429,33 @@
 				CE58A50521E4FE71009988F1 /* DebtCell.swift in Sources */,
 				CEA75D572138195600350F84 /* DataController.swift in Sources */,
 				CE88FA8421625A2F0006C4C9 /* EntityDataProtocol.swift in Sources */,
-				CEA702A221E754840000F115 /* ItemsTableManager.swift in Sources */,
 				CEB0E3502164BA75004810D3 /* MeetingSettlementProtocols.swift in Sources */,
 				CE4F126E20F5FCF3006EFA97 /* NewMeetingPresenter.swift in Sources */,
 				CE4F127420F610AB006EFA97 /* MeetingsViewController.swift in Sources */,
 				CEA78656216669C0009841D9 /* Meeting.swift in Sources */,
-				CEA702A321E754840000F115 /* PeopleTableManager.swift in Sources */,
-				CEA702A921E768D80000F115 /* SettledEventsTableManager.swift in Sources */,
 				CE4F127B20F61791006EFA97 /* Mothership.swift in Sources */,
 				CEADF01021AFF15700D9784E /* CustomNavigatorController.swift in Sources */,
-				CEA702A421E754840000F115 /* DebtsTableManager.swift in Sources */,
-				CEA702AB21E768D80000F115 /* ActiveEventsTableManager.swift in Sources */,
 				CE45AB0F2133E89900A45856 /* NewItemPresenter.swift in Sources */,
 				CE4F126020F5FC0A006EFA97 /* MeetingsProtocols.swift in Sources */,
+				CE1D39B721E8BAD300BCC182 /* SettledEventsTableManager.swift in Sources */,
 				CEEEA93E219C22B200F4FFE9 /* EsteticsModel.swift in Sources */,
 				CEDBBB6B21C934F200461F61 /* DebtData.swift in Sources */,
+				CE1D39B821E8BAD300BCC182 /* ClosedEventsTableManager.swift in Sources */,
 				CE3E6FDF21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift in Sources */,
 				CE4F127820F61132006EFA97 /* NewMeetingViewController.swift in Sources */,
 				CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */,
 				CE45AB132133E8CD00A45856 /* NewItemViewController.swift in Sources */,
 				CE10C68621B818730076AA3D /* PaidByPopUpViewController.swift in Sources */,
 				CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */,
-				CEA702AA21E768D80000F115 /* ClosedEventsTableManager.swift in Sources */,
 				CE45AB0D2133E7D400A45856 /* NewPersonViewController.swift in Sources */,
 				CE39AB6E21E4BDFC00767734 /* CellOptionsPopUp.swift in Sources */,
 				CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */,
 				CEB7340A21B169C7007C2123 /* Checkbox.swift in Sources */,
 				CEA97AFE215C3B5A00C51C1C /* CheckboxCell.swift in Sources */,
+				CE1D39B021E8BAC900BCC182 /* ItemsTableManager.swift in Sources */,
 				CE4F125A20F5FAE7006EFA97 /* Builder.swift in Sources */,
 				CEF44452213E8212009C6DC5 /* DataModel.xcdatamodeld in Sources */,
+				CE1D39B221E8BAC900BCC182 /* DebtsTableManager.swift in Sources */,
 				CE45AB0B2133E7C300A45856 /* NewPersonPresenter.swift in Sources */,
 				CE4F126A20F5FC8C006EFA97 /* MeetingsPresenter.swift in Sources */,
 				CE4F126220F5FC20006EFA97 /* MeetingManagementProtocols.swift in Sources */,
