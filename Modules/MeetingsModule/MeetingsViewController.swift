@@ -30,6 +30,8 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol, 
     var closedSectionButton = UIButton()
     var settledSectionButton = UIButton()
     
+    var lastLongPressedCell: Int?
+    
     var addButton = UIButton()
     
     var highlightBar = UIView()
@@ -97,11 +99,26 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol, 
         presenter?.meetingClicked(meeting: meeintg)
     }
     
+    func presentOptions(){
+        let popUpVC = TableViewPopUp()
+        popUpVC.delegate = self
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        let options = ObjectOptions.meeting.getOptions()
+        var optionNames = [String]()
+        for option in options{
+            optionNames.append(option.getName())
+        }
+        popUpVC.dataTable = optionNames
+        self.present(popUpVC, animated: true) {}
+    }
+    
     @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer){
-        if longPressGestureRecognizer.state == .ended {
+        if longPressGestureRecognizer.state == .began {
             let touchPoint = longPressGestureRecognizer.location(in: tablesTable[presentedSection])
             if let indexPath = tablesTable[presentedSection].indexPathForRow(at: touchPoint){
                 tablesTable[presentedSection].cellForRow(at: indexPath)
+                lastLongPressedCell = indexPath.row
+
                 presenter?.cellLongPress(section: presentedSection, row: indexPath.row)
             }
         }
@@ -174,5 +191,22 @@ extension MeetingsViewController: UICollectionViewDataSource, UICollectionViewDe
             let visibleIndexPath = collection!.indexPathForItem(at: visiblePoint)
             presentedSection = (visibleIndexPath?.row)!
         }
+    }
+}
+
+extension MeetingsViewController: TableViewPopUpDelegate{
+    func tableViewPopUp(_ tableViewPopUp: TableViewPopUp, cellSelectedAtIndex index: Int) {
+        var clickedMeeting: Meeting
+        switch presentedSection {
+        case 0:
+            clickedMeeting = activeMeetings[lastLongPressedCell!]
+        case 1:
+            clickedMeeting = closedMeetings[lastLongPressedCell!]
+        case 2:
+            clickedMeeting = settledMeetings[lastLongPressedCell!]
+        default:
+            clickedMeeting = activeMeetings[lastLongPressedCell!]
+        }
+        presenter?.deleteMeetingClicked(meeting: clickedMeeting)
     }
 }

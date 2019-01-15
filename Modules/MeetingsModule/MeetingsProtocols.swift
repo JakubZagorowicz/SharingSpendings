@@ -11,13 +11,14 @@ import Foundation
 protocol MeetingsViewControllerProtocol {
     func setTableData(meetings: [Meeting])
     func scrollToSection(index: Int)
+    func presentOptions()
 }
 
 protocol MeetingsPresenterProtocol {
     func viewWillAppear()
     func addMeetingClicked()
     func meetingClicked(meeting: Meeting)
-    func deleteMeetingClicked(index: Int)
+    func deleteMeetingClicked(meeting: Meeting)
     func sectionButtonClicked(sectionIndex: Int)
     func cellLongPress(section: Int, row: Int)
 }

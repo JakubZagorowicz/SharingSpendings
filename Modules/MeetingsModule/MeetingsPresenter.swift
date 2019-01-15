@@ -36,8 +36,7 @@ class MeetingsPresenter : MeetingsPresenterProtocol{
         router?.meetingClicked(meeting: meeting)
     }
     
-    func deleteMeetingClicked(index: Int) {
-        let meeting  = meetings[index]
+    func deleteMeetingClicked(meeting: Meeting) {
         do {
             try DataController.entityManager.deleteEntity(entity: meeting)
         } catch let error as NSError {
@@ -51,6 +50,6 @@ class MeetingsPresenter : MeetingsPresenterProtocol{
     }
     
     func cellLongPress(section: Int, row: Int) {
-        
+        view?.presentOptions()
     }
 }
