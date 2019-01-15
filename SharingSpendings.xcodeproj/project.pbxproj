@@ -15,7 +15,7 @@
 		CE1D39B721E8BAD300BCC182 /* SettledEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B421E8BAD300BCC182 /* SettledEventsTableManager.swift */; };
 		CE1D39B821E8BAD300BCC182 /* ClosedEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B521E8BAD300BCC182 /* ClosedEventsTableManager.swift */; };
 		CE1D39B921E8BAD300BCC182 /* ActiveEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B621E8BAD300BCC182 /* ActiveEventsTableManager.swift */; };
-		CE39AB6E21E4BDFC00767734 /* CellOptionsPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39AB6D21E4BDFC00767734 /* CellOptionsPopUp.swift */; };
+		CE39AB6E21E4BDFC00767734 /* TableViewPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39AB6D21E4BDFC00767734 /* TableViewPopUp.swift */; };
 		CE3E6FDF21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E6FDE21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift */; };
 		CE45AB092133E7B300A45856 /* NewPersonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB082133E7B300A45856 /* NewPersonProtocols.swift */; };
 		CE45AB0B2133E7C300A45856 /* NewPersonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0A2133E7C300A45856 /* NewPersonPresenter.swift */; };
@@ -38,6 +38,9 @@
 		CE4F128020F64A2A006EFA97 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127F20F64A2A006EFA97 /* PersonData.swift */; };
 		CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */; };
 		CE58A50521E4FE71009988F1 /* DebtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58A50421E4FE71009988F1 /* DebtCell.swift */; };
+		CE77789821EE2D6000F77ECD /* ObjectOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789721EE2D6000F77ECD /* ObjectOptions.swift */; };
+		CE77789A21EE310300F77ECD /* SelectableOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789921EE310300F77ECD /* SelectableOptions.swift */; };
+		CE77789C21EE6ED800F77ECD /* TableViewPopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789B21EE6ED800F77ECD /* TableViewPopUpDelegate.swift */; };
 		CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */; };
 		CE7B4D9920F49A7E005FCBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9720F49A7E005FCBEB /* Main.storyboard */; };
 		CE7B4D9B20F49A80005FCBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */; };
@@ -72,7 +75,7 @@
 		CE1D39B421E8BAD300BCC182 /* SettledEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettledEventsTableManager.swift; sourceTree = "<group>"; };
 		CE1D39B521E8BAD300BCC182 /* ClosedEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedEventsTableManager.swift; sourceTree = "<group>"; };
 		CE1D39B621E8BAD300BCC182 /* ActiveEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveEventsTableManager.swift; sourceTree = "<group>"; };
-		CE39AB6D21E4BDFC00767734 /* CellOptionsPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellOptionsPopUp.swift; sourceTree = "<group>"; };
+		CE39AB6D21E4BDFC00767734 /* TableViewPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPopUp.swift; sourceTree = "<group>"; };
 		CE3E6FDE21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsViewControllerSetup.swift; sourceTree = "<group>"; };
 		CE45AB082133E7B300A45856 /* NewPersonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonProtocols.swift; sourceTree = "<group>"; };
 		CE45AB0A2133E7C300A45856 /* NewPersonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonPresenter.swift; sourceTree = "<group>"; };
@@ -95,6 +98,9 @@
 		CE4F127F20F64A2A006EFA97 /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		CE58A50421E4FE71009988F1 /* DebtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtCell.swift; sourceTree = "<group>"; };
+		CE77789721EE2D6000F77ECD /* ObjectOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectOptions.swift; sourceTree = "<group>"; };
+		CE77789921EE310300F77ECD /* SelectableOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableOptions.swift; sourceTree = "<group>"; };
+		CE77789B21EE6ED800F77ECD /* TableViewPopUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPopUpDelegate.swift; sourceTree = "<group>"; };
 		CE7B4D9020F49A7E005FCBEB /* SharingSpendings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingSpendings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7B4D9820F49A7E005FCBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,7 +146,8 @@
 			children = (
 				CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */,
 				CEFFF0FB21C13ED600C86CAA /* ErrorPopUp.swift */,
-				CE39AB6D21E4BDFC00767734 /* CellOptionsPopUp.swift */,
+				CE39AB6D21E4BDFC00767734 /* TableViewPopUp.swift */,
+				CE77789B21EE6ED800F77ECD /* TableViewPopUpDelegate.swift */,
 			);
 			path = PopUps;
 			sourceTree = "<group>";
@@ -252,11 +259,21 @@
 		CE4F127C20F62835006EFA97 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE77789621EE2D1000F77ECD /* Enums */,
 				CEA75D562138195600350F84 /* DataController.swift */,
 				CEA7865321666950009841D9 /* EntityData */,
 				CE9699F320FF652C000CF3E6 /* Meetings */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CE77789621EE2D1000F77ECD /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				CE77789721EE2D6000F77ECD /* ObjectOptions.swift */,
+				CE77789921EE310300F77ECD /* SelectableOptions.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		CE7B4D8720F49A7D005FCBEB = {
@@ -414,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB0E3562164DFA4004810D3 /* Debt.swift in Sources */,
+				CE77789C21EE6ED800F77ECD /* TableViewPopUpDelegate.swift in Sources */,
 				CE1D39B121E8BAC900BCC182 /* PeopleTableManager.swift in Sources */,
 				CE45AB092133E7B300A45856 /* NewPersonProtocols.swift in Sources */,
 				CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */,
@@ -425,6 +443,7 @@
 				CE45AB112133E8AB00A45856 /* NewItemProtocols.swift in Sources */,
 				CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */,
 				CE4F126C20F5FCB3006EFA97 /* MeetingManagementPresenter.swift in Sources */,
+				CE77789821EE2D6000F77ECD /* ObjectOptions.swift in Sources */,
 				CE4F127E20F64A11006EFA97 /* MeetingData.swift in Sources */,
 				CE58A50521E4FE71009988F1 /* DebtCell.swift in Sources */,
 				CEA75D572138195600350F84 /* DataController.swift in Sources */,
@@ -446,9 +465,10 @@
 				CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */,
 				CE45AB132133E8CD00A45856 /* NewItemViewController.swift in Sources */,
 				CE10C68621B818730076AA3D /* PaidByPopUpViewController.swift in Sources */,
+				CE77789A21EE310300F77ECD /* SelectableOptions.swift in Sources */,
 				CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */,
 				CE45AB0D2133E7D400A45856 /* NewPersonViewController.swift in Sources */,
-				CE39AB6E21E4BDFC00767734 /* CellOptionsPopUp.swift in Sources */,
+				CE39AB6E21E4BDFC00767734 /* TableViewPopUp.swift in Sources */,
 				CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */,
 				CEB7340A21B169C7007C2123 /* Checkbox.swift in Sources */,
 				CEA97AFE215C3B5A00C51C1C /* CheckboxCell.swift in Sources */,
