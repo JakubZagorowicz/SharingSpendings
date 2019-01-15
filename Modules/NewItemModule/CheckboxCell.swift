@@ -9,6 +9,15 @@
 import Foundation
 import UIKit
 
-class CheckboxCell: UITableViewCell{    
-    @IBOutlet weak var usedByCheckbox: Checkbox!
+class CheckboxCell: UITableViewCell{        
+    var checkBox = CheckBox()
+    
+    func setupCell(){        
+        addSubview(checkBox)
+        checkBox.translatesAutoresizingMaskIntoConstraints = false
+        checkBox.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        checkBox.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        checkBox.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10).isActive = true
+        checkBox.widthAnchor.constraint(equalTo: checkBox.heightAnchor).isActive = true
+    }
 }

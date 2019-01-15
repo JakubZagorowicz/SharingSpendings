@@ -123,11 +123,11 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
         return itemData
     }
     
-    @IBAction func checkboxValueChanged(_ sender: Any) {
-        let sender = sender as! Checkbox
-        let cell = sender.superview?.superview as! UITableViewCell
+    @objc func checkboxValueChanged(_ sender: Any) {
+        let sender = sender as! CheckBox
+        let cell = sender.superview as! UITableViewCell
         let index = usedByTableView.indexPath(for: cell)?.row
-        if !sender.isChecked{
+        if sender.isChecked{
             usersList.append(eventMembers![index!])
         }
         else{
@@ -207,19 +207,21 @@ extension NewItemViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! CheckboxCell
+        cell.setupCell()
         cell.textLabel?.text = eventMembers![indexPath.row].name
         cell.textLabel?.textColor = EsteticsModel.inCellTextColor
         cell.textLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
         cell.selectionStyle = .none
-        cell.usedByCheckbox.isChecked = usersList.contains(eventMembers![indexPath.row])
+        cell.checkBox.isChecked = usersList.contains(eventMembers![indexPath.row])
+        cell.checkBox.addTarget(self, action: #selector(checkboxValueChanged(_:)), for: .touchDown)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! CheckboxCell
-        cell.usedByCheckbox.isChecked = !cell.usedByCheckbox.isChecked
-        if cell.usedByCheckbox.isChecked{
+        cell.checkBox.isChecked = !cell.checkBox.isChecked
+        if cell.checkBox.isChecked{
             usersList.append(eventMembers![indexPath.row])
         }
         else{
