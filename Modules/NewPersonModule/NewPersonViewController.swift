@@ -66,6 +66,7 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
+        popUp.modalTransitionStyle = .crossDissolve
         
         self.present(popUp, animated: true) {}
     }

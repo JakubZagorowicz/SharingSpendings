@@ -28,8 +28,8 @@ class PaidByPopUpViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.frame = super.view.frame
         
         backgroundButton = UIButton(frame: view.frame)
-        backgroundButton?.backgroundColor = .clear
-        backgroundButton?.alpha = 0.5
+        backgroundButton?.backgroundColor = .black
+        backgroundButton?.alpha = 0.7
         backgroundButton?.addTarget(self, action: #selector(backgroundButtonTapped), for: .touchDown)
 
         tableView.delegate = self
@@ -46,13 +46,13 @@ class PaidByPopUpViewController: UIViewController, UITableViewDelegate, UITableV
 
         tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         tableView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        tableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        tableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
         tableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
         
         cancelButton?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cancelButton?.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
         
-        cancelButton?.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        cancelButton?.widthAnchor.constraint(equalTo: tableView.widthAnchor).isActive = true
         cancelButton?.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         cancelButton?.backgroundColor = UIColor.gray

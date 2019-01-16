@@ -110,7 +110,8 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
-        
+        popUp.modalTransitionStyle = .crossDissolve
+
         self.present(popUp, animated: true) {}
     }
     
@@ -172,6 +173,7 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
         popOverVC.tableViewData = eventMembers
         popOverVC.delegate = self
         popOverVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        popOverVC.modalTransitionStyle = .crossDissolve
         self.present(popOverVC, animated: true) {}
     }
     

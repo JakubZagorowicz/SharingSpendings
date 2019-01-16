@@ -63,7 +63,8 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         let popUp = ErrorPopUpViewController()
         popUp.message = message
         popUp.modalPresentationStyle = .overCurrentContext
-        
+        popUp.modalTransitionStyle = .crossDissolve
+
         self.present(popUp, animated: true) {}
     }
 
@@ -111,6 +112,7 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         let popUpVC = TableViewPopUp()
         popUpVC.delegate = self
         popUpVC.modalPresentationStyle = .overCurrentContext
+        popUpVC.modalTransitionStyle = .crossDissolve
         var optionNames = [String]()
         for option in options{
             optionNames.append(option.getName())

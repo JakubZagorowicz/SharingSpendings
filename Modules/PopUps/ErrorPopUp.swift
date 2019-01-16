@@ -31,7 +31,7 @@ class ErrorPopUpViewController : UIViewController{
         view.frame = super.view.frame
         
         backgroundButton = UIButton(frame: view.frame)
-        backgroundButton?.backgroundColor = .clear
+        backgroundButton?.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.7)
         backgroundButton?.addTarget(self, action: #selector(okButtonClicked), for: .touchDown)
         
         containerView.backgroundColor = .white

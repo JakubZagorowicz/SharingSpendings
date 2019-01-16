@@ -103,6 +103,7 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol, 
         let popUpVC = TableViewPopUp()
         popUpVC.delegate = self
         popUpVC.modalPresentationStyle = .overCurrentContext
+        popUpVC.modalTransitionStyle = .crossDissolve
         let options = Meeting.getOptions()
         var optionNames = [String]()
         for option in options{
