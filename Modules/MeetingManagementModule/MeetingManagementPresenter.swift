@@ -9,6 +9,7 @@
 import Foundation
 
 class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
+    
     var items = [Item]()
     var view: MeetingManagementViewControllerProtocol?
     var router: (MeetingManagementRoutingProtocol & BackableProtocol)?
@@ -84,6 +85,22 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
         }
 
         view?.setTableData(people: people!, items: items)
+    }
+    
+    func cellLongPress(section: Int, row: Int) {
+        let options: [SelectableOptions]
+        switch section {
+        case 0:
+            options = (meeting?.status == "active" || meeting?.status == nil) ? [.edit, .delete] : []
+        case 1:
+            options = (meeting?.status == "active" || meeting?.status == nil) ? [.edit, .delete] : []
+        default:
+            options = []
+        }
+        if options.count != 0{
+            view?.presentOptions(options: options)
+        }
+        
     }
     
     func settleUpButtonClicked() {

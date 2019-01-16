@@ -115,6 +115,13 @@ extension MeetingManagementViewController{
         collection?.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         collection?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
+        tablesTable = [peopleTable, itemsTable, debtsTable]
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        longPressRecognizer.delegate = self
+        longPressRecognizer.minimumPressDuration = 1.0
+        view.addGestureRecognizer(longPressRecognizer)
+        
         view.bringSubviewToFront(addButton)
     }
     

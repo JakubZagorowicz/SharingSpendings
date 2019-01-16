@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetingManagementViewController: UIViewController, MeetingManagementViewControllerProtocol{
+class MeetingManagementViewController: UIViewController, MeetingManagementViewControllerProtocol, UIGestureRecognizerDelegate{
 
     var itemsTable = UITableView(frame: .zero)
     var peopleTable = UITableView(frame: .zero)
@@ -17,6 +17,7 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
     var peopleTableManager: PeopleTableManager?
     var itemsTableManager: ItemsTableManager?
     var debtsTableManager: DebtsTableManager?
+    var tablesTable = [UITableView]()
     
     @IBOutlet weak var meetingNameLabel: UILabel!
     
@@ -33,6 +34,8 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
     let howMuchLabel = UILabel(frame: .zero)
     let toLabel = UILabel(frame: .zero)
 
+    var lastLongPressedCell: Int?
+    
     var presenter: MeetingManagementPresenterProtcol?
     var personSectionData: [(Person, Double)]?
     var itemSectionData: [Item]?
@@ -102,6 +105,30 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
     
     func debtClicked(debt: Debt){
         
+    }
+    
+    func presentOptions(options: [SelectableOptions]){
+        let popUpVC = TableViewPopUp()
+        popUpVC.delegate = self
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        var optionNames = [String]()
+        for option in options{
+            optionNames.append(option.getName())
+        }
+        popUpVC.dataTable = optionNames
+        self.present(popUpVC, animated: true) {}
+    }
+    
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer){
+        if longPressGestureRecognizer.state == .began {
+            let touchPoint = longPressGestureRecognizer.location(in: tablesTable[presentedSection])
+            if let indexPath = tablesTable[presentedSection].indexPathForRow(at: touchPoint){
+                tablesTable[presentedSection].cellForRow(at: indexPath)
+                lastLongPressedCell = indexPath.row
+            
+                presenter?.cellLongPress(section: presentedSection, row: indexPath.row)
+            }
+        }
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
@@ -176,6 +203,33 @@ extension MeetingManagementViewController: UICollectionViewDataSource, UICollect
             let visibleIndexPath = collection!.indexPathForItem(at: visiblePoint)
             presentedSection = (visibleIndexPath?.row)!
             presenter?.setPresentedSection(toIndex: presentedSection)
+        }
+    }
+}
+
+extension MeetingManagementViewController: TableViewPopUpDelegate{
+    func tableViewPopUp(_ tableViewPopUp: TableViewPopUp, cellSelectedAtIndex index: Int) {
+        if index == 0 {
+            if presentedSection == 0{
+                presenter?.personClicked(person: (peopleTableManager?.tableData![lastLongPressedCell!].0)!)
+            }
+            else{
+                if presentedSection == 1{
+                    presenter?.itemClicked(item: (itemsTableManager?.tableData![lastLongPressedCell!])!)
+                }
+            }
+        }
+        else{
+            if index == 1{
+                if presentedSection == 0{
+                    presenter?.deletePersonClicked(person: (peopleTableManager?.tableData![lastLongPressedCell!].0)!)
+                }
+                else{
+                    if presentedSection == 1{
+                        presenter?.deleteItemClicked(item: (itemsTableManager?.tableData![lastLongPressedCell!])!)
+                    }
+                }
+            }
         }
     }
 }
