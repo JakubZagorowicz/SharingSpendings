@@ -42,6 +42,8 @@
 		CE77789C21EE6ED800F77ECD /* TableViewPopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789B21EE6ED800F77ECD /* TableViewPopUpDelegate.swift */; };
 		CE77789E21EF305F00F77ECD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789D21EF305F00F77ECD /* Item.swift */; };
 		CE7778A021EF307E00F77ECD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789F21EF307E00F77ECD /* Person.swift */; };
+		CE7778A721EF7FF000F77ECD /* AcceptablePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7778A621EF7FF000F77ECD /* AcceptablePopUp.swift */; };
+		CE7778A921EF801A00F77ECD /* AcceptablePopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7778A821EF801A00F77ECD /* AcceptablePopUpDelegate.swift */; };
 		CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */; };
 		CE7B4D9920F49A7E005FCBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9720F49A7E005FCBEB /* Main.storyboard */; };
 		CE7B4D9B20F49A80005FCBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */; };
@@ -103,6 +105,8 @@
 		CE77789B21EE6ED800F77ECD /* TableViewPopUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPopUpDelegate.swift; sourceTree = "<group>"; };
 		CE77789D21EF305F00F77ECD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CE77789F21EF307E00F77ECD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		CE7778A621EF7FF000F77ECD /* AcceptablePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptablePopUp.swift; sourceTree = "<group>"; };
+		CE7778A821EF801A00F77ECD /* AcceptablePopUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptablePopUpDelegate.swift; sourceTree = "<group>"; };
 		CE7B4D9020F49A7E005FCBEB /* SharingSpendings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingSpendings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7B4D9820F49A7E005FCBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				CEFFF0FB21C13ED600C86CAA /* ErrorPopUp.swift */,
 				CE39AB6D21E4BDFC00767734 /* TableViewPopUp.swift */,
 				CE77789B21EE6ED800F77ECD /* TableViewPopUpDelegate.swift */,
+				CE7778A621EF7FF000F77ECD /* AcceptablePopUp.swift */,
+				CE7778A821EF801A00F77ECD /* AcceptablePopUpDelegate.swift */,
 			);
 			path = PopUps;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */,
 				CE4F126420F5FC2F006EFA97 /* NewMeetingProtocols.swift in Sources */,
 				CE4F127620F610BF006EFA97 /* MeetingManagementViewController.swift in Sources */,
+				CE7778A721EF7FF000F77ECD /* AcceptablePopUp.swift in Sources */,
 				CE1BEEF321DE31F200B9961B /* MeetingManagementViewControllerSetup.swift in Sources */,
 				CE1D39B921E8BAD300BCC182 /* ActiveEventsTableManager.swift in Sources */,
 				CEB0E3542164C48D004810D3 /* MeetingSettlementViewController.swift in Sources */,
@@ -453,6 +460,7 @@
 				CEA75D572138195600350F84 /* DataController.swift in Sources */,
 				CE88FA8421625A2F0006C4C9 /* EntityDataProtocol.swift in Sources */,
 				CEB0E3502164BA75004810D3 /* MeetingSettlementProtocols.swift in Sources */,
+				CE7778A921EF801A00F77ECD /* AcceptablePopUpDelegate.swift in Sources */,
 				CE4F126E20F5FCF3006EFA97 /* NewMeetingPresenter.swift in Sources */,
 				CE4F127420F610AB006EFA97 /* MeetingsViewController.swift in Sources */,
 				CEA78656216669C0009841D9 /* Meeting.swift in Sources */,
