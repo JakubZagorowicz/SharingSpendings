@@ -40,7 +40,7 @@ class TableViewPopUp: UIViewController{
     }
     
     @objc func backgroundClicked(){
-        self.dismiss(animated: true)
+        self.dismiss(animated: false)
     }
 }
 
@@ -57,8 +57,8 @@ extension TableViewPopUp: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismiss(animated: false)
         delegate?.tableViewPopUp(self, cellSelectedAtIndex: indexPath.row)
-        dismiss(animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

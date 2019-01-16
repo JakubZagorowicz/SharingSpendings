@@ -9,7 +9,10 @@
 import Foundation
 
 extension Item {
-    static func getOptions() -> [SelectableOptions]{
-        return [SelectableOptions.edit,SelectableOptions.delete]
+    static func getOptionsFor(status: String) -> [SelectableOptions]{
+        if status == "active"{
+            return [SelectableOptions.edit,SelectableOptions.delete]
+        }
+        return []
     }
 }
