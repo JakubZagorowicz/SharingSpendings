@@ -38,9 +38,10 @@
 		CE4F128020F64A2A006EFA97 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F127F20F64A2A006EFA97 /* PersonData.swift */; };
 		CE55B961215BC35D00F4CB4D /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */; };
 		CE58A50521E4FE71009988F1 /* DebtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58A50421E4FE71009988F1 /* DebtCell.swift */; };
-		CE77789821EE2D6000F77ECD /* ObjectOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789721EE2D6000F77ECD /* ObjectOptions.swift */; };
 		CE77789A21EE310300F77ECD /* SelectableOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789921EE310300F77ECD /* SelectableOptions.swift */; };
 		CE77789C21EE6ED800F77ECD /* TableViewPopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789B21EE6ED800F77ECD /* TableViewPopUpDelegate.swift */; };
+		CE77789E21EF305F00F77ECD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789D21EF305F00F77ECD /* Item.swift */; };
+		CE7778A021EF307E00F77ECD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77789F21EF307E00F77ECD /* Person.swift */; };
 		CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */; };
 		CE7B4D9920F49A7E005FCBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9720F49A7E005FCBEB /* Main.storyboard */; };
 		CE7B4D9B20F49A80005FCBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */; };
@@ -98,9 +99,10 @@
 		CE4F127F20F64A2A006EFA97 /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		CE55B960215BC35D00F4CB4D /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		CE58A50421E4FE71009988F1 /* DebtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtCell.swift; sourceTree = "<group>"; };
-		CE77789721EE2D6000F77ECD /* ObjectOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectOptions.swift; sourceTree = "<group>"; };
 		CE77789921EE310300F77ECD /* SelectableOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableOptions.swift; sourceTree = "<group>"; };
 		CE77789B21EE6ED800F77ECD /* TableViewPopUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPopUpDelegate.swift; sourceTree = "<group>"; };
+		CE77789D21EF305F00F77ECD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		CE77789F21EF307E00F77ECD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		CE7B4D9020F49A7E005FCBEB /* SharingSpendings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingSpendings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7B4D9320F49A7E005FCBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7B4D9820F49A7E005FCBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -270,7 +272,6 @@
 		CE77789621EE2D1000F77ECD /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				CE77789721EE2D6000F77ECD /* ObjectOptions.swift */,
 				CE77789921EE310300F77ECD /* SelectableOptions.swift */,
 			);
 			path = Enums;
@@ -315,6 +316,8 @@
 				CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */,
 				CEB0E3552164DFA4004810D3 /* Debt.swift */,
 				CEA78655216669C0009841D9 /* Meeting.swift */,
+				CE77789D21EF305F00F77ECD /* Item.swift */,
+				CE77789F21EF307E00F77ECD /* Person.swift */,
 			);
 			path = Meetings;
 			sourceTree = "<group>";
@@ -440,10 +443,11 @@
 				CE1BEEF321DE31F200B9961B /* MeetingManagementViewControllerSetup.swift in Sources */,
 				CE1D39B921E8BAD300BCC182 /* ActiveEventsTableManager.swift in Sources */,
 				CEB0E3542164C48D004810D3 /* MeetingSettlementViewController.swift in Sources */,
+				CE77789E21EF305F00F77ECD /* Item.swift in Sources */,
 				CE45AB112133E8AB00A45856 /* NewItemProtocols.swift in Sources */,
 				CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */,
 				CE4F126C20F5FCB3006EFA97 /* MeetingManagementPresenter.swift in Sources */,
-				CE77789821EE2D6000F77ECD /* ObjectOptions.swift in Sources */,
+				CE7778A021EF307E00F77ECD /* Person.swift in Sources */,
 				CE4F127E20F64A11006EFA97 /* MeetingData.swift in Sources */,
 				CE58A50521E4FE71009988F1 /* DebtCell.swift in Sources */,
 				CEA75D572138195600350F84 /* DataController.swift in Sources */,

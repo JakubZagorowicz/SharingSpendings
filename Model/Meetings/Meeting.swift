@@ -99,4 +99,8 @@ extension Meeting {
         }
         return balanceArray
     }
+    
+    static func getOptions() -> [SelectableOptions]{
+        return [SelectableOptions.delete]
+    }
 }
