@@ -9,6 +9,8 @@
 import Foundation
 
 class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
+
+    
     
     var items = [Item]()
     var view: MeetingManagementViewControllerProtocol?
@@ -17,7 +19,11 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     var people: [(Person,Double)]?
     
     func closeEventButtonClicked() {
-        
+        view?.askForEventClosureConfirmation()
+    }
+    
+    func closeEventConfirmed() {
+        print("yes")
     }
     
     func setPresentedSection(toIndex: Int) {

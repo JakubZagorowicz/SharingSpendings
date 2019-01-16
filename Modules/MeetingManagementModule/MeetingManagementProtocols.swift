@@ -17,6 +17,7 @@ protocol MeetingManagementViewControllerProtocol {
     func addButtonIsVisible(isVisible: Bool)
     func scrollToSection(index: Int)
     func presentOptions(options: [SelectableOptions])
+    func askForEventClosureConfirmation()
 }
 
 protocol MeetingManagementPresenterProtcol {
@@ -33,4 +34,5 @@ protocol MeetingManagementPresenterProtcol {
     func setPresentedSection(toIndex: Int)
     func closeEventButtonClicked()
     func cellLongPress(section: Int, row: Int)
+    func closeEventConfirmed()
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class MeetingManagementViewController: UIViewController, MeetingManagementViewControllerProtocol, UIGestureRecognizerDelegate{
-
+    
     var itemsTable = UITableView(frame: .zero)
     var peopleTable = UITableView(frame: .zero)
     var debtsTable = UITableView(frame: .zero)
@@ -57,6 +57,16 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         DispatchQueue.main.async {
             self.collection?.scrollToItem(at: IndexPath(row: sectionBeforeRotation, section: 0), at: [], animated: true)
         }
+    }
+    
+    func askForEventClosureConfirmation() {
+        let popUp = AcceptablePopUp()
+        popUp.setMessage(message: "Do you really want to close that event?")
+        popUp.modalPresentationStyle = .overCurrentContext
+        popUp.modalTransitionStyle = .crossDissolve
+        popUp.delegate = self
+        
+        self.present(popUp, animated: true) {}
     }
     
     func showMessagePopUp(message: String){
@@ -233,5 +243,11 @@ extension MeetingManagementViewController: TableViewPopUpDelegate{
                 }
             }
         }
+    }
+}
+
+extension MeetingManagementViewController: AcceptablePopUpDelegate{
+    func acceptablePopUp(_ acceptablePopUp: AcceptablePopUp, didResolveWith result: Bool) {
+        presenter?.closeEventConfirmed()
     }
 }
