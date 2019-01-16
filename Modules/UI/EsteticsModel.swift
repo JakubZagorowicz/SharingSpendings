@@ -29,7 +29,7 @@ struct EsteticsModel {
     
     static var cellHeight = 30 + UIScreen.main.bounds.height*0.025
     static var inCellFontSize = floor(10 + UIScreen.main.bounds.height*0.015)
-    static var headerLabelFontSize = inCellFontSize + 2
+    static var headerLabelFontSize = inCellFontSize
     static var headerLabelTextColor = UIColor.white
     
     static func setLabel(style: UILabelStyle, label: UILabel){
@@ -46,6 +46,9 @@ struct EsteticsModel {
         case .inactiveTableCell:
             label.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
             label.textColor = EsteticsModel.placeholderTextColor
+        case .whiteBackgroundCell:
+            label.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
+            label.textColor = .black
         }
     }
 }
@@ -55,6 +58,7 @@ enum UILabelStyle {
     case header
     case tableCell
     case inactiveTableCell
+    case whiteBackgroundCell
 }
 
 extension UIColor {
