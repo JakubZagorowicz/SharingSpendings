@@ -16,6 +16,7 @@ protocol NewItemViewControllerProtocol {
     func switchButtons()
     func showAdditionErrorPopUp(with message: String)
     func toggleToEditMode()
+    func toggleToClosedMode()
 }
 
 protocol NewItemPresenterProtocol {

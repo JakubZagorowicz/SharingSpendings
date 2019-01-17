@@ -20,8 +20,12 @@ class NewItemPresenter: NewItemPresenterProtocol {
         view?.setPeopleData(people: Array(meeting!.peopleAttending!) as! [Person])
         if(item != nil){
             view?.fillWithItemData(item: item!)
-            view?.switchButtons()
-            view?.toggleToEditMode()
+            if meeting?.status == "active" || meeting?.status == nil{
+                view?.toggleToEditMode()
+            }
+            else{
+                view?.toggleToClosedMode()
+            }
         }
     }
     

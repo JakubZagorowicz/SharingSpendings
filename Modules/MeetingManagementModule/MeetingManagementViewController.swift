@@ -59,6 +59,11 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         }
     }
     
+    func toggleToClosedMode(){
+        addButton.isHidden = true
+        closeEventButton.isHidden = true
+    }
+    
     func askForEventClosureConfirmation() {
         let popUp = AcceptablePopUp()
         popUp.setMessage(message: "Do you really want to close that event?")

@@ -10,8 +10,6 @@ import Foundation
 
 class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
 
-    
-    
     var items = [Item]()
     var view: MeetingManagementViewControllerProtocol?
     var router: (MeetingManagementRoutingProtocol & BackableProtocol)?
@@ -23,7 +21,13 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     }
     
     func closeEventConfirmed() {
-        print("yes")
+        meeting?.status = "closed"
+        do{
+            try DataController.entityManager.saveContext()
+        }
+        catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     func setPresentedSection(toIndex: Int) {
@@ -53,7 +57,7 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     
     var presentedSection: Int = 0 {
         didSet{
-            if presentedSection == 2{
+            if presentedSection == 2 || meeting?.status == "closed" || meeting?.status == "settled"{
                 view?.addButtonIsVisible(isVisible: false)
             }
             else{
@@ -89,7 +93,9 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
         else{
             view?.setDebtsData(debts: [Debt]())
         }
-
+        if meeting?.status == "closed" || meeting?.status == "settled"{
+            view?.toggleToClosedMode()
+        }
         view?.setTableData(people: people!, items: items)
     }
     

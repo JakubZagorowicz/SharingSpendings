@@ -28,6 +28,7 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
     var editingItem: Item?
     var usersList = [Person]()
     var pickedPerson : Person?
+    var checkBoxEnabled: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +105,18 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
     
     func toggleToEditMode(){
         titleLabel.text = "Edit item"
+        confirmButton.isHidden = false
+        addButton.isHidden = true
+    }
+    
+    func toggleToClosedMode(){
+        titleLabel.text = "Item details"
+        addButton.isHidden = true
+        nameTextField.isEnabled = false
+        priceTextField.isEnabled = false
+        paidByButton.isEnabled = false
+        checkBoxEnabled = false
+        usedByTableView.allowsSelection = false
     }
     
     func showAdditionErrorPopUp(with message: String){
@@ -216,6 +229,7 @@ extension NewItemViewController: UITableViewDelegate, UITableViewDataSource{
         cell.selectionStyle = .none
         cell.checkBox.isChecked = usersList.contains(eventMembers![indexPath.row])
         cell.checkBox.addTarget(self, action: #selector(checkboxValueChanged(_:)), for: .touchDown)
+        cell.checkBox.isEnabled = checkBoxEnabled
         
         return cell
     }

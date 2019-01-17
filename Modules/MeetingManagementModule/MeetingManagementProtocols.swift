@@ -18,6 +18,7 @@ protocol MeetingManagementViewControllerProtocol {
     func scrollToSection(index: Int)
     func presentOptions(options: [SelectableOptions])
     func askForEventClosureConfirmation()
+    func toggleToClosedMode()
 }
 
 protocol MeetingManagementPresenterProtcol {

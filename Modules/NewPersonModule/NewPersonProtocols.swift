@@ -21,5 +21,6 @@ protocol NewPersonViewControllerProtocol {
     func setLabeLMessage(message: String)
     func switchButtons()
     func showAdditionErrorPopUp(with message: String)
-    func setTitle(title: String)
+    func toggleToEditMode()
+    func toggleToClosedMode()
 }

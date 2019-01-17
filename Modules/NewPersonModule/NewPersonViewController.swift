@@ -62,6 +62,18 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
         nameTextField.text = person.name
     }
     
+    func toggleToEditMode() {
+        titleLabel.text = "Edit person"
+        addButton.isHidden = true
+        confirmButton.isHidden = false
+    }
+    
+    func toggleToClosedMode() {
+        titleLabel.text = "Person details"
+        addButton.isHidden = true
+        nameTextField.isEnabled = false
+    }
+    
     func showAdditionErrorPopUp(with message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message

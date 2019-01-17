@@ -18,8 +18,12 @@ class NewPersonPresenter : NewPersonPresenterProtocol {
     func viewWillAppear() {
         if person != nil{
             view?.showPersonDetails(person: person!)
-            view?.switchButtons()
-            view?.setTitle(title: "Edit person")
+            if meeting?.status == "active" || meeting?.status == nil{
+                view?.toggleToEditMode()
+            }
+            else{
+                view?.toggleToClosedMode()
+            }
         }
     }
     
