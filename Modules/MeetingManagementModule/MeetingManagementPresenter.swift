@@ -15,6 +15,8 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     var router: (MeetingManagementRoutingProtocol & BackableProtocol)?
     var meeting: Meeting?
     var people: [(Person,Double)]?
+    var lastDebtClicked: Int?
+    var debts: [Debt]?
     
     func closeEventButtonClicked() {
         view?.askForEventClosureConfirmation()
@@ -22,6 +24,7 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     
     func closeEventConfirmed() {
         meeting?.status = "closed"
+        meeting?.debtsSettled = [Bool](repeating: false, count: debts!.count) as NSObject
         do{
             try DataController.entityManager.saveContext()
         }
@@ -88,7 +91,8 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
             }
         }
         if doesAnyDebtExist{
-            view?.setDebtsData(debts: (meeting?.calculateDebts(balances: people!))!)
+            debts = meeting?.calculateDebts(balances: people!)
+            view?.setDebtsData(debts: debts!)
         }
         else{
             view?.setDebtsData(debts: [Debt]())
@@ -129,6 +133,23 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     
     func personClicked(person: Person) {
         router?.personClicked(person: person, meeting: meeting!)
+    }
+    
+    func debtClicked(at index: Int){
+        lastDebtClicked = index
+        view?.askForDebtSettlementConfirmation()
+    }
+    
+    func debtSettlementConfirmed(){
+        var debtsArray = meeting?.debtsSettled as! [Bool]
+        debtsArray[lastDebtClicked!] = true
+        meeting?.debtsSettled = debtsArray as NSObject
+        do{
+            try DataController.entityManager.saveContext()
+        }
+        catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     func addPersonClicked() {

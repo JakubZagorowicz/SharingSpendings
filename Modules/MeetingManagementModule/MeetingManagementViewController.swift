@@ -74,6 +74,16 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         self.present(popUp, animated: true) {}
     }
     
+    func askForDebtSettlementConfirmation(){
+        let popUp = AcceptablePopUp()
+        popUp.setMessage(message: "Do you want to settle that debt?")
+        popUp.modalPresentationStyle = .overCurrentContext
+        popUp.modalTransitionStyle = .crossDissolve
+      //  popUp.delegate = self
+        
+        self.present(popUp, animated: true) {}
+    }
+    
     func showMessagePopUp(message: String){
         let popUp = ErrorPopUpViewController()
         popUp.message = message
@@ -119,8 +129,8 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         presenter?.itemClicked(item: item)
     }
     
-    func debtClicked(debt: Debt){
-        
+    func debtClicked(at index: Int){
+        presenter?.debtClicked(at: index)
     }
     
     func presentOptions(options: [SelectableOptions]){
@@ -253,6 +263,8 @@ extension MeetingManagementViewController: TableViewPopUpDelegate{
 
 extension MeetingManagementViewController: AcceptablePopUpDelegate{
     func acceptablePopUp(_ acceptablePopUp: AcceptablePopUp, didResolveWith result: Bool) {
-        presenter?.closeEventConfirmed()
+        if result{
+            presenter?.closeEventConfirmed()
+        }
     }
 }

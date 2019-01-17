@@ -18,6 +18,7 @@ protocol MeetingManagementViewControllerProtocol {
     func scrollToSection(index: Int)
     func presentOptions(options: [SelectableOptions])
     func askForEventClosureConfirmation()
+    func askForDebtSettlementConfirmation()
     func toggleToClosedMode()
 }
 
@@ -25,6 +26,7 @@ protocol MeetingManagementPresenterProtcol {
     func viewWillAppear()
     func itemClicked(item: Item)
     func personClicked(person: Person)
+    func debtClicked(at index: Int)
     func deleteItemClicked(item:Item)
     func deletePersonClicked(person:Person)
     func backButtonClicked()
@@ -36,4 +38,5 @@ protocol MeetingManagementPresenterProtcol {
     func closeEventButtonClicked()
     func cellLongPress(section: Int, row: Int)
     func closeEventConfirmed()
+    func debtSettlementConfirmed()
 }

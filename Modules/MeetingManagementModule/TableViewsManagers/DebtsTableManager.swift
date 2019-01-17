@@ -10,9 +10,9 @@ import UIKit
 
 class DebtsTableManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     var tableData: [Debt]?
-    var cellSelectionCallback: (Debt) -> Void
+    var cellSelectionCallback: (Int) -> Void
     
-    init(cellSelectionCallback: @escaping (Debt) -> Void) {
+    init(cellSelectionCallback: @escaping (Int) -> Void) {
         self.cellSelectionCallback = cellSelectionCallback
     }
     
@@ -48,8 +48,7 @@ class DebtsTableManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableData!.count != 0 {
-            let selectedDebt = tableData![indexPath.row]
-            cellSelectionCallback(selectedDebt)
+            cellSelectionCallback(indexPath.row)
         }
     }
     
