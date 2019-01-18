@@ -7,7 +7,7 @@
         <relationship name="usedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="itemsUsed" inverseEntity="Person" syncable="YES"/>
     </entity>
     <entity name="Meeting" representedClassName="Meeting" syncable="YES" codeGenerationType="class">
-        <attribute name="debtsSettled" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="debtsSettled" optional="YES" attributeType="Transformable" customClassName="[Bool]" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="peopleAttending" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="meeting" inverseEntity="Person" syncable="YES"/>

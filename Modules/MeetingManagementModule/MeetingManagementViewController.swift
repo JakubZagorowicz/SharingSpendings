@@ -33,13 +33,16 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
     let fromLabel = UILabel(frame: .zero)
     let howMuchLabel = UILabel(frame: .zero)
     let toLabel = UILabel(frame: .zero)
+    
+    var closureConfirmationPopUp: AcceptablePopUp?
+    var debtSettlementConfrimationPopUp: AcceptablePopUp?
 
     var lastLongPressedCell: Int?
     
     var presenter: MeetingManagementPresenterProtcol?
     var personSectionData: [(Person, Double)]?
     var itemSectionData: [Item]?
-    var debtsSectionData: [Debt]?
+    var debtsSectionData: [(Debt,Bool)]?
     var presentedSection: Int = 0
     
     override func viewDidLoad() {
@@ -65,23 +68,24 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
     }
     
     func askForEventClosureConfirmation() {
-        let popUp = AcceptablePopUp()
-        popUp.setMessage(message: "Do you really want to close that event?")
-        popUp.modalPresentationStyle = .overCurrentContext
-        popUp.modalTransitionStyle = .crossDissolve
-        popUp.delegate = self
+        closureConfirmationPopUp = AcceptablePopUp()
+        closureConfirmationPopUp?.setMessage(message: "Do you really want to close that event?")
+        closureConfirmationPopUp?.modalPresentationStyle = .overCurrentContext
+        closureConfirmationPopUp?.modalTransitionStyle = .crossDissolve
+        closureConfirmationPopUp?.delegate = self
         
-        self.present(popUp, animated: true) {}
+        self.present(closureConfirmationPopUp!, animated: true) {}
     }
     
-    func askForDebtSettlementConfirmation(){
-        let popUp = AcceptablePopUp()
-        popUp.setMessage(message: "Do you want to settle that debt?")
-        popUp.modalPresentationStyle = .overCurrentContext
-        popUp.modalTransitionStyle = .crossDissolve
-      //  popUp.delegate = self
+    func askForDebtSettlementConfirmation(current status: Bool){
+        debtSettlementConfrimationPopUp = AcceptablePopUp()
+        let message = status ? "Do you want to unsettle that debt?" : "Do you want to settle that debt?"
+        debtSettlementConfrimationPopUp?.setMessage(message: message)
+        debtSettlementConfrimationPopUp?.modalPresentationStyle = .overCurrentContext
+        debtSettlementConfrimationPopUp?.modalTransitionStyle = .crossDissolve
+        debtSettlementConfrimationPopUp?.delegate = self
         
-        self.present(popUp, animated: true) {}
+        self.present(debtSettlementConfrimationPopUp!, animated: true) {}
     }
     
     func showMessagePopUp(message: String){
@@ -115,7 +119,7 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         itemsTable.reloadData()
     }
     
-    func setDebtsData(debts: [Debt]) {
+    func setDebtsData(debts: [(Debt, Bool)]) {
         debtsSectionData = debts
         debtsTableManager?.tableData = debtsSectionData
         debtsTable.reloadData()
@@ -263,8 +267,16 @@ extension MeetingManagementViewController: TableViewPopUpDelegate{
 
 extension MeetingManagementViewController: AcceptablePopUpDelegate{
     func acceptablePopUp(_ acceptablePopUp: AcceptablePopUp, didResolveWith result: Bool) {
-        if result{
-            presenter?.closeEventConfirmed()
+        if acceptablePopUp == closureConfirmationPopUp{
+            if result{
+                presenter?.closeEventConfirmed()
+            }
         }
+        else{
+            if result{
+                presenter?.debtSettlementConfirmed()
+            }
+        }
+
     }
 }

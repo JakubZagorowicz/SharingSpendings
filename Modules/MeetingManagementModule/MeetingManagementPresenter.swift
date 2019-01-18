@@ -24,13 +24,14 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     
     func closeEventConfirmed() {
         meeting?.status = "closed"
-        meeting?.debtsSettled = [Bool](repeating: false, count: debts!.count) as NSObject
+        meeting?.debtsSettled = [Bool](repeating: false, count: debts!.count)
         do{
             try DataController.entityManager.saveContext()
         }
         catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        view?.toggleToClosedMode()
     }
     
     func setPresentedSection(toIndex: Int) {
@@ -92,10 +93,21 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
         }
         if doesAnyDebtExist{
             debts = meeting?.calculateDebts(balances: people!)
-            view?.setDebtsData(debts: debts!)
+            var debtsSettlement = [(Debt, Bool)]()
+            if meeting?.debtsSettled == nil{
+                for debt in debts!{
+                    debtsSettlement.append((debt, false))
+                }
+            }
+            else{
+                for i in 0...(debts?.count)!-1{
+                    debtsSettlement.append((debts![i], (meeting?.debtsSettled![i])!))
+                }
+            }
+            view?.setDebtsData(debts: debtsSettlement)
         }
         else{
-            view?.setDebtsData(debts: [Debt]())
+            view?.setDebtsData(debts: [(Debt,Bool)]())
         }
         if meeting?.status == "closed" || meeting?.status == "settled"{
             view?.toggleToClosedMode()
@@ -137,19 +149,20 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
     
     func debtClicked(at index: Int){
         lastDebtClicked = index
-        view?.askForDebtSettlementConfirmation()
+        if meeting?.status == "closed" || meeting?.status == "settled"{
+            view?.askForDebtSettlementConfirmation(current: (meeting?.debtsSettled![lastDebtClicked!])!)
+        }
     }
     
     func debtSettlementConfirmed(){
-        var debtsArray = meeting?.debtsSettled as! [Bool]
-        debtsArray[lastDebtClicked!] = true
-        meeting?.debtsSettled = debtsArray as NSObject
+        meeting?.debtsSettled![lastDebtClicked!] = !(meeting?.debtsSettled![lastDebtClicked!])!
         do{
             try DataController.entityManager.saveContext()
         }
         catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        viewWillAppear()
     }
     
     func addPersonClicked() {

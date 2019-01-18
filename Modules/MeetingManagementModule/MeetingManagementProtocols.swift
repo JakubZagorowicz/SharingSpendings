@@ -10,7 +10,7 @@ import Foundation
 
 protocol MeetingManagementViewControllerProtocol {
     func setTableData(people: [(Person, Double)], items: [Item])
-    func setDebtsData(debts: [Debt])
+    func setDebtsData(debts: [(Debt,Bool)])
     func showMessagePopUp(message: String)
     func setMeetingName(name: String)
     func setAddItemButton(isEnabled: Bool)
@@ -18,7 +18,7 @@ protocol MeetingManagementViewControllerProtocol {
     func scrollToSection(index: Int)
     func presentOptions(options: [SelectableOptions])
     func askForEventClosureConfirmation()
-    func askForDebtSettlementConfirmation()
+    func askForDebtSettlementConfirmation(current status: Bool)
     func toggleToClosedMode()
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 class DebtsTableManager: NSObject, UITableViewDataSource, UITableViewDelegate {
-    var tableData: [Debt]?
+    var tableData: [(Debt, Bool)]?
     var cellSelectionCallback: (Int) -> Void
     
     init(cellSelectionCallback: @escaping (Int) -> Void) {
@@ -30,8 +30,12 @@ class DebtsTableManager: NSObject, UITableViewDataSource, UITableViewDelegate {
         else{
             cell = DebtCell()
             if let myCell = cell as? DebtCell{
-                myCell.setDebt(debt: tableData![indexPath.row])
-                EsteticsModel.setLabel(style: .tableCell, label: myCell.textLabel!)
+                myCell.setDebt(debt: tableData![indexPath.row].0)
+                if tableData![indexPath.row].1{
+                    EsteticsModel.setLabel(style: .inactiveTableCell, label: myCell.fromLabel)
+                    EsteticsModel.setLabel(style: .inactiveTableCell, label: myCell.toLabel)
+                    EsteticsModel.setLabel(style: .inactiveTableCell, label: myCell.howMuchLabel)
+                }
                 myCell.backgroundColor = .clear
             }
         }
