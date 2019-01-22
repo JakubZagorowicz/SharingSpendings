@@ -17,6 +17,7 @@
 		CE1D39B921E8BAD300BCC182 /* ActiveEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B621E8BAD300BCC182 /* ActiveEventsTableManager.swift */; };
 		CE39AB6E21E4BDFC00767734 /* TableViewPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39AB6D21E4BDFC00767734 /* TableViewPopUp.swift */; };
 		CE3E6FDF21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E6FDE21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift */; };
+		CE3EA88F21F21CDB0096A791 /* SlideInMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA88E21F21CDB0096A791 /* SlideInMenu.swift */; };
 		CE45AB092133E7B300A45856 /* NewPersonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB082133E7B300A45856 /* NewPersonProtocols.swift */; };
 		CE45AB0B2133E7C300A45856 /* NewPersonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0A2133E7C300A45856 /* NewPersonPresenter.swift */; };
 		CE45AB0D2133E7D400A45856 /* NewPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45AB0C2133E7D400A45856 /* NewPersonViewController.swift */; };
@@ -49,6 +50,7 @@
 		CE7B4D9B20F49A80005FCBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9A20F49A80005FCBEB /* Assets.xcassets */; };
 		CE7B4D9E20F49A80005FCBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B4D9C20F49A80005FCBEB /* LaunchScreen.storyboard */; };
 		CE88FA8421625A2F0006C4C9 /* EntityDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88FA8321625A2F0006C4C9 /* EntityDataProtocol.swift */; };
+		CE90C48121F6B86D0081528E /* SlideInMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C48021F6B86D0081528E /* SlideInMenuDelegate.swift */; };
 		CEA75D572138195600350F84 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA75D562138195600350F84 /* DataController.swift */; };
 		CEA78656216669C0009841D9 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA78655216669C0009841D9 /* Meeting.swift */; };
 		CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */; };
@@ -80,6 +82,7 @@
 		CE1D39B621E8BAD300BCC182 /* ActiveEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveEventsTableManager.swift; sourceTree = "<group>"; };
 		CE39AB6D21E4BDFC00767734 /* TableViewPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPopUp.swift; sourceTree = "<group>"; };
 		CE3E6FDE21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsViewControllerSetup.swift; sourceTree = "<group>"; };
+		CE3EA88E21F21CDB0096A791 /* SlideInMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInMenu.swift; sourceTree = "<group>"; };
 		CE45AB082133E7B300A45856 /* NewPersonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonProtocols.swift; sourceTree = "<group>"; };
 		CE45AB0A2133E7C300A45856 /* NewPersonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonPresenter.swift; sourceTree = "<group>"; };
 		CE45AB0C2133E7D400A45856 /* NewPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 		CE7B4D9D20F49A80005FCBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7B4D9F20F49A80005FCBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE88FA8321625A2F0006C4C9 /* EntityDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDataProtocol.swift; sourceTree = "<group>"; };
+		CE90C48021F6B86D0081528E /* SlideInMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInMenuDelegate.swift; sourceTree = "<group>"; };
 		CEA75D562138195600350F84 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		CEA78655216669C0009841D9 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		CEA97AFB215C155300C51C1C /* ItemAdditionErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAdditionErrors.swift; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 			children = (
 				CEEEA93D219C22B200F4FFE9 /* EsteticsModel.swift */,
 				CEB7340921B169C7007C2123 /* Checkbox.swift */,
+				CE3EA88E21F21CDB0096A791 /* SlideInMenu.swift */,
+				CE90C48021F6B86D0081528E /* SlideInMenuDelegate.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -477,9 +483,11 @@
 				CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */,
 				CE45AB132133E8CD00A45856 /* NewItemViewController.swift in Sources */,
 				CE10C68621B818730076AA3D /* PaidByPopUpViewController.swift in Sources */,
+				CE3EA88F21F21CDB0096A791 /* SlideInMenu.swift in Sources */,
 				CE77789A21EE310300F77ECD /* SelectableOptions.swift in Sources */,
 				CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */,
 				CE45AB0D2133E7D400A45856 /* NewPersonViewController.swift in Sources */,
+				CE90C48121F6B86D0081528E /* SlideInMenuDelegate.swift in Sources */,
 				CE39AB6E21E4BDFC00767734 /* TableViewPopUp.swift in Sources */,
 				CE7B4D9420F49A7E005FCBEB /* AppDelegate.swift in Sources */,
 				CEB7340A21B169C7007C2123 /* Checkbox.swift in Sources */,

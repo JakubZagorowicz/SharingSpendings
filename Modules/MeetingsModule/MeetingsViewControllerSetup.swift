@@ -33,6 +33,47 @@ extension MeetingsViewController{
         addButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
+        menuButton = UIButton()
+        menuButton?.setImage(UIImage(named: "menu_icon"), for: .normal)
+        view.addSubview(menuButton!)
+        menuButton?.translatesAutoresizingMaskIntoConstraints = false
+        menuButton?.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+        menuButton?.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        menuButton?.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        menuButton?.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        menuButton?.addTarget(self, action: #selector(menuButtonClicked(_:)), for: .touchUpInside)
+        
+        gestureScreenEdgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(gestureScreenEdgePan(_:)))
+        gestureScreenEdgePan?.edges = .left
+        view.addGestureRecognizer(gestureScreenEdgePan!)
+        
+        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(gesturePan(_:)))
+        
+        slideMenu = SlideInMenu()
+        view.addSubview(slideMenu!)
+        slideMenu?.translatesAutoresizingMaskIntoConstraints = false
+        slideMenu?.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        constraintMenuWidth = slideMenu?.widthAnchor.constraint(equalToConstant: 330)
+        constraintMenuWidth?.isActive = true
+        let constant = -(constraintMenuWidth?.constant)!
+        constraintMenuLeft = slideMenu?.leftAnchor.constraint(equalTo: view.leftAnchor, constant: constant)
+        constraintMenuLeft?.isActive = true
+        slideMenu?.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        slideMenu?.addGestureRecognizer(panGestureRecognizer!)
+        
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(gestureTap(_:)))
+        
+        viewBlack = UIView()
+        viewBlack?.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.7)
+        view.addSubview(viewBlack!)
+        viewBlack?.translatesAutoresizingMaskIntoConstraints = false
+        viewBlack?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        viewBlack?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        viewBlack?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        viewBlack?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        viewBlack?.isHidden = true
+        viewBlack?.addGestureRecognizer(tapGestureRecognizer!)
+        
         view.addSubview(activeSectionButton)
         view.addSubview(closedSectionButton)
         view.addSubview(settledSectionButton)
@@ -123,5 +164,7 @@ extension MeetingsViewController{
         tablesTable = [activeMeetingsTable, closedMeetingsTable, settledMeetingsTable]
         
         view.bringSubviewToFront(addButton)
+        view.bringSubviewToFront(viewBlack!)
+        view.bringSubviewToFront(slideMenu!)
     }
 }
