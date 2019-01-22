@@ -152,8 +152,8 @@ extension MeetingsViewController{
         collection?.translatesAutoresizingMaskIntoConstraints = false
         collection?.topAnchor.constraint(equalTo: highlightBar.bottomAnchor, constant: 0).isActive = true
         collection?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        collection?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        collection?.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        collection?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        collection?.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 1).isActive = true
         collection?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))

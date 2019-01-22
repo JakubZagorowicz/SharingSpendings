@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol, UIGestureRecognizerDelegate {
+class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol {
     
     var presenter: MeetingsPresenterProtocol?
     var meetings: [Meeting]?
@@ -267,7 +267,7 @@ extension MeetingsViewController: UICollectionViewDataSource, UICollectionViewDe
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: collectionView.frame.height)
+        return CGSize(width: view.frame.width-1, height: collectionView.frame.height)
     }
     
     func scrollToSection(index: Int) {
@@ -298,5 +298,11 @@ extension MeetingsViewController: TableViewPopUpDelegate{
             clickedMeeting = activeMeetings[lastLongPressedCell!]
         }
         presenter?.deleteMeetingClicked(meeting: clickedMeeting)
+    }
+}
+
+extension MeetingsViewController: UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
