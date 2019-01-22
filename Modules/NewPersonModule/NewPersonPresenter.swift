@@ -9,7 +9,6 @@
 import Foundation
 
 class NewPersonPresenter : NewPersonPresenterProtocol {
-    
     var view: NewPersonViewControllerProtocol?
     var router: BackableProtocol?
     var meeting: Meeting?

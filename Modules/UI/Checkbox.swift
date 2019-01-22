@@ -33,7 +33,6 @@ class CheckBox : UIControl{
     func setup(){
         imageView = UIImageView()
         addSubview(imageView!)
-   //     self.setImage(image: UIImage(named: "checkbox_off")!)
         imageView?.translatesAutoresizingMaskIntoConstraints = false
         imageView?.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         imageView?.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true

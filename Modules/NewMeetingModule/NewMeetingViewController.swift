@@ -9,10 +9,8 @@
 import UIKit
 
 class NewMeetingViewController: UIViewController, NewMeetingViewControllerProtocol, UITextFieldDelegate {
-
     var presenter: NewMeetingPresenterProtocol?
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
@@ -24,12 +22,6 @@ class NewMeetingViewController: UIViewController, NewMeetingViewControllerProtoc
         titleLabel.textColor = EsteticsModel.titleLabelTextColor
         
         nameTextField.attributedPlaceholder = NSAttributedString(string: nameTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getTextFieldData() -> String {

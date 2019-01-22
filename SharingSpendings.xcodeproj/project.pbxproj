@@ -57,9 +57,6 @@
 		CEA97AFE215C3B5A00C51C1C /* CheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA97AFD215C3B5A00C51C1C /* CheckboxCell.swift */; };
 		CEADF01021AFF15700D9784E /* CustomNavigatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADF00F21AFF15700D9784E /* CustomNavigatorController.swift */; };
 		CEADF01221B00FF900D9784E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADF01121B00FF900D9784E /* Animator.swift */; };
-		CEB0E3502164BA75004810D3 /* MeetingSettlementProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E34F2164BA74004810D3 /* MeetingSettlementProtocols.swift */; };
-		CEB0E3522164C44D004810D3 /* MeetingSettlementPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3512164C44D004810D3 /* MeetingSettlementPresenter.swift */; };
-		CEB0E3542164C48D004810D3 /* MeetingSettlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3532164C48D004810D3 /* MeetingSettlementViewController.swift */; };
 		CEB0E3562164DFA4004810D3 /* Debt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0E3552164DFA4004810D3 /* Debt.swift */; };
 		CEB7340A21B169C7007C2123 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7340921B169C7007C2123 /* Checkbox.swift */; };
 		CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC24075219463C4006CC029 /* RoutingProtocols.swift */; };
@@ -124,9 +121,6 @@
 		CEA97AFD215C3B5A00C51C1C /* CheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxCell.swift; sourceTree = "<group>"; };
 		CEADF00F21AFF15700D9784E /* CustomNavigatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigatorController.swift; sourceTree = "<group>"; };
 		CEADF01121B00FF900D9784E /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
-		CEB0E34F2164BA74004810D3 /* MeetingSettlementProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSettlementProtocols.swift; sourceTree = "<group>"; };
-		CEB0E3512164C44D004810D3 /* MeetingSettlementPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSettlementPresenter.swift; sourceTree = "<group>"; };
-		CEB0E3532164C48D004810D3 /* MeetingSettlementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSettlementViewController.swift; sourceTree = "<group>"; };
 		CEB0E3552164DFA4004810D3 /* Debt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debt.swift; sourceTree = "<group>"; };
 		CEB7340921B169C7007C2123 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		CEC24075219463C4006CC029 /* RoutingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingProtocols.swift; sourceTree = "<group>"; };
@@ -249,7 +243,6 @@
 				CE4F125920F5FAE7006EFA97 /* Builder.swift */,
 				CEADF00F21AFF15700D9784E /* CustomNavigatorController.swift */,
 				CEADF01121B00FF900D9784E /* Animator.swift */,
-				CEB0E34E2164B9A5004810D3 /* MeetingSettlementModule */,
 				CE45AB072133E79600A45856 /* NewPersonModule */,
 				CE45AB062133E78C00A45856 /* NewItemModule */,
 				CE4F125720F5FA17006EFA97 /* NewMeetingModule */,
@@ -342,16 +335,6 @@
 				CE88FA8321625A2F0006C4C9 /* EntityDataProtocol.swift */,
 			);
 			path = EntityData;
-			sourceTree = "<group>";
-		};
-		CEB0E34E2164B9A5004810D3 /* MeetingSettlementModule */ = {
-			isa = PBXGroup;
-			children = (
-				CEB0E34F2164BA74004810D3 /* MeetingSettlementProtocols.swift */,
-				CEB0E3512164C44D004810D3 /* MeetingSettlementPresenter.swift */,
-				CEB0E3532164C48D004810D3 /* MeetingSettlementViewController.swift */,
-			);
-			path = MeetingSettlementModule;
 			sourceTree = "<group>";
 		};
 		CEB7340821B1699A007C2123 /* UI */ = {
@@ -455,7 +438,6 @@
 				CE7778A721EF7FF000F77ECD /* AcceptablePopUp.swift in Sources */,
 				CE1BEEF321DE31F200B9961B /* MeetingManagementViewControllerSetup.swift in Sources */,
 				CE1D39B921E8BAD300BCC182 /* ActiveEventsTableManager.swift in Sources */,
-				CEB0E3542164C48D004810D3 /* MeetingSettlementViewController.swift in Sources */,
 				CE77789E21EF305F00F77ECD /* Item.swift in Sources */,
 				CE45AB112133E8AB00A45856 /* NewItemProtocols.swift in Sources */,
 				CEDC1D0D20F7A071005B5FAF /* ItemData.swift in Sources */,
@@ -465,7 +447,6 @@
 				CE58A50521E4FE71009988F1 /* DebtCell.swift in Sources */,
 				CEA75D572138195600350F84 /* DataController.swift in Sources */,
 				CE88FA8421625A2F0006C4C9 /* EntityDataProtocol.swift in Sources */,
-				CEB0E3502164BA75004810D3 /* MeetingSettlementProtocols.swift in Sources */,
 				CE7778A921EF801A00F77ECD /* AcceptablePopUpDelegate.swift in Sources */,
 				CE4F126E20F5FCF3006EFA97 /* NewMeetingPresenter.swift in Sources */,
 				CE4F127420F610AB006EFA97 /* MeetingsViewController.swift in Sources */,
@@ -501,7 +482,6 @@
 				CE4F126220F5FC20006EFA97 /* MeetingManagementProtocols.swift in Sources */,
 				CEFFF0FC21C13ED600C86CAA /* ErrorPopUp.swift in Sources */,
 				CE4F128020F64A2A006EFA97 /* PersonData.swift in Sources */,
-				CEB0E3522164C44D004810D3 /* MeetingSettlementPresenter.swift in Sources */,
 				CEADF01221B00FF900D9784E /* Animator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

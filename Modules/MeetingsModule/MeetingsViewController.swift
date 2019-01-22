@@ -62,11 +62,6 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol, 
     override func viewWillAppear(_ animated: Bool) {
         presenter?.viewWillAppear()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let sectionBeforeRotation = presentedSection
@@ -155,13 +150,9 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol, 
                 constraintMenuLeft?.constant = 0
                 viewBlack?.alpha = 0.7
             } else if translationX < 0 {
-                
-                // viewMenu fully dragged in
                 constraintMenuLeft?.constant = -(constraintMenuWidth?.constant)!
                 viewBlack?.alpha = 0
             } else {
-                
-                // viewMenu is being dragged somewhere between min and max amount
                 constraintMenuLeft?.constant = -(constraintMenuWidth?.constant)! + translationX
                 
                 let ratio = translationX / (constraintMenuWidth?.constant)!
@@ -169,8 +160,6 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol, 
                 viewBlack?.alpha = alphaValue
             }
         } else {
-            
-            // if the menu was dragged less than half of it's width, close it. Otherwise, open it.
             if (constraintMenuLeft?.constant)! < -(constraintMenuWidth?.constant)! / 2 {
                 self.hideMenu()
             } else {
@@ -185,37 +174,22 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol, 
     
     
     @objc func gesturePan(_ sender: UIPanGestureRecognizer) {
-        
-        // retrieve the current state of the gesture
-        if sender.state == UIGestureRecognizer.State.began {
-            
-            // no need to do anything
-        } else if sender.state == UIGestureRecognizer.State.changed {
-            
-            // retrieve the amount viewMenu has been dragged
+        if sender.state == UIGestureRecognizer.State.changed {
             let translationX = sender.translation(in: sender.view).x
             if translationX > 0 {
-                
-                // viewMenu fully dragged out
                 constraintMenuLeft?.constant = 0
                 viewBlack?.alpha = 0.7
             } else if translationX < -(constraintMenuWidth?.constant)! {
-                
-                // viewMenu fully dragged in
                 constraintMenuLeft!.constant = -(constraintMenuWidth?.constant)!
                 viewBlack?.alpha = 0
             } else {
-                
-                // it's being dragged somewhere between min and max amount
                 constraintMenuLeft?.constant = translationX
                 
                 let ratio = ((constraintMenuWidth?.constant)! + translationX) / (constraintMenuWidth?.constant)!
                 let alphaValue = ratio * 0.7
                 viewBlack?.alpha = alphaValue
             }
-        } else {
-            
-            // if the drag was less than half of it's width, close it. Otherwise, open it.
+        } else {            
             if constraintMenuLeft!.constant < -constraintMenuWidth!.constant / 2 {
                 self.hideMenu()
             } else {

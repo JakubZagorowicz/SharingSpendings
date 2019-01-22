@@ -25,10 +25,7 @@ class DataController: NSObject {
     
     private(set) lazy var managedObjectContext: NSManagedObjectContext = {
         let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        
         managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
-        
-        
         return managedObjectContext
     }()
     
@@ -40,7 +37,6 @@ class DataController: NSObject {
         guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
             fatalError("Unable to Load Data Model")
         }
-        
         return managedObjectModel
     }()
     
@@ -51,9 +47,7 @@ class DataController: NSObject {
         let storeName = "\(self.dataModelName).sqlite"
         
         let documentsDirectoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        
         let persistentStoreURL = documentsDirectoryURL.appendingPathComponent(storeName)
-        
         
         do {
             let options = [ NSInferMappingModelAutomaticallyOption : true,
@@ -65,7 +59,6 @@ class DataController: NSObject {
         } catch {
             fatalError("Unable to Load Persistent Store")
         }
-        
         return persistentStoreCoordinator
     }()
 }

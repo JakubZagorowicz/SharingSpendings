@@ -27,7 +27,6 @@ class Mothership {
     
     func goToMeetingManagmentModule(meeting: Meeting){
        navigator?.pushViewController(Builder.buildMeetingManagmentModule(router: self, meeting: meeting), animated: true)
-      //  navigator?.setViewControllers([Builder.BuildMeetingManagmentModule(router: self, meeting: meeting)], animated: true)
     }
     
     func goToMeetingsModule(){
@@ -50,9 +49,6 @@ class Mothership {
         navigator?.pushViewController(Builder.buildNewPersonModule(router: self, person: person, meeting: meeting), animated: true)
     }
     
-    func goToMeetingSettlementModule(meeting: Meeting){
-        navigator?.pushViewController(Builder.buildMeetingSettlementModule(router: self, meeting: meeting), animated: true)
-    }
     func goBack(){
         navigator?.popViewController(animated: true)
     }
@@ -63,9 +59,8 @@ extension Mothership : BackableProtocol{
         goBack()
     }
 }
-extension Mothership : MeetingManagementRoutingProtocol{
 
-    
+extension Mothership : MeetingManagementRoutingProtocol{
     func itemClicked(item: Item, meeting: Meeting) {
         goToNewItemModule(item: item, meeting: meeting)
     }
@@ -80,10 +75,6 @@ extension Mothership : MeetingManagementRoutingProtocol{
     
     func newPersonClicked(meeting: Meeting) {
         goToNewPersonModule(meeting: meeting)
-    }
-    
-    func settleUpButtonClicked(meeting: Meeting) {
-        goToMeetingSettlementModule(meeting: meeting)
     }
 }
 

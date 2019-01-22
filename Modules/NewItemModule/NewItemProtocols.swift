@@ -10,7 +10,6 @@ import Foundation
 
 protocol NewItemViewControllerProtocol {
     func setPeopleData(people: [Person])
-    func updateMessage(message: String)
     func fillWithItemData(item: Item)
     func getItemData()-> ItemData
     func switchButtons()

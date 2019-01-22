@@ -17,7 +17,6 @@ protocol MeetingManagementRoutingProtocol {
     func newItemButtonClicked(meeting: Meeting)
     func personClicked(person: Person, meeting: Meeting)
     func newPersonClicked(meeting: Meeting)
-    func settleUpButtonClicked(meeting: Meeting)
 }
 
 protocol MeetingModuleRoutingProtocol {

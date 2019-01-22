@@ -9,7 +9,6 @@
 import Foundation
 
 class NewMeetingPresenter : NewMeetingPresenterProtocol{
-    
     var view : NewMeetingViewControllerProtocol?
     var router: BackableProtocol?
     

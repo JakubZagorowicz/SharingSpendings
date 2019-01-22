@@ -25,7 +25,6 @@ extension Meeting {
                 if balance > maxOwe{
                     maxOwe = balance
                     to = person
-                    
                 }
                 if balance < maxDebt{
                     maxDebt = balance
@@ -40,7 +39,6 @@ extension Meeting {
                     }
                     if balances[index].0 == to{
                         balances.remove(at: index)
-                        
                     }
                 }
             }
@@ -75,7 +73,6 @@ extension Meeting {
                     condition = true
                 }
             }
-            // this function is ugly and I will look to simplify it in the future
         }
 
         return debts

@@ -28,8 +28,6 @@ enum itemAdditionError {
             message = "Atleast one participant have to be using this item"
         case itemAdditionError.noBuyerPicked:
             message = "Pick participant, who paid for item"
-//        default:
-//            message = ""
         }
         return message
     }

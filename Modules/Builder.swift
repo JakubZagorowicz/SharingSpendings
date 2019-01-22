@@ -100,17 +100,4 @@ class Builder {
         
         return viewController
     }
-    
-    static func buildMeetingSettlementModule(router: Mothership, meeting: Meeting) -> MeetingSettlementViewController{
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MeetingSettlementModuleViewController") as! MeetingSettlementViewController
-        let presenter = MeetingSettlementPresenter()
-        
-        viewController.presenter = presenter
-        
-        presenter.view = viewController
-        presenter.router = router
-        presenter.meeting = meeting
-        
-        return viewController
-    }
 }

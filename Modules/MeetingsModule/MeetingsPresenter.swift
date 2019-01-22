@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 class MeetingsPresenter : MeetingsPresenterProtocol{
-    
     var view: MeetingsViewControllerProtocol?
     var router: MeetingModuleRoutingProtocol?
     var meetings = [Meeting]()

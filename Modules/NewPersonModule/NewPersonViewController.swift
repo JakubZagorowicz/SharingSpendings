@@ -9,7 +9,6 @@
 import UIKit
 
 class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol {
-
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
@@ -34,11 +33,6 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
         
         presenter?.viewWillAppear()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func switchButtons() {
         addButton.isHidden = true
@@ -48,17 +42,8 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
     func getTextFieldData() -> String {
         return nameTextField.text!
     }
-    
-    func setLabeLMessage(message: String) {
-        messageLabel.text = message
-    }
-    
-    func setTitle(title: String) {
-        titleLabel.text = title
-    }
-    
+
     func showPersonDetails(person: Person) {
-        //  ItemsTable.isHidden = false
         nameTextField.text = person.name
     }
     
@@ -107,7 +92,6 @@ class NewPersonViewController: UIViewController, NewPersonViewControllerProtocol
 }
 
 extension NewPersonViewController : UITextFieldDelegate{
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 14
         let currentString: NSString = textField.text! as NSString

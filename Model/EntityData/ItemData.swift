@@ -23,13 +23,9 @@ struct ItemData: EntityDataProtocol{
     
     init(name: String, cost: Double, buyer: Person, usedBy: [Person]) {
         self.name = name
-//        attributes.append(("name", name))
         self.cost = cost
-//        attributes.append(("cost", cost))
         self.buyer = buyer
-//        attributes.append(("buyer", buyer))
         self.usedBy = usedBy
-//        attributes.append(("usedBy", usedBy))
         assignAttributes()
     }
 }

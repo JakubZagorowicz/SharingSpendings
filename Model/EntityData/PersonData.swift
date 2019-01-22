@@ -16,7 +16,6 @@ struct PersonData: EntityDataProtocol {
     let entityName: String = "Person"
 
     var attributes: [(String, Any)] = [(String, Any)]()
-   
     
     var name: String
     var meeting: Meeting
@@ -24,8 +23,6 @@ struct PersonData: EntityDataProtocol {
     init(name: String, meeting: Meeting) {
         self.name = name
         self.meeting = meeting
-//        attributes.append(("name", name))
-//        attributes.append(("meeting", meeting))
         assignAttributes()
     }
 }

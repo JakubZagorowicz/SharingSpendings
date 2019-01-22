@@ -21,7 +21,6 @@ struct DebtData: EntityDataProtocol{
         self.from = from
         self.to = to
         self.howMuch = howMuch
-        
         assignAttributes()
     }
 }

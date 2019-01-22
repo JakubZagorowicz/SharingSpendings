@@ -18,7 +18,6 @@ protocol NewPersonPresenterProtocol {
 
 protocol NewPersonViewControllerProtocol {
     func showPersonDetails(person: Person)
-    func setLabeLMessage(message: String)
     func switchButtons()
     func showAdditionErrorPopUp(with message: String)
     func toggleToEditMode()

@@ -9,7 +9,6 @@
 import Foundation
 
 class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
-
     var items = [Item]()
     var view: MeetingManagementViewControllerProtocol?
     var router: (MeetingManagementRoutingProtocol & BackableProtocol)?
@@ -129,10 +128,6 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
             view?.presentOptions(options: options)
         }
         
-    }
-    
-    func settleUpButtonClicked() {
-        router?.settleUpButtonClicked(meeting: meeting!)
     }
     
     func backButtonClicked(){

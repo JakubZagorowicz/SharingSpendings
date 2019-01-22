@@ -9,19 +9,16 @@
 import UIKit
 
 class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var paidByLabel: UILabel!
     @IBOutlet weak var usedByLabel: UILabel!
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var paidByButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var usedByTableView: UITableView!
     var presenter: NewItemPresenterProtocol?
     var eventMembers: [Person]?
@@ -44,11 +41,6 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func switchButtons() {
         confirmButton.isHidden = false
         addButton.isHidden = true
@@ -65,10 +57,6 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
         paidByButton.setTitle(item.buyer?.name, for: .normal)
         paidByButton.titleLabel?.textAlignment = .left
         pickedPerson = item.buyer
-    }
-    
-    func updateMessage(message: String){
-        messageLabel.text = message
     }
     
     func isInputDataOk() -> Bool{
@@ -177,8 +165,6 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
         priceTextField.attributedPlaceholder = NSAttributedString(string: priceTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: EsteticsModel.placeholderTextColor])
         priceTextField.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
         paidByButton.titleLabel?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
-        
-        messageLabel.textColor = EsteticsModel.messageLabelTextColor
     }
     
     @IBAction func paidBySpaceTapped(_ sender: Any) {
