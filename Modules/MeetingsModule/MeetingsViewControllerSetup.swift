@@ -37,8 +37,8 @@ extension MeetingsViewController{
         menuButton?.setImage(UIImage(named: "menu_icon"), for: .normal)
         view.addSubview(menuButton!)
         menuButton?.translatesAutoresizingMaskIntoConstraints = false
-        menuButton?.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
-        menuButton?.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        menuButton?.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        menuButton?.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
         menuButton?.widthAnchor.constraint(equalToConstant: 20).isActive = true
         menuButton?.heightAnchor.constraint(equalToConstant: 20).isActive = true
         menuButton?.addTarget(self, action: #selector(menuButtonClicked(_:)), for: .touchUpInside)
