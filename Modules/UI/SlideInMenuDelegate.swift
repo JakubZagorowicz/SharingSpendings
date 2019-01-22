@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SlideInMenuDelegate {
-    func slideInMenuDelegate(_ slideInMenu: SlideInMenu, optionSelectedAt row: Int)
+    func slideInMenuDelegate(_ slideInMenu: SlideInMenu, selectedRowWith option: SlideMenuOptions)
 }

@@ -306,3 +306,10 @@ extension MeetingsViewController: UIGestureRecognizerDelegate{
         return true
     }
 }
+
+extension MeetingsViewController: SlideInMenuDelegate{
+    func slideInMenuDelegate(_ slideInMenu: SlideInMenu, selectedRowWith option: SlideMenuOptions) {
+        hideMenu()
+        presenter?.menuOptionClicked(option: option)
+    }
+}

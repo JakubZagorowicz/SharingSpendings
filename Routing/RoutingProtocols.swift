@@ -22,4 +22,5 @@ protocol MeetingManagementRoutingProtocol {
 protocol MeetingModuleRoutingProtocol {
     func meetingClicked(meeting: Meeting)
     func newMeetingButtonClicked()
+    func termsAndConditionsClicked(mode: String)
 }

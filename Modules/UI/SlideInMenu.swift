@@ -12,7 +12,7 @@ class SlideInMenu: UIView {
     private var optionsTableView: UITableView?
     private var logoImageView: UIImageView?
     private var copyrigthLabel: UILabel?
-    private var options: [String] = ["User Terms", "Privacy Policy"]
+    private var options: [SlideMenuOptions] = [SlideMenuOptions.privacyPolicy, SlideMenuOptions.userTerms]
     
     var delegate: SlideInMenuDelegate?
     
@@ -71,13 +71,13 @@ extension SlideInMenu: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.backgroundColor = .clear
-        cell.textLabel?.text = options[indexPath.row]
+        cell.textLabel?.text = options[indexPath.row].getName()
         EsteticsModel.setLabel(style: .tableCell, label: cell.textLabel!)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.slideInMenuDelegate(self, optionSelectedAt: indexPath.row)
+        delegate?.slideInMenuDelegate(self, selectedRowWith: options[indexPath.row])
     }
     
 }

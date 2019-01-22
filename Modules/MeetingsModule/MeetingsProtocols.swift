@@ -21,4 +21,5 @@ protocol MeetingsPresenterProtocol {
     func deleteMeetingClicked(meeting: Meeting)
     func sectionButtonClicked(sectionIndex: Int)
     func cellLongPress(section: Int, row: Int)
+    func menuOptionClicked(option: SlideMenuOptions)
 }

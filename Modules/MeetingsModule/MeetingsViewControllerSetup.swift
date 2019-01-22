@@ -60,6 +60,7 @@ extension MeetingsViewController{
         constraintMenuLeft?.isActive = true
         slideMenu?.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         slideMenu?.addGestureRecognizer(panGestureRecognizer!)
+        slideMenu?.delegate = self
         
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(gestureTap(_:)))
         

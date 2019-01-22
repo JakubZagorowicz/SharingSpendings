@@ -100,4 +100,17 @@ class Builder {
         
         return viewController
     }
+    
+    static func buildTermsAndCondidionsModule(router: Mothership, mode: String) -> TermsAndCondotionsViewController{
+        let viewController = TermsAndCondotionsViewController()
+        let presenter = TermsAndConditionsPresenter()
+        
+        viewController.presenter = presenter
+        
+        presenter.view = viewController
+        presenter.router = router
+        presenter.mode = mode
+        
+        return viewController
+    }
 }

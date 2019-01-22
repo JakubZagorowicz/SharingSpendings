@@ -49,6 +49,10 @@ class Mothership {
         navigator?.pushViewController(Builder.buildNewPersonModule(router: self, person: person, meeting: meeting), animated: true)
     }
     
+    func goToTermsAndConditionsModule(mode: String){
+        navigator?.pushViewController(Builder.buildTermsAndCondidionsModule(router: self, mode: mode), animated: true)
+    }
+    
     func goBack(){
         navigator?.popViewController(animated: true)
     }
@@ -82,7 +86,12 @@ extension Mothership : MeetingModuleRoutingProtocol{
     func meetingClicked(meeting: Meeting) {
         goToMeetingManagmentModule(meeting: meeting)
     }
+    
     func newMeetingButtonClicked(){
         goToNewMeetingModule()
+    }
+    
+    func termsAndConditionsClicked(mode: String){
+        goToTermsAndConditionsModule(mode: mode)
     }
 }

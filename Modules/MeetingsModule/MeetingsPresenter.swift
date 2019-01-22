@@ -51,4 +51,13 @@ class MeetingsPresenter : MeetingsPresenterProtocol{
     func cellLongPress(section: Int, row: Int) {
         view?.presentOptions()
     }
+    
+    func menuOptionClicked(option: SlideMenuOptions) {
+        switch option {
+        case .privacyPolicy:
+            router?.termsAndConditionsClicked(mode: "Privacy Policy")
+        case .userTerms:
+            router?.termsAndConditionsClicked(mode: "User Terms")
+        }
+    }
 }
