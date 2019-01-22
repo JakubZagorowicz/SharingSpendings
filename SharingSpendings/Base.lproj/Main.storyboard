@@ -484,15 +484,6 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jl-rV-vjj" userLabel="MessageLabel">
-                                <rect key="frame" x="70" y="145" width="235" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="4fz-sj-sp9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -507,21 +498,17 @@
                             <constraint firstItem="Bw7-8E-Yp6" firstAttribute="leading" secondItem="zU8-kD-M75" secondAttribute="leading" constant="20" id="OpV-Ji-8hg"/>
                             <constraint firstItem="zU8-kD-M75" firstAttribute="trailing" secondItem="6eb-0G-0OI" secondAttribute="trailing" constant="5" id="QNq-EI-1fZ"/>
                             <constraint firstAttribute="trailing" secondItem="NVb-vz-UR0" secondAttribute="trailing" id="QkQ-tS-n9K"/>
-                            <constraint firstItem="zU8-kD-M75" firstAttribute="trailing" secondItem="3jl-rV-vjj" secondAttribute="trailing" constant="70" id="TmO-gp-Ro9"/>
                             <constraint firstItem="I39-tv-40q" firstAttribute="leading" secondItem="zU8-kD-M75" secondAttribute="leading" constant="16" id="U3D-l1-FKC"/>
                             <constraint firstItem="OWK-Do-KqQ" firstAttribute="leading" secondItem="Lq9-bU-JyN" secondAttribute="leading" constant="10" id="c5z-LY-6ux"/>
                             <constraint firstItem="6eb-0G-0OI" firstAttribute="leading" secondItem="Bw7-8E-Yp6" secondAttribute="trailing" constant="10" id="irZ-94-teW"/>
                             <constraint firstItem="zU8-kD-M75" firstAttribute="bottom" secondItem="t09-ea-AdF" secondAttribute="bottom" constant="30" id="kCP-Cv-xET"/>
                             <constraint firstAttribute="trailing" secondItem="OWK-Do-KqQ" secondAttribute="trailing" id="oH9-No-WAB"/>
                             <constraint firstItem="I39-tv-40q" firstAttribute="centerY" secondItem="I0c-cO-kds" secondAttribute="centerY" id="uuT-bg-5r8"/>
-                            <constraint firstItem="3jl-rV-vjj" firstAttribute="leading" secondItem="zU8-kD-M75" secondAttribute="leading" constant="70" id="vVc-H5-1d2"/>
-                            <constraint firstItem="3jl-rV-vjj" firstAttribute="top" secondItem="OWK-Do-KqQ" secondAttribute="bottom" constant="10" id="xnx-hX-qci"/>
                             <constraint firstItem="I39-tv-40q" firstAttribute="top" secondItem="zU8-kD-M75" secondAttribute="top" constant="5" id="xuf-MH-dDc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zU8-kD-M75"/>
                     </view>
                     <connections>
-                        <outlet property="messageLabel" destination="3jl-rV-vjj" id="1St-DK-4vX"/>
                         <outlet property="nameTextField" destination="6eb-0G-0OI" id="run-SK-epQ"/>
                         <outlet property="titleLabel" destination="I0c-cO-kds" id="QG6-A5-Ask"/>
                     </connections>
