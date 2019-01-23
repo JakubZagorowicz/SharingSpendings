@@ -26,7 +26,6 @@ class PeopleTableManager: NSObject, UITableViewDataSource, UITableViewDelegate {
             EsteticsModel.setLabel(style: .inactiveTableCell, label: cell.textLabel!)
             cell.textLabel?.text = "There is no particicpants yet."
             cell.backgroundColor = .clear
-            cell.selectionStyle = .none
         }
         else{
             cell = PersonTableViewCell()
@@ -40,6 +39,7 @@ class PeopleTableManager: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.textLabel?.text = tableData![indexPath.row].0.name
             cell.backgroundColor = .clear
         }
+        cell.selectionStyle = .none
         return cell
     }
     

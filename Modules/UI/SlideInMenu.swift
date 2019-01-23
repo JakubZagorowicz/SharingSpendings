@@ -79,6 +79,7 @@ extension SlideInMenu: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.selectionStyle = .none
         cell.backgroundColor = .clear
         cell.textLabel?.text = options[indexPath.row].getName()
         EsteticsModel.setLabel(style: .tableCell, label: cell.textLabel!)

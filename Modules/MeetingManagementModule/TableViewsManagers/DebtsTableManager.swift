@@ -26,7 +26,6 @@ class DebtsTableManager: NSObject, UITableViewDataSource, UITableViewDelegate {
             EsteticsModel.setLabel(style: .inactiveTableCell, label: cell.textLabel!)
             cell.textLabel?.text = "There is no debts."
             cell.backgroundColor = .clear
-            cell.selectionStyle = .none
         }
         else{
             cell = DebtCell()
@@ -40,6 +39,7 @@ class DebtsTableManager: NSObject, UITableViewDataSource, UITableViewDelegate {
                 myCell.backgroundColor = .clear
             }
         }
+        cell.selectionStyle = .none
         return cell
     }
     

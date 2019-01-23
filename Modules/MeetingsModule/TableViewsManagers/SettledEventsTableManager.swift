@@ -26,13 +26,13 @@ class SettledEventsTableManager: NSObject, UITableViewDataSource, UITableViewDel
             EsteticsModel.setLabel(style: .inactiveTableCell, label: cell.textLabel!)
             cell.textLabel?.text = "There is no settled events."
             cell.backgroundColor = .clear
-            cell.selectionStyle = .none
         }
         else{
             EsteticsModel.setLabel(style: .tableCell, label: cell.textLabel!)
             cell.textLabel?.text = tableData![indexPath.row].name
             cell.backgroundColor = .clear
         }
+        cell.selectionStyle = .none
         return cell
     }
     
