@@ -24,10 +24,15 @@ class TableViewPopUp: UIViewController{
     }
     
     func setupViewController(){
-        backgroundButton.frame = self.view.frame
         backgroundButton.addTarget(self, action: #selector(backgroundClicked), for: .touchDown)
         backgroundButton.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.7)
         view.addSubview(backgroundButton)
+        backgroundButton.translatesAutoresizingMaskIntoConstraints = false
+        backgroundButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        backgroundButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        backgroundButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
         view.addSubview(cancelButton)
         
         view.addSubview(tableView)

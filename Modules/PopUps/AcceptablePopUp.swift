@@ -27,10 +27,15 @@ class AcceptablePopUp: UIViewController{
     }
     
     private func setupView(){
-        backgroundButton = UIButton(frame: view.frame)
+        backgroundButton = UIButton()
         view.addSubview(backgroundButton!)
         backgroundButton?.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.7)
         backgroundButton?.addTarget(self, action: #selector(backgroundButtonClicked(sender:)), for: .touchUpInside)
+        backgroundButton?.translatesAutoresizingMaskIntoConstraints = false
+        backgroundButton?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundButton?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        backgroundButton?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        backgroundButton?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         messageLabel = UILabel()
         view.addSubview(messageLabel!)

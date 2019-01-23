@@ -30,13 +30,18 @@ class ErrorPopUpViewController : UIViewController{
         view.backgroundColor = .clear
         view.frame = super.view.frame
         
-        backgroundButton = UIButton(frame: view.frame)
+        backgroundButton = UIButton()
+        view.addSubview(backgroundButton!)
         backgroundButton?.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.7)
         backgroundButton?.addTarget(self, action: #selector(okButtonClicked), for: .touchDown)
+        backgroundButton?.translatesAutoresizingMaskIntoConstraints = false
+        backgroundButton?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundButton?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        backgroundButton?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        backgroundButton?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         containerView.backgroundColor = .white
         
-        view.addSubview(backgroundButton!)
         view.addSubview(containerView)
         view.addSubview(okButton)
         view.addSubview(messageLabel)
