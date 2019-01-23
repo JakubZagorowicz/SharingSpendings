@@ -26,6 +26,7 @@ class ClosedEventsTableManager: NSObject, UITableViewDataSource, UITableViewDele
             EsteticsModel.setLabel(style: .inactiveTableCell, label: cell.textLabel!)
             cell.textLabel?.text = "There is no closed events."
             cell.backgroundColor = .clear
+            cell.selectionStyle = .none
         }
         else{
             EsteticsModel.setLabel(style: .tableCell, label: cell.textLabel!)

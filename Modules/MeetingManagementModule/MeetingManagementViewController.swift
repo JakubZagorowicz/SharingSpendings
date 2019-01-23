@@ -154,10 +154,12 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         if longPressGestureRecognizer.state == .began {
             let touchPoint = longPressGestureRecognizer.location(in: tablesTable[presentedSection])
             if let indexPath = tablesTable[presentedSection].indexPathForRow(at: touchPoint){
-                tablesTable[presentedSection].cellForRow(at: indexPath)
-                lastLongPressedCell = indexPath.row
-            
-                presenter?.cellLongPress(section: presentedSection, row: indexPath.row)
+                if(presentedSection == 0 && personSectionData!.count != 0) || (presentedSection == 1 && itemSectionData!.count != 0) || (presentedSection == 2 && debtsSectionData!.count != 0){
+                    tablesTable[presentedSection].cellForRow(at: indexPath)
+                    lastLongPressedCell = indexPath.row
+                
+                    presenter?.cellLongPress(section: presentedSection, row: indexPath.row)
+                }
             }
         }
     }
