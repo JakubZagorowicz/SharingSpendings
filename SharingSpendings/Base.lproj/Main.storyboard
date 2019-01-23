@@ -33,13 +33,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUs-na-6zb">
-                                <rect key="frame" x="16" y="26.5" width="24" height="24"/>
+                                <rect key="frame" x="16" y="24.5" width="28" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="WiS-bF-GWc"/>
-                                    <constraint firstAttribute="height" constant="24" id="deY-wJ-Fq0"/>
+                                    <constraint firstAttribute="width" constant="28" id="WiS-bF-GWc"/>
+                                    <constraint firstAttribute="height" constant="28" id="deY-wJ-Fq0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <inset key="imageEdgeInsets" minX="7" minY="2" maxX="7" maxY="2"/>
+                                <inset key="imageEdgeInsets" minX="9" minY="4" maxX="9" maxY="4"/>
                                 <state key="normal" image="back_icon"/>
                                 <connections>
                                     <action selector="backButtonClicked:" destination="yWE-lb-sca" eventType="touchDown" id="fYJ-gD-Koq"/>
@@ -179,12 +179,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9u-Eo-5OK">
-                                <rect key="frame" x="16" y="26.5" width="24" height="24"/>
+                                <rect key="frame" x="16" y="24.5" width="28" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="EqH-d6-j14"/>
-                                    <constraint firstAttribute="height" constant="24" id="o7I-0L-MAg"/>
+                                    <constraint firstAttribute="width" constant="28" id="EqH-d6-j14"/>
+                                    <constraint firstAttribute="height" constant="28" id="o7I-0L-MAg"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="7" minY="2" maxX="7" maxY="2"/>
+                                <inset key="imageEdgeInsets" minX="9" minY="4" maxX="9" maxY="4"/>
                                 <state key="normal" image="back_icon"/>
                                 <connections>
                                     <action selector="backButtonClicked:" destination="oWi-iV-NzE" eventType="touchDown" id="fI8-5H-Mdh"/>
@@ -350,19 +350,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9R-mb-qRy">
-                                <rect key="frame" x="16" y="35" width="24" height="24"/>
+                                <rect key="frame" x="16" y="35" width="28" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="aEE-ed-Hwg"/>
-                                    <constraint firstAttribute="height" constant="24" id="rFg-pU-RcF"/>
+                                    <constraint firstAttribute="width" constant="28" id="aEE-ed-Hwg"/>
+                                    <constraint firstAttribute="height" constant="28" id="rFg-pU-RcF"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="7" minY="2" maxX="7" maxY="2"/>
+                                <inset key="imageEdgeInsets" minX="9" minY="4" maxX="9" maxY="4"/>
                                 <state key="normal" image="back_icon"/>
                                 <connections>
                                     <action selector="backButtonClicked:" destination="ioi-3c-Mdm" eventType="touchDown" id="SK8-0D-PCm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCP-6E-fln" userLabel="MeetingNameLabel">
-                                <rect key="frame" x="49" y="33" width="277" height="28"/>
+                                <rect key="frame" x="49" y="35" width="277" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="tRv-al-TGs"/>
                                 </constraints>
@@ -441,18 +441,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0c-cO-kds">
-                                <rect key="frame" x="136.5" y="24" width="102" height="26.5"/>
+                                <rect key="frame" x="136.5" y="26" width="102" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I39-tv-40q">
-                                <rect key="frame" x="16" y="25" width="24" height="24"/>
+                                <rect key="frame" x="16" y="25" width="28" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="fZP-IH-78z"/>
-                                    <constraint firstAttribute="height" constant="24" id="mp2-XG-gK3"/>
+                                    <constraint firstAttribute="width" constant="28" id="fZP-IH-78z"/>
+                                    <constraint firstAttribute="height" constant="28" id="mp2-XG-gK3"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="7" minY="2" maxX="7" maxY="2"/>
+                                <inset key="imageEdgeInsets" minX="9" minY="4" maxX="9" maxY="4"/>
                                 <state key="normal" image="back_icon"/>
                                 <connections>
                                     <action selector="backButtonClicked:" destination="Z4N-3H-Lg3" eventType="touchDown" id="uLK-T9-uxW"/>

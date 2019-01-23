@@ -37,9 +37,11 @@ class TermsAndCondotionsViewController: UIViewController, TermsAndConditionsView
         backButton?.translatesAutoresizingMaskIntoConstraints = false
         backButton?.centerYAnchor.constraint(equalTo: (titleLabel?.centerYAnchor)!).isActive = true
         backButton?.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
-        backButton?.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        backButton?.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        backButton?.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        backButton?.heightAnchor.constraint(equalToConstant: 28).isActive = true
         backButton?.addTarget(self, action: #selector(backButtonClick(_:)), for: .touchUpInside)
+        let edgeInsets = UIEdgeInsets(top: 4, left: 9, bottom: 4, right: 9)
+        backButton?.imageEdgeInsets = edgeInsets
         
         mainLabel = UILabel()
         mainLabel?.numberOfLines = 0
