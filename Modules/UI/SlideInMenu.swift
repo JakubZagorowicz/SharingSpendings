@@ -13,6 +13,7 @@ class SlideInMenu: UIView {
     private var logoImageView: UIImageView?
     private var copyrigthLabel: UILabel?
     private var options: [SlideMenuOptions] = [SlideMenuOptions.privacyPolicy, SlideMenuOptions.userTerms]
+    private var backgroundImage: UIImageView?
     
     var delegate: SlideInMenuDelegate?
     
@@ -27,7 +28,15 @@ class SlideInMenu: UIView {
     }
     
     func setup(){
-        backgroundColor = UIColor(rgb: 0x244C59)
+        backgroundImage = UIImageView()
+        backgroundImage?.image = UIImage(named: "bg2")
+        addSubview(backgroundImage!)
+        backgroundImage?.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImage?.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        backgroundImage?.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        backgroundImage?.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        backgroundImage?.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        
         logoImageView = UIImageView()
         logoImageView?.image = UIImage(named: "Logo")
         addSubview(logoImageView!)
