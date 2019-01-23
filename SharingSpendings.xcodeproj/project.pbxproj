@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE10C68621B818730076AA3D /* PaidByPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */; };
 		CE1BEEF321DE31F200B9961B /* MeetingManagementViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BEEF221DE31F200B9961B /* MeetingManagementViewControllerSetup.swift */; };
 		CE1D39B021E8BAC900BCC182 /* ItemsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39AD21E8BAC900BCC182 /* ItemsTableManager.swift */; };
 		CE1D39B121E8BAC900BCC182 /* PeopleTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39AE21E8BAC900BCC182 /* PeopleTableManager.swift */; };
@@ -73,7 +72,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidByPopUpViewController.swift; sourceTree = "<group>"; };
 		CE1BEEF221DE31F200B9961B /* MeetingManagementViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingManagementViewControllerSetup.swift; sourceTree = "<group>"; };
 		CE1D39AD21E8BAC900BCC182 /* ItemsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableManager.swift; sourceTree = "<group>"; };
 		CE1D39AE21E8BAC900BCC182 /* PeopleTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableManager.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 		CE10C68421B8182A0076AA3D /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
-				CE10C68521B818730076AA3D /* PaidByPopUpViewController.swift */,
 				CEFFF0FB21C13ED600C86CAA /* ErrorPopUp.swift */,
 				CE39AB6D21E4BDFC00767734 /* TableViewPopUp.swift */,
 				CE77789B21EE6ED800F77ECD /* TableViewPopUpDelegate.swift */,
@@ -485,7 +482,6 @@
 				CE4F127820F61132006EFA97 /* NewMeetingViewController.swift in Sources */,
 				CEC24076219463C4006CC029 /* RoutingProtocols.swift in Sources */,
 				CE45AB132133E8CD00A45856 /* NewItemViewController.swift in Sources */,
-				CE10C68621B818730076AA3D /* PaidByPopUpViewController.swift in Sources */,
 				CE3EA88F21F21CDB0096A791 /* SlideInMenu.swift in Sources */,
 				CE77789A21EE310300F77ECD /* SelectableOptions.swift in Sources */,
 				CEA97AFC215C155300C51C1C /* ItemAdditionErrors.swift in Sources */,

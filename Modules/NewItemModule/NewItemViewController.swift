@@ -168,8 +168,12 @@ class NewItemViewController: UIViewController, NewItemViewControllerProtocol {
     }
     
     @IBAction func paidBySpaceTapped(_ sender: Any) {
-        let popOverVC = PaidByPopUpViewController()
-        popOverVC.tableViewData = eventMembers
+        let popOverVC = TableViewPopUp()
+        var names = [String]()
+        for member in eventMembers!{
+            names.append(member.name!)
+        }
+        popOverVC.dataTable = names
         popOverVC.delegate = self
         popOverVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         popOverVC.modalTransitionStyle = .crossDissolve
@@ -255,5 +259,12 @@ extension NewItemViewController : UITextFieldDelegate{
         self.view.endEditing(true)
         
         return false
+    }
+}
+
+extension NewItemViewController: TableViewPopUpDelegate{
+    func tableViewPopUp(_ tableViewPopUp: TableViewPopUp, cellSelectedAtIndex index: Int) {
+        pickedPerson = eventMembers![index]
+        paidByButton.setTitle(pickedPerson?.name, for: .normal)
     }
 }
