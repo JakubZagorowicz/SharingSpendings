@@ -12,9 +12,11 @@ protocol MeetingsViewControllerProtocol {
     func setTableData(meetings: [Meeting])
     func scrollToSection(index: Int)
     func presentOptions()
+    func addButtonIs(hidden: Bool)
 }
 
 protocol MeetingsPresenterProtocol {
+    func presentedSectionChanged(to section: Int)
     func viewWillAppear()
     func addMeetingClicked()
     func meetingClicked(meeting: Meeting)

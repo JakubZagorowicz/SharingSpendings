@@ -13,6 +13,15 @@ class MeetingsPresenter : MeetingsPresenterProtocol{
     var view: MeetingsViewControllerProtocol?
     var router: MeetingModuleRoutingProtocol?
     var meetings = [Meeting]()
+    var presentedSection: Int = 0{
+        didSet{
+            if presentedSection == 0{
+                view?.addButtonIs(hidden: false)
+            }else{
+                view?.addButtonIs(hidden: true)
+            }
+        }
+    }
     
     func viewWillAppear() {
         
@@ -25,6 +34,10 @@ class MeetingsPresenter : MeetingsPresenterProtocol{
         }
         
         view?.setTableData(meetings: meetings)
+    }
+    
+    func presentedSectionChanged(to section: Int){
+        presentedSection = section
     }
     
     func addMeetingClicked() {

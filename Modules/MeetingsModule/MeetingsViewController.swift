@@ -40,7 +40,11 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol {
     var layout : UICollectionViewFlowLayout?
     var collection : UICollectionView?
     
-    var presentedSection: Int = 0
+    var presentedSection: Int = 0 {
+        didSet{
+            presenter?.presentedSectionChanged(to: presentedSection)
+        }
+    }
     
     var menuButton: UIButton?
     var slideMenu: SlideInMenu?
@@ -69,6 +73,10 @@ class MeetingsViewController: UIViewController, MeetingsViewControllerProtocol {
         DispatchQueue.main.async {
             self.collection?.scrollToItem(at: IndexPath(row: sectionBeforeRotation, section: 0), at: [], animated: false)
         }
+    }
+    
+    func addButtonIs(hidden: Bool) {
+        addButton.isHidden = hidden
     }
 
     func setTableData(meetings: [Meeting]) {
