@@ -169,6 +169,7 @@ extension MeetingManagementViewController{
         
         closeEventButton.setTitle("Close event", for: .normal)
         closeEventButton.backgroundColor = .red
+        closeEventButton.alpha = closeEventButton.isEnabled ? 1 : 0.5
         closeEventButton.translatesAutoresizingMaskIntoConstraints = false
         closeEventButton.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: -30).isActive = true
         closeEventButton.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true

@@ -110,6 +110,10 @@ class MeetingManagementViewController: UIViewController, MeetingManagementViewCo
         addButton.isHidden = !isVisible
     }
     
+    func closeEventButtonIs(enabled: Bool){
+        closeEventButton.isEnabled = enabled
+    }
+    
     func setTableData(people: [(Person, Double)], items: [Item]) {
         personSectionData = people
         itemSectionData = items

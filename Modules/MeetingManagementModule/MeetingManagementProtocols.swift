@@ -20,6 +20,7 @@ protocol MeetingManagementViewControllerProtocol {
     func askForEventClosureConfirmation()
     func askForDebtSettlementConfirmation(current status: Bool)
     func toggleToClosedMode()
+    func closeEventButtonIs(enabled: Bool)
 }
 
 protocol MeetingManagementPresenterProtcol {

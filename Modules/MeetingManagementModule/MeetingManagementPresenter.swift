@@ -91,6 +91,7 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
             }
         }
         if doesAnyDebtExist{
+            view?.closeEventButtonIs(enabled: true)
             debts = meeting?.calculateDebts(balances: people!)
             var debtsSettlement = [(Debt, Bool)]()
             if meeting?.debtsSettled == nil{
@@ -106,6 +107,7 @@ class MeetingManagementPresenter : MeetingManagementPresenterProtcol{
             view?.setDebtsData(debts: debtsSettlement)
         }
         else{
+            view?.closeEventButtonIs(enabled: false)
             view?.setDebtsData(debts: [(Debt,Bool)]())
         }
         if meeting?.status == "closed" || meeting?.status == "settled"{
