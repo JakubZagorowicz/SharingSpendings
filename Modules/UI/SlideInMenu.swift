@@ -69,6 +69,14 @@ class SlideInMenu: UIView {
         optionsTableView?.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
         optionsTableView?.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
         optionsTableView?.bottomAnchor.constraint(equalTo: (copyrigthLabel?.topAnchor)!, constant: -10).isActive = true
+        
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowRadius = 2
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
     }
 }
 
@@ -88,6 +96,10 @@ extension SlideInMenu: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.slideInMenuDelegate(self, selectedRowWith: options[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: .zero)
     }
     
 }
