@@ -12,7 +12,7 @@ class TermsAndCondotionsViewController: UIViewController, TermsAndConditionsView
     var presenter: TermsAndConditionsPresenterProtocol?
     var backButton: UIButton?
     var titleLabel: UILabel?
-    var mainLabel: UILabel?
+    var textView: UITextView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,24 +43,42 @@ class TermsAndCondotionsViewController: UIViewController, TermsAndConditionsView
         let edgeInsets = UIEdgeInsets(top: 4, left: 9, bottom: 4, right: 9)
         backButton?.imageEdgeInsets = edgeInsets
         
-        mainLabel = UILabel()
-        mainLabel?.numberOfLines = 0
-        view.addSubview(mainLabel!)
-        mainLabel?.translatesAutoresizingMaskIntoConstraints = false
-        mainLabel?.topAnchor.constraint(equalTo: (titleLabel?.bottomAnchor)!, constant: 30).isActive = true
-        mainLabel?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
-        mainLabel?.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5).isActive = true
-        mainLabel?.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5).isActive = true
+        textView = UITextView()
+        textView?.backgroundColor = .clear
+        textView?.font = UIFont.systemFont(ofSize: EsteticsModel.inCellFontSize)
+        textView?.textColor = EsteticsModel.inCellTextColor
+        view.addSubview(textView!)
+        textView?.translatesAutoresizingMaskIntoConstraints = false
+        textView?.topAnchor.constraint(equalTo: (titleLabel?.bottomAnchor)!, constant: 10).isActive = true
+        textView?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+        textView?.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5).isActive = true
+        textView?.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5).isActive = true
     }
     
     func toggleToUserTermsMode() {
         titleLabel?.text = "User Terms"
-        mainLabel?.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum pharetra scelerisque. Nam elementum dictum eros, eget vulputate massa finibus ut. Vestibulum scelerisque tortor libero, nec sollicitudin libero lacinia rutrum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque nec neque consectetur, aliquam risus ut, luctus quam. Nulla neque dolor, faucibus non euismod et, consectetur aliquam massa. Aliquam tempus tempus odio, a molestie est congue sed. Vivamus facilisis orci id ipsum facilisis scelerisque. Pellentesque pulvinar magna non felis dictum finibus. Phasellus rutrum elit accumsan odio sagittis vestibulum. Praesent laoreet feugiat risus, scelerisque iaculis libero sagittis ac. Mauris maximus non erat sed laoreet. Suspendisse et fringilla diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam ac turpis in nunc ornare vehicula. Fusce vestibulum tincidunt felis eu gravida. Pellentesque dapibus non ante quis porta. Pellentesque sit amet dui id lorem ullamcorper iaculis non nec arcu. Nulla rhoncus sapien nec dolor hendrerit lobortis. Mauris vitae sapien aliquet, volutpat lectus at, pulvinar arcu. Morbi pulvinar pellentesque nulla vel iaculis. Curabitur vehicula orci nulla, ut iaculis elit tristique et. Mauris mollis urna vel felis vestibulum sollicitudin. Maecenas commodo diam tellus, vitae porttitor mi finibus nec. Aliquam elementum ipsum vel dui porta, sed malesuada quam vulputate. Integer cursus suscipit sollicitudin. Fusce hendrerit ut nisl in eleifend. Proin tortor nunc, eleifend sit amet diam ac, blandit elementum ipsum. Nullam accumsan porttitor tellus sit amet maximus. Duis ac tristique est, nec vehicula odio. Nunc auctor lacus quis risus porta mollis. Donec maximus molestie felis, ac pharetra sapien scelerisque suscipit. Mauris ac dui euismod, pharetra nisi sed, tempus urna. Duis consequat quis orci ut dapibus. Etiam laoreet eros at faucibus maximus. Suspendisse euismod sapien et ligula condimentum euismod. Mauris pulvinar, orci id ultrices euismod, massa turpis tempor ante, eu consequat lacus nulla id nunc."
+        if let rtfPath = Bundle.main.url(forResource: "PrivacyPolicy", withExtension: "rtf") {
+            do {
+                let attributedStringWithRtf: NSAttributedString = try NSAttributedString(url: rtfPath, options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.rtf], documentAttributes: nil)
+                self.textView!.attributedText = attributedStringWithRtf
+            } catch let error {
+                print("Got an error \(error)")
+            }
+        }
+        textView?.textColor = EsteticsModel.inCellTextColor
     }
     
     func toggleToPrivacyPolicyMode() {
         titleLabel?.text = "Privacy Policy"
-        mainLabel?.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum pharetra scelerisque. Nam elementum dictum eros, eget vulputate massa finibus ut. Vestibulum scelerisque tortor libero, nec sollicitudin libero lacinia rutrum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque nec neque consectetur, aliquam risus ut, luctus quam. Nulla neque dolor, faucibus non euismod et, consectetur aliquam massa. Aliquam tempus tempus odio, a molestie est congue sed. Vivamus facilisis orci id ipsum facilisis scelerisque. Pellentesque pulvinar magna non felis dictum finibus. Phasellus rutrum elit accumsan odio sagittis vestibulum. Praesent laoreet feugiat risus, scelerisque iaculis libero sagittis ac. Mauris maximus non erat sed laoreet. Suspendisse et fringilla diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam ac turpis in nunc ornare vehicula. Fusce vestibulum tincidunt felis eu gravida. Pellentesque dapibus non ante quis porta. Pellentesque sit amet dui id lorem ullamcorper iaculis non nec arcu. Nulla rhoncus sapien nec dolor hendrerit lobortis. Mauris vitae sapien aliquet, volutpat lectus at, pulvinar arcu. Morbi pulvinar pellentesque nulla vel iaculis. Curabitur vehicula orci nulla, ut iaculis elit tristique et. Mauris mollis urna vel felis vestibulum sollicitudin. Maecenas commodo diam tellus, vitae porttitor mi finibus nec. Aliquam elementum ipsum vel dui porta, sed malesuada quam vulputate. Integer cursus suscipit sollicitudin. Fusce hendrerit ut nisl in eleifend. Proin tortor nunc, eleifend sit amet diam ac, blandit elementum ipsum. Nullam accumsan porttitor tellus sit amet maximus. Duis ac tristique est, nec vehicula odio. Nunc auctor lacus quis risus porta mollis. Donec maximus molestie felis, ac pharetra sapien scelerisque suscipit. Mauris ac dui euismod, pharetra nisi sed, tempus urna. Duis consequat quis orci ut dapibus. Etiam laoreet eros at faucibus maximus. Suspendisse euismod sapien et ligula condimentum euismod. Mauris pulvinar, orci id ultrices euismod, massa turpis tempor ante, eu consequat lacus nulla id nunc."
+        if let rtfPath = Bundle.main.url(forResource: "PrivacyPolicy", withExtension: "rtf") {
+            do {
+                let attributedStringWithRtf: NSAttributedString = try NSAttributedString(url: rtfPath, options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.rtf], documentAttributes: nil)
+                self.textView!.attributedText = attributedStringWithRtf
+            } catch let error {
+                print("Got an error \(error)")
+            }
+        }
+        textView?.textColor = EsteticsModel.inCellTextColor
     }
     
     @objc func backButtonClick(_ sender: UIButton){

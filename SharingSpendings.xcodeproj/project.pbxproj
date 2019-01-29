@@ -14,6 +14,7 @@
 		CE1D39B721E8BAD300BCC182 /* SettledEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B421E8BAD300BCC182 /* SettledEventsTableManager.swift */; };
 		CE1D39B821E8BAD300BCC182 /* ClosedEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B521E8BAD300BCC182 /* ClosedEventsTableManager.swift */; };
 		CE1D39B921E8BAD300BCC182 /* ActiveEventsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D39B621E8BAD300BCC182 /* ActiveEventsTableManager.swift */; };
+		CE2A694121FF19C400B9A64B /* PrivacyPolicy.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CE2A694021FF19C400B9A64B /* PrivacyPolicy.rtf */; };
 		CE39AB6E21E4BDFC00767734 /* TableViewPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39AB6D21E4BDFC00767734 /* TableViewPopUp.swift */; };
 		CE3E6FDF21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E6FDE21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift */; };
 		CE3EA88F21F21CDB0096A791 /* SlideInMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA88E21F21CDB0096A791 /* SlideInMenu.swift */; };
@@ -79,6 +80,7 @@
 		CE1D39B421E8BAD300BCC182 /* SettledEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettledEventsTableManager.swift; sourceTree = "<group>"; };
 		CE1D39B521E8BAD300BCC182 /* ClosedEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedEventsTableManager.swift; sourceTree = "<group>"; };
 		CE1D39B621E8BAD300BCC182 /* ActiveEventsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveEventsTableManager.swift; sourceTree = "<group>"; };
+		CE2A694021FF19C400B9A64B /* PrivacyPolicy.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = PrivacyPolicy.rtf; path = ../../../../Documents/PrivacyPolicy.rtf; sourceTree = "<group>"; };
 		CE39AB6D21E4BDFC00767734 /* TableViewPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPopUp.swift; sourceTree = "<group>"; };
 		CE3E6FDE21E3A1DF00F07541 /* MeetingsViewControllerSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsViewControllerSetup.swift; sourceTree = "<group>"; };
 		CE3EA88E21F21CDB0096A791 /* SlideInMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInMenu.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				CED020DF21F7450800524567 /* TermsAndConditionsProtocols.swift */,
 				CED020E121F7451E00524567 /* TermsAndConditionsPresenter.swift */,
 				CED020E321F7454500524567 /* TermsAndCondotionsViewController.swift */,
+				CE2A694021FF19C400B9A64B /* PrivacyPolicy.rtf */,
 			);
 			path = TermsAndConditionsModule;
 			sourceTree = "<group>";
@@ -401,7 +404,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = "Jakub Zagórowicz";
+				ORGANIZATIONNAME = "Dora Digital";
 				TargetAttributes = {
 					CE7B4D8F20F49A7E005FCBEB = {
 						CreatedOnToolsVersion = 9.3;
@@ -433,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7B4D9E20F49A80005FCBEB /* LaunchScreen.storyboard in Resources */,
+				CE2A694121FF19C400B9A64B /* PrivacyPolicy.rtf in Resources */,
 				CE7B4D9B20F49A80005FCBEB /* Assets.xcassets in Resources */,
 				CE7B4D9920F49A7E005FCBEB /* Main.storyboard in Resources */,
 			);
@@ -647,14 +651,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 543SWRMJGS;
+				DEVELOPMENT_TEAM = FHHBM6K2M6;
 				INFOPLIST_FILE = SharingSpendings/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cokolwiek.SharingSpendings;
+				PRODUCT_BUNDLE_IDENTIFIER = doradigital.sharingspendings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -666,14 +670,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 543SWRMJGS;
+				DEVELOPMENT_TEAM = FHHBM6K2M6;
 				INFOPLIST_FILE = SharingSpendings/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cokolwiek.SharingSpendings;
+				PRODUCT_BUNDLE_IDENTIFIER = doradigital.sharingspendings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
