@@ -14,7 +14,8 @@ struct EsteticsModel {
     static var pickerViewTextColor = UIColor.white
     static var textFieldTextColor = UIColor.white
     static var titleLabelTextColor = UIColor.white
-    static var titleLabelFont = UIFont.systemFont(ofSize: floor(15+UIScreen.main.bounds.height*0.015))
+    static var titleLabelFont = UIFont.systemFont(ofSize: floor(13+UIScreen.main.bounds.height*0.015))
+    static var textViewFont = UIFont.systemFont(ofSize: floor(10 + UIScreen.main.bounds.height*0.015))
     
     static var textFieldTransparency = 1
     
